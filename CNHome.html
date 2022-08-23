@@ -34,7 +34,7 @@
 <h2>教育经历</h2>
 <table class="imgtable"><tr><td>
   <a href="http://www.xjtu.edu.cn/"><img src="picture/xjtu_logo.png" alt="西安交通大学" width="80px" /></a>&nbsp;</td>
-  <td align="left"><h3>博士研究生 <a href="http://www.xjtu.edu.cn/">西安交通大学</a> (2018.9 ~ 2022.9)</h3>
+  <td align="left"><h3>博士研究生 <a href="http://www.xjtu.edu.cn/">西安交通大学</a> (2018.9 ~ 2022.9)<a href="http://106.15.205.33:8080/s/SJ5Ho4ZG2dbWDXH">[毕业论文]</a><a href="http://106.15.205.33:8080/s/4gkHnZk5xfCB8Zr">[答辩PPT]</a></h3>
   <ul>
   <li><p><b>院系专业</b>: 电子与信息学部, 信息与通信工程</p>
   </li>
@@ -78,13 +78,23 @@
 </td></tr></table>
 <h2>期刊论文</h2>
 <ul>
-  <li><p><a href="https://library.seg.org/doi/10.1190/geo2021-0448.1">Separation of seismic multiple reflection-refraction based on morphological component analysis with high-resolution linear Radon transform</a> <br />
-    <b> Dawei Liu</b>, Haoqi Zhang, Xiaokai Wang, Wenchao Chen, Zhensheng Shi, and Zhonghua Zhao<br /> <i>Geophysics, Accepted, 2022.</i></p>
+  <li><p><a href="https://library.seg.org/doi/10.1190/geo2021-0654.1">Accelerating seismic scattered noise attenuation in OVT domain: application of deep learning</a> <br />
+    <b> Dawei Liu</b>, Xiaokai Wang, Xiaohai wang, Haibo Mao, Mauricio Sacchi, and Wenchao Chen<br /> <i> Geophysics, 87, (2022): V505-V519.<a href="Paper/OVT.pdf">[PDF]</a></i></p>
+  </li>
+</ul>
+<ul>
+  <li><p><a href="https://ieeexplore.ieee.org/document/9785826">Efficient tensor completion methods for 5D seismic data reconstruction: Low-rank tensor train and tensor ring</a> <br />
+    <b> Dawei Liu*</b>, Mauricio Sacchi, and Wenchao Chen<br /> <i> IEEE Transactions on Geoscience and Remote Sensing <b>(TGRS)</b>, 60, (2022): 1-17.<a href="Paper/Tensor_Liu.pdf">[PDF]</a></i></p>
+  </li>
+</ul>
+<ul>
+  <li><p><a href="https://library.seg.org/doi/10.1190/geo2021-0468.1">Separation of seismic multiple reflection-refraction based on morphological component analysis with high-resolution linear Radon transform</a> <br />
+    <b> Dawei Liu</b>, Haoqi Zhang, Xiaokai Wang, Wenchao Chen, Zhensheng Shi, and Zhonghua Zhao<br /> <i>Geophysics, 87, (2022): V367-V379.<a href="Paper/MRR_Liu.pdf">[PDF]</a></i></p>
   </li>
 </ul>
 <ul>
   <li><p><a href="https://library.seg.org/doi/10.1190/geo2021-0448.1">Eliminating harmonic noise in vibroseis data through sparsity promoted waveform modeling</a> <br />
-    <b> Dawei Liu</b>, Xiangfang Li, Wei Wang, Xiaokai Wang, Zhensheng Shi, and Wenchao Chen<br /> <i>Geophysics, Accepted, 2022.</i></p>
+    <b> Dawei Liu</b>, Xiangfang Li, Wei Wang, Xiaokai Wang, Zhensheng Shi, and Wenchao Chen<br /> <i>Geophysics, 86, no. 3 (2022): V183-V191.<a href="Paper/Harmonic.pdf">[PDF]</a></i></p>
   </li>
 </ul>
 <ul>
@@ -229,11 +239,44 @@
 中国石油新疆油田公司 <br /></p>
   </li>
   </ul>
-<div id="footer">
-<div id="footer-text">
-<br>Page generated 2022-01-21, by <a href="https://davidliu-code.github.io/">Dawei Liu</a>.
-</div>
-</div>
-</div>
-</body>
-</html>
+  <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=52y633oucsf&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
+
+
+
+  <div id="footer">
+    <div id="footer-text">
+    <br>Page generated 2022-01-21, by <a href="https://davidliu-code.github.io/">Dawei Liu</a>.
+    </div>
+    </div>
+    </div>
+    </body>
+    </html>
+  <div id="article"></div>
+  <div id="back_top">
+  <div class="arrow"></div>
+  <div class="stick"></div>
+  </div>
+  
+  <script>
+  $(function(){
+      $(window).scroll(function(){  //If scroll
+          var scrollt = document.documentElement.scrollTop + document.body.scrollTop; //Getting Height after scroll
+          if( scrollt >400 )
+          {  
+              $("#back_top").fadeIn(400); 
+          }
+          else
+          {
+              $("#back_top").stop().fadeOut(400);
+          }
+      });
+  
+      $("#back_top").click(function(){ 
+  
+          $("html,body").animate({scrollTop:"0px"}, 200);
+  
+      }); 
+  
+  });
+  </script>

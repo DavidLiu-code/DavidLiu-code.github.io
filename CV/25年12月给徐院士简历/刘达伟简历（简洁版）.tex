@@ -1,0 +1,208 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      刘达伟 — 中文学术简历（压缩版，约2–3页）
+%      建议编译引擎：XeLaTeX 或 LuaLaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,a4paper]{article}
+
+% --------------------- 宏包引入 -------------------------
+\usepackage[UTF8]{ctex}       % 中文支持
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2cm]{geometry} % 页边距
+\usepackage[dvipsnames]{xcolor} % 颜色支持
+\usepackage{graphicx}         % 图片支持
+\usepackage{enumitem}         % 列表定制
+\usepackage{hyperref}         % 超链接
+\usepackage{titlesec}         % 标题格式
+\usepackage{fontawesome5}     % 图标库
+\usepackage{setspace}         % 行距
+\usepackage{tabularx}         % 表格
+
+% --------------------- 样式设置 -------------------------
+\setstretch{1.15} % 行距略紧凑
+
+% 颜色定义
+\definecolor{MyBlue}{RGB}{0, 51, 102}    % 深蓝
+\definecolor{LinkBlue}{RGB}{6, 69, 173}  % 链接蓝
+
+% 标题格式
+\titleformat{\section}
+  {\large\bfseries\color{MyBlue}} % 比 \Large 略小，压缩空间
+  {}
+  {0em}
+  {}
+  [{\titlerule[0.8pt]\vspace{1pt}}]
+
+% 列表更紧凑
+\setlist[itemize]{parsep=0pt, itemsep=2pt, topsep=3pt, leftmargin=1.5em}
+\setlist[enumerate]{parsep=0pt, itemsep=2pt, topsep=3pt, leftmargin=1.5em}
+
+% 超链接
+\hypersetup{
+    colorlinks=true,
+    linkcolor=LinkBlue,
+    urlcolor=LinkBlue,
+    citecolor=LinkBlue
+}
+
+\newcommand{\me}[1]{\textbf{#1}}
+
+\begin{document}
+
+% --------------------- 头部信息 -------------------
+\begin{minipage}[t]{0.75\textwidth}
+    \vspace{-10pt}
+    {\fontsize{22pt}{22pt}\selectfont \textbf{刘达伟}} \quad {\large \textbf{Dawei Liu, Ph.D.}}\\[4pt]
+    \textbf{阿尔伯塔大学 · 信号分析与成像组（SAIG）博士后研究员}\\[3pt]
+    
+    \small
+    \faMapMarker* \ 11335 Saskatchewan Dr NW, Edmonton, AB, Canada\\
+    \faPhone \ +1 (368) 380-3804 \quad \faMobile* \ +86 137-2076-5155\\
+    \faEnvelope \ \href{mailto:dawei3@ualberta.ca}{dawei3@ualberta.ca} \quad 
+    \faEnvelopeOpen \ \href{mailto:409791715@qq.com}{409791715@qq.com}\\
+    \faGlobe \ \href{https://davidliu-code.github.io}{davidliu-code.github.io} \quad
+    \faGraduationCap \ \href{https://scholar.google.com/citations?user=jiy9D9kAAAAJ}{Google Scholar（引用 680+）}
+\end{minipage}%
+\begin{minipage}[t]{0.25\textwidth}
+    \vspace{-10pt}
+    \hspace{-25pt}
+    \includegraphics[width=3.2cm,keepaspectratio]{bak/Photo_Dawei_Suite.jpg}
+\end{minipage}
+
+\vspace{0.6em}
+
+% --------------------- 研究领域与主要成果 -----------------
+\section{研究领域与主要成果}
+\begin{itemize}
+    \item \textbf{研究方向：} 压缩感知、张量分解、高性能计算与机器学习在高维地震数据处理与反演中的应用。
+    \item \textbf{学术产出：} 近五年发表 SCI 期刊论文 \textbf{36} 篇，其中 \textbf{22} 篇为第一作者或通讯作者；h-index = \textbf{13}。
+    \item \textbf{学术服务：} 勘探地球物理权威期刊 \textbf{\textit{Geophysics}} 副主编，IMAGE 国际会议分会主席。
+    \item \textbf{科研经费：} 以项目负责人获批科研经费超过 \textbf{380 万元人民币}，包括国家科技重大专项子课题等。
+\end{itemize}
+
+% --------------------- 工作经历 -----------------
+\section{工作经历}
+
+\noindent
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\textbf{阿尔伯塔大学 (University of Alberta)}，加拿大 & 2023.11 -- 2026.01 \\
+博士后研究员（SAIG），导师：Mauricio D. Sacchi 教授 （\textit{Geophysics}前主编） & \\[3pt]
+
+\textbf{普渡大学 (Purdue University)}，美国 & 2022.11 -- 2023.10 \\
+博士后学者（SGP），导师：Yunyue Elita Li 教授 （Kauffman奖获得者） & \\[3pt]
+
+\textbf{比亚迪股份有限公司}，深圳 & 2013.07 -- 2015.07 \\
+研发工程师 &
+\end{tabularx}
+
+% --------------------- 教育背景 ------------------
+\section{教育背景}
+
+\noindent
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\textbf{西安交通大学}，信息与通信工程，博士 & 2018.09 -- 2022.09 \\
+\small{导师：陈文超 教授；获博士研究生国家奖学金} & \\[3pt]
+
+\textbf{阿尔伯塔大学}，地球物理，联合培养博士生 & 2020.01 -- 2022.07 \\
+\small{导师：Mauricio D. Sacchi 教授} & \\[3pt]
+
+\textbf{西安交通大学}，电子与通信工程，硕士 & 2015.09 -- 2018.07 \\
+\small{导师：陈文超 教授} & \\[3pt]
+
+\textbf{长安大学}，通信工程，学士 & 2009.09 -- 2013.06
+\end{tabularx}
+
+% --------------------- 学术服务与兼职 --------------------
+\section{学术服务与兼职}
+
+\hspace{-17pt}\textbf{期刊编委 / 副主编：}
+\begin{itemize}
+    \item 副主编（Associate Editor），\textit{Geophysics} \hfill 2025 -- 至今
+    \item 副主编，《石油地球物理勘探》 \hfill 2025 -- 至今
+    \item 青年编委，《中国石油勘探》 \hfill 2025 -- 至今
+    \item 客座编辑（Guest Editor），\textit{Frontiers in Earth Science} \hfill 2024 -- 2025
+    \item 编委会成员：\textit{Earth Science} \hfill 2025 -- 至今
+    \item 编委会成员：\textit{PriMera Scientific Engineering} \hfill 2025 -- 至今
+    \item 编委会成员：\textit{Geology Geophysics and Earth Science} \hfill 2023 -- 至今
+\end{itemize}
+
+\hspace{-17pt}\textbf{国际会议服务：}
+\begin{itemize}
+    \item 技术委员会审稿人，IMAGE（SEG/AAPG 年会） \hfill 2025
+    \item 分会主席（Session Chair），IMAGE 会议 \hfill 2023, 2024
+\end{itemize}
+
+\hspace{-17pt}\textbf{同行评审：}
+\begin{itemize}
+    \item 受邀为 \textit{Geophysics, IEEE TGRS, IEEE GRSL, Surveys in Geophysics} 等期刊完成审稿 \textbf{100+} 次。
+\end{itemize}
+
+% --------------------- 科研项目 ---------------------
+\section{主持科研项目}
+
+\noindent
+\textbf{国家科技重大专项子课题} \hfill 经费：¥2,800,000 \\
+非常规油气藏双甜点预测 \hfill 2026.01 -- 2031.12 \\
+职责：子课题负责人 \\[4pt]
+
+\noindent
+\textbf{西安交通大学青年拔尖人才启动基金} \hfill 经费：¥1,000,000 \\
+职责：项目负责人 \hfill 2026.01 -- 2032.12 \\
+
+
+% --------------------- 荣誉与奖励 ---------------------
+\section{荣誉与奖励}
+\begin{itemize}
+    \item 优秀报告奖，第四届全国地球科学研究生论坛，西安 \hfill 2024
+    \item 最佳口头报告奖，SEG 塔里木超深油气勘探技术研讨会 \hfill 2023
+    \item 优秀口头报告奖，SEG 第四届国际数学地球物理研讨会 \hfill 2021
+    \item 博士研究生国家奖学金，教育部 \hfill 2020
+\end{itemize}
+
+% --------------------- 代表性期刊论文 ---------------------
+\section{代表性期刊论文（\textbf{*} 为通讯作者）}
+\vspace{-0.3em}
+\noindent\textit{共发表 SCI 期刊论文 36 篇，其中 \textbf{21} 篇以第一作者或通信作者身份发表于西安交通大学最有国际影响力的学术期刊目录，此处列出代表性论文：}
+\begin{enumerate}
+    \item \me{Dawei Liu}, Yijie He, Xiaokai Wang, Mauricio Sacchi, Wenchao Chen, Fei Li, Juan Chen, Yang Mu (2025). CycleGAN Integration of High-Resolution Crooked Lines into 3D Seismic Volumes. \textit{Geophysics}, 90, V339--V356.
+    \item \me{Dawei Liu}, Qingfang Wang, Nan You, Mauricio Sacchi, Wenchao Chen (2025). Filling the Gap: Enhancing Borehole Imaging with Tensor Neural Network. \textit{Geophysics}, 90, D71--D83.
+    \item \me{Dawei Liu}, Zhenyu Wang, Xiaokai Wang, Wenchao Chen (2025). Zero-Shot Denoising for DAS-VSP Data Based on Conditional Diffusion Probabilistic Models. \textit{IEEE Transactions on Geoscience and Remote Sensing}, 63, 1--11.
+    \item \me{Dawei Liu}, Mauricio D. Sacchi, Wenchao Chen (2022). Efficient tensor completion methods for 5-D seismic data reconstruction: Low-rank tensor train and tensor ring. \textit{IEEE Transactions on Geoscience and Remote Sensing}, 60, 1--17.
+    \item \me{Dawei Liu}, Wei Wang, Xiaokai Wang, Cheng Wang, Jiangyun Pei, Wenchao Chen (2020). Poststack seismic data denoising based on 3D convolutional neural network. \textit{IEEE Transactions on Geoscience and Remote Sensing}, 58(3), 1598--1629.
+    \item \me{Dawei Liu}, Lei Gao, Xiaokai Wang, Wenchao Chen (2021). A dictionary learning method with atom splitting for seismic footprint suppression. \textit{Geophysics}, 86, V509--V523.
+
+    % ---- 下面为新增的 7 篇代表性论文 ----
+    \item \me{Dawei Liu}, Wenbin Gao, Weiwei Xu, Ji Li, Xiaokai Wang, Wenchao Chen (2024). 5-D seismic data interpolation by continuous representation. \textit{IEEE Transactions on Geoscience and Remote Sensing}, 62, 1--11.
+    \item \me{Dawei Liu}, Mei Zhou, Xiaokai Wang, Zhensheng Shi, Mauricio D. Sacchi, Wenchao Chen, Zhaodan Liu, Xian Wang (2024). Enhancing ground penetrating radar (GPR) data resolution through weakly supervised learning. \textit{IEEE Transactions on Geoscience and Remote Sensing}, 62, 1--13.
+    \item \me{Dawei Liu}, Wenli Niu, Xiaokai Wang, Mauricio D. Sacchi, Wenchao Chen, Cheng Wang (2023). Improving vertical resolution of vintage seismic data by a weakly supervised method based on CycleGAN. \textit{Geophysics}, 88, V445--V458.
+    \item \me{Dawei Liu}, Xiaokai Wang, Xiaohai Yang, Haibo Mao, Mauricio D. Sacchi, Wenchao Chen (2022). Accelerating seismic scattered noise attenuation in OVT domain: Application of deep learning. \textit{Geophysics}, 87, V505--V519.
+    \item \me{Dawei Liu}, Xiangfang Li, Wei Wang, Xiaokai Wang, Zhensheng Shi, Wenchao Chen (2022). Eliminating harmonic noise in vibroseis data through sparsity-promoted waveform modeling. \textit{Geophysics}, 87, V183--V191.
+    \item \me{Dawei Liu}, Zheyuan Deng, Cheng Wang, Xiaokai Wang, Wenchao Chen (2022). An unsupervised deep learning method for denoising prestack random noise. \textit{IEEE Geoscience and Remote Sensing Letters}, 19, 1--5.
+    \item \me{Dawei Liu}, Lei Gao, Xiaokai Wang, Wenchao Chen (2021). 
+    A dictionary learning method with atom splitting for seismic footprint suppression. 
+    \textit{Geophysics}, 86, V509--V523.
+    \item Wenbin Gao, \me{Dawei Liu}*, Wenchao Chen, Mauricio D. Sacchi, Xiaokai Wang (2025). NeRSI: Neural implicit representations for 5D seismic data interpolation. \textit{Geophysics}, 90, V29--V42.
+    \item Ji Li, \me{Dawei Liu}*, Daniel Trad, Mauricio Sacchi (2024). Robust seismic data denoising via self-supervised deep learning. \textit{Geophysics}, 89, V437--V451.
+    \item Ji Li, \me{Dawei Liu}*, Daniel Trad, Mauricio Sacchi (2024). Robust unsupervised 5D seismic data reconstruction on both regular and irregular grids. \textit{Geophysics}, 89, V537--V549.
+    \item Ji Li, \me{Dawei Liu}* (2024). Robust multi-dimensional reconstruction via group sparsity with Radon operators. \textit{Geophysics}, 89, V219--V230.
+\end{enumerate}
+
+% --------------------- 代表性会议论文 ---------------------
+\section{代表性会议论文}
+\vspace{-0.3em}
+\noindent\textit{共发表/报告会议论文 16 篇，此处列出部分代表性工作：}
+\begin{enumerate}
+    \item \me{Dawei Liu}, Mauricio D. Sacchi, Yijie He, Xiaokai Wang, Wenchao Chen, Fei Li, Juan Chen, Yang Mu (2025). Improving 3D seismic resolution in the Loess Plateau: Leveraging 2D crooked-line gully survey through weak supervision. \textit{AAPG/SEG Annual Meeting}.
+    \item \me{Dawei Liu}, Yunyue Elita Li, Sayan Mukherjee, Jiquan Wang (2023). Vehicle-induced road roughness evaluation via a roadside geophone. \textit{AGU Fall Meeting Abstracts}.
+    \item \me{Dawei Liu}, Xiaohai Yang, Xiaokai Wang, Haibo Mao, Mauricio D. Sacchi, Wenchao Chen (2021). Deep learning for prestack strong scattered noise suppression. \textit{SEG Technical Program Expanded Abstracts}.
+    \item \me{Dawei Liu}, Wenchao Chen, Mauricio D. Sacchi, Hongxu Wang (2020). Should we have labels for deep learning ground roll attenuation? \textit{SEG Technical Program Expanded Abstracts}.
+    \item \me{Dawei Liu}, Wei Wang, Wenchao Chen, Xiaokai Wang, Yanhui Zhou, Zhensheng Shi (2018). Random noise suppression in seismic data: what can deep learning do? \textit{SEG Annual Meeting}.
+\end{enumerate}
+
+% --------------------- 特邀报告 ---------------------
+\section{特邀学术报告}
+\begin{itemize}
+    \item 《高维地震数据的去噪与插值：从监督到无监督》\\
+    第二届智能地球物理年会 \& 第五届国际数学地球物理会议，哈尔滨，2024 年。
+\end{itemize}
+
+\end{document}

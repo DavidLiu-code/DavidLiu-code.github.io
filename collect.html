@@ -1,627 +1,1007 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>AI Resources</title>
-      <style>
-          body {
-              font-family: Arial, sans-serif;
-              margin: 0;
-              padding: 0;
-              background: #f4f4f4;
-          }
-  
-          .container {
-              width: 90%;
-              max-width: 1200px;
-              margin: 0 auto;
-          }
-  
-          header {
-              background: #333;
-              color: #fff;
-              padding: 10px 0;
-              text-align: center;
-          }
-  
-          .section-container {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 10px; /* Spacing between the cards */
-              margin: 20px 0;
-          }
-  
-          .card {
-              background: #fff;
-              border: 1px solid #ddd;
-              padding: 20px;
-              border-radius: 5px;
-              flex: 1 1 calc(33.333% - 20px); /* Adjust the width for three cards per row */
-              box-sizing: border-box; /* Include padding and border in the element's total width and height */
-              margin-bottom: 10px; /* Space between rows */
-          }
-  
-          footer {
-              background: #333;
-              color: #fff;
-              text-align: center;
-              padding: 10px 0;
-              position: relative;
-              bottom: 0;
-              width: 100%;
-          }
-      </style>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resources Collection</title>
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --card-bg: #ffffff;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --badge-bg: #eff6ff;
+            --badge-text: #1e40af;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-meta {
+            margin-top: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-subtitle {
+            margin: 0;
+            font-size: 0.96rem;
+            color: #cbd5e1;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            white-space: nowrap;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            font-size: 0.92rem;
+            font-weight: 700;
+            transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .hero-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.34);
+            transform: translateY(-1px);
+        }
+
+        #back_top {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            background: rgba(37, 99, 235, 0.92);
+            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.24);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease, background-color 0.2s ease;
+            z-index: 40;
+        }
+
+        #back_top.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        #back_top:hover {
+            transform: translateY(-2px);
+            background: var(--primary-hover);
+        }
+
+        #back_top .arrow {
+            width: 14px;
+            height: 14px;
+            border-top: 3px solid #fff;
+            border-left: 3px solid #fff;
+            transform: rotate(45deg) translate(2px, 2px);
+        }
+
+        #back_top .stick {
+            position: absolute;
+            width: 3px;
+            height: 16px;
+            background: #fff;
+            border-radius: 999px;
+            transform: translateY(4px);
+        }
+
+        .section-nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+            margin-bottom: 28px;
+        }
+
+        .section-nav .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 14px 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-muted);
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: #ffffff;
+            font-size: 0.92rem;
+            font-weight: 600;
+            transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            border-color: #93c5fd;
+            background: #eff6ff;
+            transform: translateY(-1px);
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            color: #0f172a;
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+            margin-top: 40px;
+        }
+
+        /* Modern CSS Grid for Cards */
+        .section-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin: 0 0 12px 0;
+            color: #0f172a;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin: 0 0 20px 0;
+            font-size: 0.95rem;
+            flex-grow: 0;
+        }
+
+        /* Styling for the Links/Badges */
+        .links-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .link-badge {
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            border: 1px solid #bfdbfe;
+        }
+
+        .link-badge:hover {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        footer {
+            background: #1e293b;
+            color: #94a3b8;
+            text-align: center;
+            padding: 24px 0;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .section-container { grid-template-columns: 1fr; }
+            .section-nav .container { padding: 12px 0; }
+            .hero-meta { gap: 10px; }
+            .hero-subtitle { font-size: 0.95rem; }
+            #back_top {
+                right: 16px;
+                bottom: 16px;
+                width: 44px;
+                height: 44px;
+            }
+        }
+    </style>
+</head>
 <body>
-  <header>
+
+<header>
     <div class="container">
-        <h1>Resources Collection</h1>
+        <h1>Resource Atlas</h1>
+        <div class="hero-meta">
+            <p class="hero-subtitle">AI tools, software, figures, geophysics, and scholars.</p>
+            <div class="hero-actions">
+                <a href="index.html" class="hero-button">← Back to Home</a>
+            </div>
+        </div>
     </div>
 </header>
-<section class="container">
-<h2>AI Tools</h2>
-<!-- AI Tool Entry -->
-</section>
+
+<nav class="section-nav">
+    <div class="container">
+        <a href="#ai-tools" class="nav-link">AI Tools</a>
+        <a href="#software-frameworks" class="nav-link">Softwares &amp; Frameworks</a>
+        <a href="#useful-tools" class="nav-link">Useful Tools</a>
+        <a href="#ai-scholars" class="nav-link">AI Scholars &amp; Blogs</a>
+    </div>
+</nav>
 
 <main class="container">
-  <div class="section-container">
-    <div class="card">
-      <h3>AI Directory</h3>
-      <p>Browse 5000+ AI tools in 50+ categories like copywriting, image generation and video editing.</p>
-      <a href="hhttps://www.futurepedia.io/" target="_blank"><b> <font color="#0000FF">[Future_Pedia]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://www.aitoolhunt.com/" target="_blank"><b> <font color="#0000FF">[AI_Hunt]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://30aitool.com/" target="_blank"><b> <font color="#0000FF">[30AITool]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://www.creaitives.com/tools" target="_blank"><b> <font color="#0000FF">[Crea_AI]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://futuretools.beehiiv.com/" target="_blank"><b> <font color="#0000FF">[Future_Tools]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://airadar.getinference.com/" target="用于创意和营销的AI工具"><b> <font color="#0000FF">[AI_Radar]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://ai-lib.club/" target="用于创意和营销的AI工具"><b> <font color="#0000FF">[Ai-Lib]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://www.wikiaitools.com/" target="用于创意和营销的AI工具"><b> <font color="#0000FF">[AI_Wiki]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://ai.kezhan365.com/" target="用于创意和营销的AI工具"><b> <font color="#0000FF">[万彩AI]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://chat.phitrellis.com/chat" target="_blank"><b> <font color="#0000FF">[Free_Chat]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://deepwiki.org/" target="_blank"><b> <font color="#0000FF">[Deepwiki]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://ai-bot.cn/" target="_blank"><b> <font color="#0000FF">[Collection]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://www.yjpoo.com/" target="_blank"><b> <font color="#0000FF">[YJPOO]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://artificialanalysis.ai/" target="_blank"><b> <font color="#0000FF">[AI Models]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://baozang.io/" target="_blank"><b> <font color="#0000FF">[BaoZang]</font> </b> </a>
-    </div>
 
-    <div class="card">
-      <h3>AI Chat</h3>
-      <p>AI tools for chatting with AI</p>
-      <a href="https://github.com/chatanywhere/GPT_API_free" target="_blank"><b> <font color="#0000FF">[API_free]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://copilot.microsoft.com/" target="_blank"><b> <font color="#0000FF">[copilot]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://www.perplexity.ai/" target="_blank"><b> <font color="#0000FF">[perplexity]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://claude.ai/" target="_blank"><b> <font color="#0000FF">[Claude]</font> </b> </a><b> <font color="#FF0000">|</font> </b> 
-      <a href="https://chat.phitrellis.com/chat" target="_blank"><b> <font color="#0000FF">[Free_Chat]</font> </b> </a>
-    </div>
-        <div class="card">
-            <h3>Literature Review</h3>
-            <p>AI tools for searching papers</p>
-            <a href="https://www.paperdigest.org/" target="_blank"><b> <font color="#0000FF">[Paper Digest]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://elicit.com/" target="_blank"><b> <font color="#0000FF">[Elicit]</font> </b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://www.connectedpapers.com/" target="_blank"><b> <font color="#0000FF">[Connected Paper]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://www.researchrabbit.ai/" target="_blank"><b> <font color="#0000FF">[Research Rabbit]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://www.semanticscholar.org/" target="_blank"><b> <font color="#0000FF">[Semantic Scholar]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://www.scidown.cn/" target="_blank"><b> <font color="#0000FF">[SCIdown]</font> </b></a><b><font color="#FF0000">|</font> </b>
-            <a href="https://consensus.app/" target="_blank"><b> <font color="#0000FF">[Consensus]</font> </b></a><b><font color="#FF0000">|</font> </b>
-            <a href="https://huggingface.co/spaces/qingxu98/gpt-academic" target="_blank"><b> <font color="#0000FF">[Gpt_academic]</font> </b></a><b><font color="#FF0000">|</font> </b>
-            <a href="https://arxiv-sanity-lite.com/" target="_blank"><b> <font color="#0000FF">[arxiv-sanity]</font> </b></a><b><font color="#FF0000">|</font> </b>
-            <a href="https://arxivxplorer.com/" target="_blank"><b> <font color="#0000FF">[xplorer]</font> </b></a><b><font color="#FF0000">|</font> </b>
-            <a href="https://briefgpt.xyz/" target="_blank"><b> <font color="#0000FF">[BriefGPT]</font> </b></a><b><font color="#FF0000">|</font> </b>
-            <a href="https://escholarship.org/" target="_blank"><b> <font color="#0000FF">[Escholarship]</font> </b></a><b><font color="#FF0000">|</font> </b>
-            <a href="https://seaml.es/" target="_blank"><b> <font color="#0000FF">[SeaML]</font> </b></a><b><font color="#FF0000">|</font> </b>
-            <a href="https://keywords.groundedai.company/?q=nerf" target="_blank"><b> <font color="#0000FF">[Ground_AI]</font> </b></a><b><font color="#FF0000">|</font> </b>
-            <a href="https://scholarwiki.ai/" target="_blank"><b> <font color="#0000FF">[Scholarwiki]</font> </b></a><b><font color="#FF0000">|</font> </b>
-            <a href="https://www.x-mol.com/" target="_blank"><b> <font color="#0000FF">[X-mol]</font> </b></a>
-          </div>
-          <div class="card">
-            <h3>Literature Read</h3>
-            <p>AI tools for reading papers</p>
-            <a href="https://easypdf.ai/" target="_blank"><b> <font color="#0000FF">[EasyPDF]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://papers.cool/" target="_blank"><b> <font color="#0000FF">[PapersCool]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://github.com/kaixindelele/ChatPaper" target="_blank"><b> <font color="#0000FF">[ChatPaper]</font></b></a>
-          </div>
-          <div class="card">
-            <h3>Writting Polish</h3>
-            <p>AI tools for rewritting papers</p>
-            <a href="http://easyessay.ai/" target="_blank"><b> <font color="#0000FF">[EasyEssay]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://www.deepdhai.com/" target="_blank"><b> <font color="#0000FF">[深度导航]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="http://dawei.work:8080/s/jfsgAytoXgaL5bj" target="_blank"><b> <font color="#0000FF">[Prompts]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://www.promptgenius.site/" target="_blank"><b> <font color="#0000FF">[Prompts_Genius]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://tool.liumingye.cn/" target="_blank"><b> <font color="#0000FF">[刘明野]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://github.com/Leey21/awesome-ai-research-writing" target="_blank"><b> <font color="#0000FF">[Awesome AI Writing]</font></b></a>
-          </div>
+    <!-- AI TOOLS SECTION -->
+    <section id="ai-tools">
+        <h2>🛠️ AI Tools</h2>
+        <div class="section-container">
+            <div class="card">
+                <h3>AI Directory</h3>
+                <p>Browse 5000+ AI tools in 50+ categories like copywriting, image generation and video editing.</p>
+                <div class="links-wrapper">
+                    <a href="https://www.futurepedia.io/" target="_blank" class="link-badge">Future Pedia</a>
+                    <a href="https://www.aitoolhunt.com/" target="_blank" class="link-badge">AI Hunt</a>
+                    <a href="https://30aitool.com/" target="_blank" class="link-badge">30AITool</a>
+                    <a href="https://www.creaitives.com/tools" target="_blank" class="link-badge">Crea AI</a>
+                    <a href="https://futuretools.beehiiv.com/" target="_blank" class="link-badge">Future Tools</a>
+                    <a href="https://airadar.getinference.com/" target="_blank" title="用于创意和营销的AI工具" class="link-badge">AI Radar</a>
+                    <a href="https://ai-lib.club/" target="_blank" title="用于创意和营销的AI工具" class="link-badge">Ai-Lib</a>
+                    <a href="https://www.wikiaitools.com/" target="_blank" title="用于创意和营销的AI工具" class="link-badge">AI Wiki</a>
+                    <a href="https://ai.kezhan365.com/" target="_blank" title="用于创意和营销的AI工具" class="link-badge">万彩AI</a>
+                    <a href="https://chat.phitrellis.com/chat" target="_blank" class="link-badge">Free Chat</a>
+                    <a href="https://deepwiki.org/" target="_blank" class="link-badge">Deepwiki</a>
+                    <a href="https://ai-bot.cn/" target="_blank" class="link-badge">Collection</a>
+                    <a href="https://www.yjpoo.com/" target="_blank" class="link-badge">YJPOO</a>
+                    <a href="https://artificialanalysis.ai/" target="_blank" class="link-badge">AI Models</a>
+                    <a href="https://baozang.io/" target="_blank" class="link-badge">BaoZang</a>
+                </div>
+            </div>
 
-          <div class="card">
-            <h3>Image Processing and Generation</h3>
-            <p>AI tools for Image Processing ang Generation</p>
-            <a href="https://boredhumans.com/cartoonify.php" target="_blank"><b> <font color="#0000FF">[Cartoonify]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://www.canva.com/" target="_blank"><b> <font color="#0000FF">[canva]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://image.nixiangshi.com/" target="_blank"><b> <font color="#0000FF">[Vector graph trans]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://convertio.co/jpg-svg/" target="_blank"><b> <font color="#0000FF">[Convertio_JPG_SVG]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://www.napkin.ai/" target="_blank"><b> <font color="#0000FF">[Napkin]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://www.upscale.media/upload" target="_blank"><b> <font color="#0000FF">[Upscale_Media]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://removal.ai/upload/" target="_blank"><b> <font color="#0000FF">[Removal.ai]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://yandex.com/" target="_blank"><b> <font color="#0000FF">[Yandex]</font></b></a>
-          </div>
+            <div class="card">
+                <h3>AI Chat</h3>
+                <p>AI tools for chatting with AI.</p>
+                <div class="links-wrapper">
+                    <a href="https://github.com/chatanywhere/GPT_API_free" target="_blank" class="link-badge">API free</a>
+                    <a href="https://copilot.microsoft.com/" target="_blank" class="link-badge">Copilot</a>
+                    <a href="https://www.perplexity.ai/" target="_blank" class="link-badge">Perplexity</a>
+                    <a href="https://claude.ai/" target="_blank" class="link-badge">Claude</a>
+                    <a href="https://chat.phitrellis.com/chat" target="_blank" class="link-badge">Free Chat</a>
+                </div>
+            </div>
 
-        <div class="card">
-            <h3>Code Annotation</h3>
-            <p>This is a collection of simple PyTorch implementations of neural networks and related algorithms. These implementations are documented with explanations, and the website renders these as side-by-side formatted notes. We believe these would help you understand these algorithms better.</p>
-            <a href="https://nn.labml.ai/" target="_blank"><b> <font color="#0000FF">[Visit Tool]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://github.com/cako/cuda-by-numba-examples/" target="_blank"><b> <font color="#0000FF">[Numba]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://deepwiki.com/" target="_blank"><b> <font color="#0000FF">[deepwiki]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://gitmcp.io" target="_blank"><b> <font color="#0000FF">[gitmcp]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://codemap.info" target="_blank"><b> <font color="#0000FF">[CodeMap]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://notebooklm.google.com/" target="_blank"><b> <font color="#0000FF">[notebooklm]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://zread.ai" target="_blank"><b> <font color="#0000FF">[zread]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://gitdiagram.com/" target="_blank"><b> <font color="#0000FF">[GitDiagram]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://gituml.com/listz" target="_blank"><b> <font color="#0000FF">[GitUML]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://github.com/jesseduffield/lazygit" target="_blank"><b> <font color="#0000FF">[Lazy Git]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://app.deepsource.com/" target="_blank"><b> <font color="#0000FF">[Deepsource]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://github.dev/github/dev" target="_blank"><b> <font color="#0000FF">[GitDev]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://githistory.xyz/" target="_blank"><b> <font color="#0000FF">[Githistory]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://modelscope.cn/" target="_blank"><b> <font color="#0000FF">[ModelScope]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://optuna.org/" target="_blank"><b> <font color="#0000FF">[optuna]</font> </b> </a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://replit.com/~" target="_blank"><b> <font color="#0000FF">[Replit]</font></b></a>
+            <div class="card">
+                <h3>Literature Review</h3>
+                <p>AI tools for searching papers.</p>
+                <div class="links-wrapper">
+                    <a href="https://www.paperdigest.org/" target="_blank" class="link-badge">Paper Digest</a>
+                    <a href="https://elicit.com/" target="_blank" class="link-badge">Elicit</a>
+                    <a href="https://www.connectedpapers.com/" target="_blank" class="link-badge">Connected Paper</a>
+                    <a href="https://www.researchrabbit.ai/" target="_blank" class="link-badge">Research Rabbit</a>
+                    <a href="https://www.semanticscholar.org/" target="_blank" class="link-badge">Semantic Scholar</a>
+                    <a href="https://www.scidown.cn/" target="_blank" class="link-badge">SCIdown</a>
+                    <a href="https://consensus.app/" target="_blank" class="link-badge">Consensus</a>
+                    <a href="https://huggingface.co/spaces/qingxu98/gpt-academic" target="_blank" class="link-badge">Gpt academic</a>
+                    <a href="https://arxiv-sanity-lite.com/" target="_blank" class="link-badge">arxiv-sanity</a>
+                    <a href="https://arxivxplorer.com/" target="_blank" class="link-badge">xplorer</a>
+                    <a href="https://briefgpt.xyz/" target="_blank" class="link-badge">BriefGPT</a>
+                    <a href="https://escholarship.org/" target="_blank" class="link-badge">Escholarship</a>
+                    <a href="https://seaml.es/" target="_blank" class="link-badge">SeaML</a>
+                    <a href="https://keywords.groundedai.company/?q=nerf" target="_blank" class="link-badge">Ground AI</a>
+                    <a href="https://scholarwiki.ai/" target="_blank" class="link-badge">Scholarwiki</a>
+                    <a href="https://www.x-mol.com/" target="_blank" class="link-badge">X-mol</a>
+                </div>
+            </div>
 
+            <div class="card">
+                <h3>Literature Read</h3>
+                <p>AI tools for reading papers.</p>
+                <div class="links-wrapper">
+                    <a href="https://easypdf.ai/" target="_blank" class="link-badge">EasyPDF</a>
+                    <a href="https://papers.cool/" target="_blank" class="link-badge">PapersCool</a>
+                    <a href="https://github.com/kaixindelele/ChatPaper" target="_blank" class="link-badge">ChatPaper</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Writing Polish</h3>
+                <p>AI tools for rewriting papers.</p>
+                <div class="links-wrapper">
+                    <a href="http://easyessay.ai/" target="_blank" class="link-badge">EasyEssay</a>
+                    <a href="https://www.deepdhai.com/" target="_blank" class="link-badge">深度导航</a>
+                    <a href="http://dawei.work:8080/s/jfsgAytoXgaL5bj" target="_blank" class="link-badge">Prompts</a>
+                    <a href="https://www.promptgenius.site/" target="_blank" class="link-badge">Prompts Genius</a>
+                    <a href="https://tool.liumingye.cn/" target="_blank" class="link-badge">刘明野</a>
+                    <a href="https://github.com/Leey21/awesome-ai-research-writing" target="_blank" class="link-badge">Awesome AI Writing</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Image Processing and Generation</h3>
+                <p>AI tools for Image Processing and Generation.</p>
+                <div class="links-wrapper">
+                    <a href="https://boredhumans.com/cartoonify.php" target="_blank" class="link-badge">Cartoonify</a>
+                    <a href="https://www.canva.com/" target="_blank" class="link-badge">Canva</a>
+                    <a href="https://image.nixiangshi.com/" target="_blank" class="link-badge">Vector graph trans</a>
+                    <a href="https://convertio.co/jpg-svg/" target="_blank" class="link-badge">Convertio JPG SVG</a>
+                    <a href="https://www.napkin.ai/" target="_blank" class="link-badge">Napkin</a>
+                    <a href="https://www.upscale.media/upload" target="_blank" class="link-badge">Upscale Media</a>
+                    <a href="https://removal.ai/upload/" target="_blank" class="link-badge">Removal.ai</a>
+                    <a href="https://yandex.com/" target="_blank" class="link-badge">Yandex</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Code Annotation & Git</h3>
+                <p>Simple PyTorch implementations of neural networks. Notes and algorithms to help you understand better.</p>
+                <div class="links-wrapper">
+                    <a href="https://nn.labml.ai/" target="_blank" class="link-badge">Visit Tool</a>
+                    <a href="https://github.com/cako/cuda-by-numba-examples/" target="_blank" class="link-badge">Numba</a>
+                    <a href="https://deepwiki.com/" target="_blank" class="link-badge">deepwiki</a>
+                    <a href="https://gitmcp.io" target="_blank" class="link-badge">gitmcp</a>
+                    <a href="https://codemap.info" target="_blank" class="link-badge">CodeMap</a>
+                    <a href="https://notebooklm.google.com/" target="_blank" class="link-badge">notebooklm</a>
+                    <a href="https://zread.ai" target="_blank" class="link-badge">zread</a>
+                    <a href="https://gitdiagram.com/" target="_blank" class="link-badge">GitDiagram</a>
+                    <a href="https://gituml.com/listz" target="_blank" class="link-badge">GitUML</a>
+                    <a href="https://github.com/jesseduffield/lazygit" target="_blank" class="link-badge">Lazy Git</a>
+                    <a href="https://app.deepsource.com/" target="_blank" class="link-badge">Deepsource</a>
+                    <a href="https://github.dev/github/dev" target="_blank" class="link-badge">GitDev</a>
+                    <a href="https://githistory.xyz/" target="_blank" class="link-badge">Githistory</a>
+                    <a href="https://modelscope.cn/" target="_blank" class="link-badge">ModelScope</a>
+                    <a href="https://optuna.org/" target="_blank" class="link-badge">optuna</a>
+                    <a href="https://replit.com/~" target="_blank" class="link-badge">Replit</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Vibe Coding</h3>
+                <p>Online coding sandboxes and cloud IDEs.</p>
+                <div class="links-wrapper">
+                    <a href="https://v0.app/" target="_blank" class="link-badge">V0</a>
+                    <a href="https://replit.com/~" target="_blank" class="link-badge">Replit</a>
+                    <a href="https://codesandbox.io/" target="_blank" class="link-badge">CodeSandbox</a>
+                    <a href="https://stackblitz.com/" target="_blank" class="link-badge">StackBlitz</a>
+                    <a href="https://gitpod.io/" target="_blank" class="link-badge">Gitpod</a>
+                    <a href="https://glitch.com/" target="_blank" class="link-badge">Glitch</a>
+                    <a href="https://codepen.io/" target="_blank" class="link-badge">CodePen</a>
+                    <a href="https://jsfiddle.net/" target="_blank" class="link-badge">JSFiddle</a>
+                    <a href="https://aws.amazon.com/cloud9/" target="_blank" class="link-badge">Cloud9</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Magic ToDo</h3>
+                <p>Magic ToDo is an AI tool to break down complex tasks into manageable steps.</p>
+                <div class="links-wrapper">
+                    <a href="https://goblin.tools/?ref=topaitoolshub" target="_blank" class="link-badge">Visit Tool</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>GPTs</h3>
+                <p>Interesting tools in GPTs: consensus, AIpdf, data analyst, GPT Academic.</p>
+                <div class="links-wrapper">
+                    <a href="https://openai.com/blog/introducing-gpts" target="_blank" class="link-badge">Visit Tool</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Pi</h3>
+                <p>An AI designed to chat with people and provide an engaging and useful conversation.</p>
+                <div class="links-wrapper">
+                    <a href="https://pi.ai/talk" target="_blank" class="link-badge">Visit Tool</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Language Reactor</h3>
+                <p>A powerful toolbox for learning languages. It helps you to discover, understand, and learn from native materials.</p>
+                <div class="links-wrapper">
+                    <a href="https://www.languagereactor.com/" target="_blank" class="link-badge">Visit Tool</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>佐糖 (Image Tools)</h3>
+                <p>佐糖专注于图像处理领域，提供丰富的图像处理工具，将复杂操作极致简化，真正实现让图像处理更简单。</p>
+                <div class="links-wrapper">
+                    <a href="https://picwish.cn/" target="_blank" class="link-badge">Visit Tool</a>
+                    <a href="https://www.remove.bg/zh" target="_blank" class="link-badge">Remove bg</a>
+                    <a href="https://pixian.ai/" target="_blank" class="link-badge">Pixian.ai</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>AI Conference</h3>
+                <p>人工智能会议截止日期。</p>
+                <div class="links-wrapper">
+                    <a href="https://aideadlin.es/" target="_blank" class="link-badge">AI Deadline</a>
+                    <a href="https://aclanthology.org/" target="_blank" class="link-badge">Aclanthology</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Wiseone</h3>
+                <p>Enhance your online reading experience.</p>
+                <div class="links-wrapper">
+                    <a href="https://wiseone.io/" target="_blank" class="link-badge">Visit Tool</a>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-          <h3>Vibe coding</h3>
-          <p>Online coding sandboxes and cloud IDEs.</p>
-          <a href="https://v0.app/" target="_blank"><b> <font color="#0000FF">[V0]</font></b></a><b> <font color="#FF0000">|</font> </b>
-          <a href="https://replit.com/~" target="_blank"><b> <font color="#0000FF">[Replit]</font></b></a><b> <font color="#FF0000">|</font> </b>
-          <a href="https://codesandbox.io/" target="_blank"><b> <font color="#0000FF">[CodeSandbox]</font></b></a><b> <font color="#FF0000">|</font> </b>
-          <a href="https://stackblitz.com/" target="_blank"><b> <font color="#0000FF">[StackBlitz]</font></b></a><b> <font color="#FF0000">|</font> </b>
-          <a href="https://gitpod.io/" target="_blank"><b> <font color="#0000FF">[Gitpod]</font></b></a><b> <font color="#FF0000">|</font> </b>
-          <a href="https://glitch.com/" target="_blank"><b> <font color="#0000FF">[Glitch]</font></b></a><b> <font color="#FF0000">|</font> </b>
-          <a href="https://codepen.io/" target="_blank"><b> <font color="#0000FF">[CodePen]</font></b></a><b> <font color="#FF0000">|</font> </b>
-          <a href="https://jsfiddle.net/" target="_blank"><b> <font color="#0000FF">[JSFiddle]</font></b></a><b> <font color="#FF0000">|</font> </b>
-          <a href="https://aws.amazon.com/cloud9/" target="_blank"><b> <font color="#0000FF">[Cloud9]</font></b></a>
-        </div>
+    <!-- SOFTWARES SECTION -->
+    <section id="software-frameworks">
+        <h2>💻 Softwares & Frameworks</h2>
+        <div class="section-container">
+            <div class="card">
+                <h3>软件免费下载</h3>
+                <p>416个专业软件，免费学习，免费下载</p>
+                <div class="links-wrapper">
+                    <a href="https://www.ruancang.net/#/?page=0&id=0&q=" target="_blank" class="link-badge">软仓</a>
+                    <a href="https://www.qijishow.com/down/index.html" target="_blank" class="link-badge">奇迹秀</a>
+                    <a href="http://dayanzai.me/" target="_blank" class="link-badge">大眼仔</a>
+                    <a href="https://cn.similarsites.com/" target="_blank" class="link-badge">Similar Sites</a>
+                </div>
+            </div>
 
-        <!-- You can copy and paste the above div.card block to add more tools -->
-        <!-- AI Tool Entry -->
-        <div class="card">
-            <h3>Magic ToDo</h3>
-            <p>Magic ToDo is an AI tool to break down complex tasks into manageable steps.   </p>
-            <a href="https://goblin.tools/?ref=topaitoolshub" target="_blank">Visit Tool</a>
+            <div class="card">
+                <h3>Obsidian</h3>
+                <p>Obsidian is a powerful and flexible note-taking and knowledge management tool that helps you organize, connect, and explore your ideas and information.</p>
+                <div class="links-wrapper">
+                    <a href="https://github.com/sheldonxxd/obsidian_vault_template_for_researcher" target="_blank" class="link-badge">Template</a>
+                    <a href="https://zhuanlan.zhihu.com/p/677461923" target="_blank" class="link-badge">Integration</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Zotero</h3>
+                <p>Zotero is a free and open-source reference management software designed to collect, organize, cite, and share research.</p>
+                <div class="links-wrapper">
+                    <a href="https://blog.csdn.net/qq_46450354/article/details/128363917" target="_blank" class="link-badge">Tutorial</a>
+                    <a href="https://zotero-chinese.com/" target="_blank" class="link-badge">Zotero-Chinese</a>
+                    <a href="https://blog.csdn.net/qq_43309940/article/details/125150487" target="_blank" class="link-badge">Integration</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Writing</h3>
+                <p>Collections for commonly used writing tools.</p>
+                <div class="links-wrapper">
+                    <a href="https://ludwig.guru/" target="_blank" class="link-badge">Ludwig</a>
+                    <a href="https://www.english-corpora.org/coca/" target="_blank" class="link-badge">Corpora</a>
+                    <a href="https://citation-finder.vercel.app/" target="_blank" class="link-badge">Citation-finder</a>
+                    <a href="https://www.citethisforme.com/" target="_blank" class="link-badge">CiteThisForMe</a>
+                    <a href="https://3142.nl/latex-diff/" target="_blank" class="link-badge">Latex Diff</a>
+                    <a href="https://www.diffchecker.com/" target="_blank" class="link-badge">Diffchecker</a>
+                    <a href="https://www.sejda.com/pdf-editor" target="_blank" class="link-badge">Sejda PDF</a>
+                    <a href="https://www.metadata2go.com/view-metadata" target="_blank" class="link-badge">Metadata2Go</a>
+                    <a href="https://qiuxueke.com/" target="_blank" class="link-badge">QiuXueKe</a>
+                    <a href="https://detexify.kirelabs.org/classify.html" target="_blank" class="link-badge">Handwriting Latex</a>
+                    <a href="https://www.scribens.com/" target="_blank" class="link-badge">Scribens</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Plotting</h3>
+                <p>Collections for commonly used figure tools.</p>
+                <div class="links-wrapper">
+                    <a href="https://www.data-to-viz.com/" target="_blank" class="link-badge">viz</a>
+                    <a href="https://github.com/killiansheriff/LovelyPlots" target="_blank" class="link-badge">LovelyPlots</a>
+                    <a href="https://www.flaticon.com/" target="_blank" class="link-badge">flaticon</a>
+                    <a href="https://www.iconfont.cn/" target="_blank" class="link-badge">iconfont</a>
+                    <a href="https://color.adobe.com/" target="_blank" class="link-badge">Adobe Color (5星级推荐)</a>
+                    <a href="https://khroma.co/" target="_blank" class="link-badge">Khroma (5星级推荐)</a>
+                    <a href="https://www.sessions.edu/color-calculator/" target="_blank" class="link-badge">colormap</a>
+                    <a href="https://flourish.studio/" target="_blank" class="link-badge">flourish</a>
+                    <a href="https://github.com/guanyingc/latex_paper_writing_tips" target="_blank" class="link-badge">Latex trick</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Python Figure</h3>
+                <p>Collections for commonly used Python figure tools or refinement.</p>
+                <div class="links-wrapper">
+                    <a href="https://docs.pyvista.org/" target="_blank" class="link-badge">pyvista</a>
+                    <a href="https://plotly.com/python/line-charts/" target="_blank" class="link-badge">Python plotly</a>
+                    <a href="https://python-graph-gallery.com/" target="_blank" class="link-badge">Python Graph Gallery</a>
+                    <a href="https://zhauniarovich.com/post/2022/2022-09-matplotlib-graphs-in-research-papers/" target="_blank" class="link-badge">matplotlib</a>
+                    <a href="https://realpython.com/python-matplotlib-guide/" target="_blank" class="link-badge">matplotlib guide</a>
+                    <a href="https://docs.bokeh.org/en/latest/" target="_blank" class="link-badge">Bokeh</a>
+                    <a href="https://nilearn.github.io/dev/quickstart.html" target="_blank" class="link-badge">nilearn</a>
+                    <a href="https://github.com/datawhalechina/happy-figure" target="_blank" class="link-badge">Happy Figure</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Matlab Figure</h3>
+                <p>Collections for commonly used Matlab figure tools or refinement.</p>
+                <div class="links-wrapper">
+                    <a href="https://www.zhihu.com/question/27474094/answer/2286321322" target="_blank" class="link-badge">Matlab</a>
+                    <a href="https://www.mathworks.com/matlabcentral/fileexchange/13526-volume-browser-release-1-03?s_tid=prof_contriblnk" target="_blank" class="link-badge">Volume-browser</a>
+                    <a href="https://web.mit.edu/8.13/matlab/MatlabTraining_IAP_2012/AGV/DemoFiles/ScriptFiles/html/Part7_SlicesIsosurfaces.html" target="_blank" class="link-badge">Slices surfaces</a>
+                    <a href="https://www.mathworks.com/matlabcentral/fileexchange/26007-on-figure-magnifier" target="_blank" class="link-badge">magnifier</a>
+                    <a href="https://github.com/chenyk1990/gallery/tree/main" target="_blank" class="link-badge">Yangkang</a>
+                    <a href="https://www.mathworks.com/matlabcentral/fileexchange/115040-figurebestv4" target="_blank" class="link-badge">FigurebestV</a>
+                    <a href="https://www.bilibili.com/video/BV1hL2vYkEX7/?share_source=copy_web&vd_source=6f7059fff8481e996e9740b020c00b60" target="_blank" class="link-badge">FigureYouWant</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Network Visualization</h3>
+                <p>Collections for Visualizing or drawing network architectures.</p>
+                <div class="links-wrapper">
+                    <a href="https://tex.stackexchange.com/questions/153957/drawing-neural-network-with-tikz" target="_blank" class="link-badge">Tikz</a>
+                    <a href="https://github.com/HarisIqbal88/PlotNeuralNet" target="_blank" class="link-badge">PlotNeuralNet</a>
+                    <a href="https://github.com/kennethleungty/Neural-Network-Architecture-Diagrams" target="_blank" class="link-badge">Diagrams</a>
+                    <a href="https://github.com/ashishpatel26/Tools-to-Design-or-Visualize-Architecture-of-Neural-Network" target="_blank" class="link-badge">Github Collection</a>
+                    <a href="https://datascience.stackexchange.com/questions/14899/how-to-draw-deep-learning-network-architecture-diagrams" target="_blank" class="link-badge">Stack Exchange</a>
+                    <a href="https://github.com/dair-ai/ml-visuals" target="_blank" class="link-badge">ml-visuals</a>
+                    <a href="https://dvgodoy.github.io/dl-visuals/Architectures/" target="_blank" class="link-badge">DL-visuals</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Seismic Data Processing</h3>
+                <p>Collections for commonly used packages.</p>
+                <div class="links-wrapper">
+                    <a href="https://github.com/stuliveshere/PySeis/tree/master" target="_blank" class="link-badge">PySeis</a>
+                    <a href="https://github.com/JohnWStockwellJr/SeisUnix" target="_blank" class="link-badge">SU</a>
+                    <a href="https://github.com/msacchi/SeismicLab" target="_blank" class="link-badge">SeismicLab</a>
+                    <a href="https://www.mathworks.com/matlabcentral/fileexchange/105885-mfast" target="_blank" class="link-badge">mFAST</a>
+                    <a href="https://github.com/dabana/gpr_processing" target="_blank" class="link-badge">GPR</a>
+                    <a href="https://www.crewes.org/ResearchLinks/FreeSoftware/" target="_blank" class="link-badge">CREWES</a>
+                    <a href="https://github.com/anton337/SeismicPackage/tree/master" target="_blank" class="link-badge">SeismicPackage</a>
+                    <a href="https://github.com/sevenysw/MathGeo2022" target="_blank" class="link-badge">MathGeo2022</a>
+                    <a href="https://github.com/gitzhzhg/SeismicPackage/tree/master/CPSeis" target="_blank" class="link-badge">CPSeis</a>
+                    <a href="https://github.com/gitzhzhg/SeismicPackage/tree/master/CWP_Matlab" target="_blank" class="link-badge">CWP_Matlab</a>
+                    <a href="https://github.com/slimgroup" target="_blank" class="link-badge">SLIM</a>
+                    <a href="https://slimgroup.github.io/Devito-Examples/" target="_blank" class="link-badge">SLIM_DEVITO</a>
+                    <a href="https://pylops.readthedocs.io/en/latest/index.html" target="_blank" class="link-badge">Pylops</a>
+                    <a href="https://www.numerical-tours.com/matlab/#sparsity" target="_blank" class="link-badge">Matlab tours</a>
+                    <a href="https://dsp.rice.edu/software/" target="_blank" class="link-badge">Wavelet</a>
+                    <a href="https://github.com/PSCLab-ASU/OpenICS/tree/e8f639f9278ce88c98f14daf026a56395cb64ca9" target="_blank" class="link-badge">Compressive Sensing</a>
+                    <a href="https://tristanvanleeuwen.github.io/IP_and_Im_Lectures/what_is.html" target="_blank" class="link-badge">Inverse problem</a>
+                    <a href="https://github.com/brianborchers/PEIP" target="_blank" class="link-badge">PEIP</a>
+                    <a href="https://www.mathworks.com/matlabcentral/fileexchange/53109-seislab-3-02" target="_blank" class="link-badge">seislab</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Seismic Data Generation</h3>
+                <p>Collections for commonly used packages.</p>
+                <div class="links-wrapper">
+                    <a href="https://github.com/sede-open/synthoseis" target="_blank" class="link-badge">Synthoseis</a>
+                    <a href="https://github.com/softwareunderground/awesome-open-geoscience#seismic-and-seismology" target="_blank" class="link-badge">Awesome-open-geoscience</a>
+                    <a href="https://github.com/Loop3D/noddyverse/tree/1.0" target="_blank" class="link-badge">Noddyverse</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Optimization Problem</h3>
+                <p>Collections for commonly used packages.</p>
+                <div class="links-wrapper">
+                    <a href="https://scico.readthedocs.io/en/latest/index.html#" target="_blank" class="link-badge">scico</a>
+                    <a href="https://tbetcke.github.io/hpc_lecture_notes/intro.html" target="_blank" class="link-badge">HPC</a>
+                    <a href="https://sites.google.com/site/amirbeck314/software?authuser=0" target="_blank" class="link-badge">Sparse</a>
+                    <a href="https://github.com/google/jax" target="_blank" class="link-badge">JAX</a>
+                    <a href="https://github.com/comp-imaging/ProxImaL" target="_blank" class="link-badge">ProxImaL</a>
+                    <a href="https://www.manopt.org/about.html" target="_blank" class="link-badge">Manifold</a>
+                    <a href="https://deepinv.github.io/deepinv/deepinv.iterative.html" target="_blank" class="link-badge">Deepinv</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Machine Learning Courses</h3>
+                <p>Collections for good machine learning notes.</p>
+                <div class="links-wrapper">
+                    <a href="https://github.com/zhulei227/ML_Notes?tab=readme-ov-file" target="_blank" class="link-badge">ML_Notes</a>
+                    <a href="https://www.yuque.com/bystander-wg876/yc5f72" target="_blank" class="link-badge">Bilibili</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Deep Learning Codes</h3>
+                <p>Collections for good deep learning and seismic templates.</p>
+                <div class="links-wrapper">
+                    <a href="https://github.com/L1aoXingyu/Deep-Learning-Project-Template" target="_blank" class="link-badge">Templates</a>
+                    <a href="https://github.com/FrancescoSaverioZuppichini/PyTorch-Deep-Learning-Template" target="_blank" class="link-badge">Pytorch</a>
+                    <a href="https://github.com/ZhugeKongan/torch-template-for-deep-learning" target="_blank" class="link-badge">Attention</a>
+                    <a href="https://optuna.org/" target="_blank" class="link-badge">Optuna</a>
+                    <a href="https://wandb.ai/site/" target="_blank" class="link-badge">wandb</a>
+                    <a href="https://github.com/BEEugene/seismiqb/tree/master" target="_blank" class="link-badge">Seismiqb</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Tensor Decomposition</h3>
+                <p>Collections for tensorial codes and scholars.</p>
+                <div class="links-wrapper">
+                    <a href="https://math.libretexts.org/Bookshelves/Linear_Algebra" target="_blank" class="link-badge">Linear Algebra</a>
+                    <a href="https://github.com/tnbar/awesome-tensorial-neural-networks" target="_blank" class="link-badge">Awesome tensor</a>
+                    <a href="https://github.com/pvti/Awesome-Tensor-Decomposition" target="_blank" class="link-badge">Awesome tensor decomposition</a>
+                    <a href="https://tensord-v02.readthedocs.io/en/latest/user_guide.html" target="_blank" class="link-badge">TensorD</a>
+                    <a href="https://github.com/lanl/thor/" target="_blank" class="link-badge">THOR</a>
+                    <a href="https://tntorch.readthedocs.io/en/latest/" target="_blank" class="link-badge">tntorch</a>
+                    <a href="https://github.com/oseledets/TT-Toolbox" target="_blank" class="link-badge">TT-Toolbox</a>
+                    <a href="https://github.com/tnbar/tednet?tab=readme-ov-file" target="_blank" class="link-badge">TedNet</a>
+                    <a href="https://tensorly.org/stable/index.html" target="_blank" class="link-badge">tensorly</a>
+                    <a href="https://tensornetwork.org/" target="_blank" class="link-badge">TensorNetwork</a>
+                    <a href="https://www.tensors.net/" target="_blank" class="link-badge">tensor tutorial</a>
+                    <a href="https://github.com/shangqigao/TensorCompletion" target="_blank" class="link-badge">completion github</a>
+                    <a href="https://github.com/PGelss/scikit_tt" target="_blank" class="link-badge">scikit_tt</a>
+                    <a href="https://scholar.google.dk/citations?hl=en&user=gW_FGdQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="link-badge">Rasmus Bro</a>
+                    <a href="https://scholar.google.com/citations?user=9hjmW7AAAAAJ&hl=en" target="_blank" class="link-badge">Tamara G. Kolda</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Introduction to Seismic Exploration</h3>
+                <p>Collections for seismic tutorial for beginners.</p>
+                <div class="links-wrapper">
+                    <a href="http://www.xsgeo.com/course/contents.htm" target="_blank" class="link-badge">xsgeo</a>
+                    <a href="https://tristanvanleeuwen.github.io/IP_and_Im_Lectures/intro.html" target="_blank" class="link-badge">inverse problem and imaging</a>
+                    <a href="https://blog.csdn.net/u014655960?type=blog" target="_blank" class="link-badge">CSDN Miao</a>
+                    <a href="https://blog.csdn.net/qq_41033011/category_10503711.html" target="_blank" class="link-badge">CSDN Lan</a>
+                </div>
+            </div>
         </div>
-      <div class="card">
-        <h3>GPTs</h3>
-        <p>Interesting tools in GPTs</p>
-        <a href="https://openai.com/blog/introducing-gpts" target="_blank"><b> <font color="#0000FF">[Visit Tool]</font></b></a>
-        <p></p>consensus, AIpdf, data analyst, GPT Academic</p>
-      </div>
-      <!-- You can copy and paste the above div.card block to add more tools -->
-      <!-- AI Tool Entry -->
-      <div class="card">
-        <h3>Pi</h3>
-        <p>An AI designed to chat with people and provide an engaging and useful conversation.  </p>
-        <a href="https://pi.ai/talk" target="_blank">Visit Tool</a>
-    </div>
-    <!-- You can copy and paste the above div.card block to add more tools -->
-    <!-- AI Tool Entry -->
-    <div class="card">
-      <h3>Language Reator</h3>
-      <p>A powerful toolbox for learning languages. It helps you to discover, understand, and learn from native materials.   </p>
-      <a href="https://www.languagereactor.com/" target="_blank">Visit Tool</a>
-  </div>
-  <div class="card">
-    <h3>佐糖</h3>
-    <p>佐糖专注于图像处理领域，提供丰富的图像处理工具，将复杂操作极致简化，真正实现让图像处理更简单。</p>
-    <a href="https://picwish.cn/" target="_blank"><b> <font color="#0000FF">[Visit Tool]</font></b></a><b> <font color="#FF0000">|</font> </b>
-    <a href="https://www.remove.bg/zh" target="_blank"><b> <font color="#0000FF">[Remove bg]</font> </b> </a><b> <font color="#FF0000">|</font> </b>
-    <a href="https://pixian.ai/" target="_blank"><b> <font color="#0000FF">[Pixian.ai]</font> </b> </a>
-</div>
-<div class="card">
-  <h3>AI Conference</h3>
-  <p>人工智能会议截止日期。</p>
-  <a href="https://aideadlin.es/" target="_blank"><b> <font color="#0000FF">[AI Deadline]</font></b></a><font color="#FF0000">|</font> </b>
-  <a href="https://aclanthology.org/" target="_blank"><b> <font color="#0000FF">[Aclanthology]</font></b></a>
-</div>
-        <!-- You can copy and paste the above div.card block to add more tools -->
-        <!-- AI Tool Entry -->
-        <div class="card">
-          <h3>Wiseone</h3>
-          <p>Enhance your online reading experience.   </p>
-          <a href="https://wiseone.io/" target="_blank">Visit Tool</a>
-      </div>
-</div>
-  <!-- You can copy and paste the above div.card block to add more tools -->
+    </section>
+
+    <!-- USEFUL TOOLS SECTION -->
+    <section id="useful-tools">
+        <h2>🧰 Useful Tools</h2>
+        <div class="section-container">
+            <div class="card">
+                <h3>Bill Split</h3>
+                <p>Split group expenses and settle balances.</p>
+                <div class="links-wrapper">
+                    <a href="https://www.kittysplit.com/en" target="_blank" class="link-badge">Kittysplit</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Market Heatmaps</h3>
+                <p>Stock and ETF heatmap/treemap tools.</p>
+                <div class="links-wrapper">
+                    <a href="https://stock.shizhong-inc.cn/" target="_blank" class="link-badge">A-Share Treemap</a>
+                    <a href="https://dpyt.cc/" target="_blank" class="link-badge">DPYT</a>
+                    <a href="https://52etf.site/" target="_blank" class="link-badge">52ETF</a>
+                    <a href="https://www.shidaotec.com/IndexReturnRate.html" target="_blank" class="link-badge">Index Return</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI SCHOLARS SECTION -->
+    <section id="ai-scholars">
+        <h2>🎓 AI Scholars & Blogs</h2>
+        <div class="section-container">
+            <div class="card">
+                <h3>Michael Elad (Israel Institute of Technology)</h3>
+                <p>研究特点：反问题及稀疏表达</p>
+                <div class="links-wrapper">
+                    <a href="https://elad.cs.technion.ac.il/" target="_blank" class="link-badge">GenForce</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Peyman Milanfar (Google)</h3>
+                <p>研究特点：反问题及稀疏表达</p>
+                <div class="links-wrapper">
+                    <a href="https://sites.google.com/view/milanfarhome/" target="_blank" class="link-badge">GenForce</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Lei Zhang (香港理工大学)</h3>
+                <p>研究特点：擅长图像及视频的恢复和增强</p>
+                <div class="links-wrapper">
+                    <a href="https://www4.comp.polyu.edu.hk/~cslzhang/" target="_blank" class="link-badge">Homepage</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>孟德宇 (西安交通大学)</h3>
+                <p>研究特点：元学习、变分贝叶斯和深度学习可解释性</p>
+                <div class="links-wrapper">
+                    <a href="https://gr.xjtu.edu.cn/web/dymeng/1" target="_blank" class="link-badge">Homepage</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>周博磊 (香港中文大学)</h3>
+                <p>研究特点：擅长场景理解及其可解释性</p>
+                <div class="links-wrapper">
+                    <a href="https://genforce.github.io/" target="_blank" class="link-badge">GenForce</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>顾舒航 (电子科技大学)</h3>
+                <p>研究特点：主要研究方向为底层视觉</p>
+                <div class="links-wrapper">
+                    <a href="https://shuhanggu.github.io/" target="_blank" class="link-badge">Homepage</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>林宙辰 (北京大学)</h3>
+                <p>研究特点：主要研究方向为机器学习、优化方法、计算机视觉等</p>
+                <div class="links-wrapper">
+                    <a href="https://zero-lab-pku.github.io/" target="_blank" class="link-badge">ZERO Lab</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>刘日升 (大连理工大学)</h3>
+                <p>研究特点：主要研究方向为计算机视觉、深度学习、最优化方法等</p>
+                <div class="links-wrapper">
+                    <a href="https://rsliu.tech/" target="_blank" class="link-badge">VLOG</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>山世光 (中科院计算所)</h3>
+                <p>研究特点：擅长视觉自监督</p>
+                <div class="links-wrapper">
+                    <a href="https://people.ucas.ac.cn/~sgshan" target="_blank" class="link-badge">Homepage</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>左旺孟 (哈尔滨工业大学)</h3>
+                <p>研究特点：擅长计算机视觉和机器学习</p>
+                <div class="links-wrapper">
+                    <a href="http://homepage.hit.edu.cn/wangmengzuo" target="_blank" class="link-badge">Homepage</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>谢伟迪 (牛津大学)</h3>
+                <p>研究特点：主要聚焦视频理解自监督学习</p>
+                <div class="links-wrapper">
+                    <a href="https://weidixie.github.io/" target="_blank" class="link-badge">VGG</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>王淑君 (香港理工大学)</h3>
+                <p>研究特点：多任务和跨模态医疗图像分析</p>
+                <div class="links-wrapper">
+                    <a href="https://emma-sjwang.github.io/" target="_blank" class="link-badge">Homepage</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Tianfan XUE (香港中文大学)</h3>
+                <p>研究特点：NeRF和Computational Photography</p>
+                <div class="links-wrapper">
+                    <a href="https://tianfan.info/index.html" target="_blank" class="link-badge">Homepage</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Henry Arguello (Universidad Industrial de Santander)</h3>
+                <p>研究特点：compressive sensing</p>
+                <div class="links-wrapper">
+                    <a href="https://scholar.google.com/citations?hl=zh-CN&user=R7gjbGIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="link-badge">Google Scholar</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Chen Zhao (KAUST)</h3>
+                <p>研究特点：Image/video understanding</p>
+                <div class="links-wrapper">
+                    <a href="https://chenzhao.netlify.app/" target="_blank" class="link-badge">Homepage</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Rice ECE</h3>
+                <p>研究特点：DIGITAL SIGNAL PROCESSING</p>
+                <div class="links-wrapper">
+                    <a href="https://dsp.rice.edu/" target="_blank" class="link-badge">Homepage</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>施柏鑫 (北京大学)</h3>
+                <p>研究特点：Computational photography and computer vision</p>
+                <div class="links-wrapper">
+                    <a href="https://ci.idm.pku.edu.cn/" target="_blank" class="link-badge">Homepage</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Vincent Sitzmann</h3>
+                <p>研究特点：Neural scene representations</p>
+                <div class="links-wrapper">
+                    <a href="https://www.vincentsitzmann.com/" target="_blank" class="link-badge">Homepage</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Israel Cohen</h3>
+                <p>研究特点：Array processing, statistical signal processing</p>
+                <div class="links-wrapper">
+                    <a href="https://israelcohen.com/about-me/" target="_blank" class="link-badge">Homepage</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Stanford Computational Imaging</h3>
+                <p>研究特点：Neural scene representations and diffusion models</p>
+                <div class="links-wrapper">
+                    <a href="https://www.computationalimaging.org/publications/" target="_blank" class="link-badge">Homepage</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Hao Su</h3>
+                <p>研究特点：3D modeling and robot learning</p>
+                <div class="links-wrapper">
+                    <a href="https://cseweb.ucsd.edu/~haosu/" target="_blank" class="link-badge">Homepage</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>AI Blogs</h3>
+                <p>Feature: This is a collection of good blogs.</p>
+                <div class="links-wrapper">
+                    <a href="https://lilianweng.github.io/" target="_blank" class="link-badge">Lil'log</a>
+                    <a href="https://kexue.fm/" target="_blank" class="link-badge">KeXue（苏剑林）</a>
+                    <a href="https://colah.github.io/" target="_blank" class="link-badge">Colah</a>
+                    <a href="https://distill.pub/" target="_blank" class="link-badge">Distill</a>
+                    <a href="https://www.reddit.com/r/MachineLearning/" target="_blank" class="link-badge">reddit</a>
+                    <a href="https://pyimagesearch.com/category/deep-learning/" target="_blank" class="link-badge">Pyimagesearch</a>
+                    <a href="https://www.cnblogs.com/pinard" target="_blank" class="link-badge">Jianping Liu(刘建平)</a>
+                    <a href="https://vsehwag.github.io/blog/2023/2/all_papers_on_diffusion.html" target="_blank" class="link-badge">Diffusion Model</a>
+                    <a href="https://udlbook.github.io/udlbook/" target="_blank" class="link-badge">Understand DL</a>
+                    <a href="https://sander.ai/" target="_blank" class="link-badge">Sander</a>
+                    <a href="https://www.tonyduan.com/diffusion/index.html" target="_blank" class="link-badge">Tonyduan</a>
+                    <a href="https://mlg.eng.cam.ac.uk/blog/" target="_blank" class="link-badge">Cambridge</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Low-level Vision Groups (底层视觉团队)</h3>
+                <p>研究特点：This research area aims to develop methods that can enhance images, remove noise, detect edges, perform image denoising, and handle other fundamental visual tasks.</p>
+                <div class="links-wrapper">
+                    <a href="https://github.com/davidliudw/Awesome-Low-Level-Vision-Research-Groups?tab=readme-ov-file" target="_blank" class="link-badge">Github</a>
+                    <a href="https://lowlevelcv.com/" target="_blank" class="link-badge">Low Level CV</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Large Language Model (大语言模型)</h3>
+                <p>研究特点：A large language model (LLM) is a type of artificial intelligence (AI) model trained on massive amounts of text data to perform various natural language processing (NLP) tasks.</p>
+                <div class="links-wrapper">
+                    <a href="https://github.com/ZJU-LLMs/Foundations-of-LLMs" target="_blank" class="link-badge">Foundations-of-LLMs</a>
+                    <a href="https://magazine.sebastianraschka.com/" target="_blank" class="link-badge">Ahead of AI</a>
+                    <a href="https://pub.towardsai.net/" target="_blank" class="link-badge">TowardsAI</a>
+                    <a href="https://conlaw.github.io/llm_opt_tutorial/tutorial.html" target="_blank" class="link-badge">LLM Optimization Tutorial</a>
+                    <a href="https://b23.tv/kWj6MGx" target="_blank" class="link-badge">Bilibili course</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Tensor Train Arithmetic</h3>
+                <p>研究特点：Tensor train is used to mitigate Curse of dimensionality.</p>
+                <div class="links-wrapper">
+                    <a href="https://scholar.google.com/citations?user=uxlQvnUAAAAJ&hl=zh-CN&oi=sra" target="_blank" class="link-badge">Lorenz Richter</a>
+                    <a href="https://scholar.google.com/citations?user=19r6EoYAAAAJ&hl=zh-CN&oi=sra" target="_blank" class="link-badge">Nikolas Nüsken</a>
+                    <a href="https://scholar.google.com/citations?user=OmkS6dgAAAAJ&hl=zh-CN&oi=sra" target="_blank" class="link-badge">Boris Khoromskij</a>
+                    <a href="https://scholar.google.com/citations?user=5vT380gAAAAJ&hl=en" target="_blank" class="link-badge">Daniele Venturi</a>
+                    <a href="https://users.cs.utah.edu/~zhe/" target="_blank" class="link-badge">Shandian Zhe (GP)</a>
+                    <a href="https://scholar.google.com/citations?user=-PSjJ1oAAAAJ&hl=zh-CN&oi=sra" target="_blank" class="link-badge">Sergey Dolgov</a>
+                    <a href="https://scholar.google.ca/citations?user=t5Bxl1kAAAAJ&hl=en&oi=sra" target="_blank" class="link-badge">Kejun Tang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
 
-  
-    <section class="container">
-      <h2>Solfwares</h2>
-      <!-- AI Scholar Entry -->
-      </section>
-      <main class="container">
-        <div class="section-container">
-          <div class="card">
-              <h3>软件免费下载 </h3>
-              <p>416个专业软件，免费学习，免费下载</p>
-              <a href="https://www.ruancang.net/#/?page=0&id=0&q=" target="_blank"><b> <font color="#0000FF">[软仓]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://www.qijishow.com/down/index.html" target="_blank"><b> <font color="#0000FF">[奇迹秀]</font> </b> </a><b> <font color="#FF0000">|</font> </b>
-              <a href="http://dayanzai.me/" target="_blank"><b> <font color="#0000FF">[大眼仔]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://cn.similarsites.com/" target="_blank"><b> <font color="#0000FF">[Similar Sites]</font> </b> </a>
-            </div>
-            <div class="card">
-              <h3>Obsidian </h3>
-              <p>Obsidian is a powerful and flexible note-taking and knowledge management tool that helps you organize, connect, and explore your ideas and information.</p>
-              <a href="https://github.com/sheldonxxd/obsidian_vault_template_for_researcher" target="_blank"> <font color="#0000FF"><b>[Template]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://zhuanlan.zhihu.com/p/677461923" target="_blank"> <font color="#0000FF"><b>[Intergration]</font> </b></a> 
-            </div>
-            <div class="card">
-              <h3>Zotero </h3>
-              <p>Zotero is a free and open-source reference management software designed to collect, organize, cite, and share research.</p>
-              <a href="https://blog.csdn.net/qq_46450354/article/details/128363917" target="_blank"><b>[Tutorial]</b></a> <font color="#FF0000">|</font> 
-              <a href="https://zotero-chinese.com/" target="_blank"><b>[Zotero-Chinese]</b></a> <font color="#FF0000">|</font> 
-              <a href="https://blog.csdn.net/qq_43309940/article/details/125150487" target="_blank"><b>[Integration]</b></a>
-            </div>
-            <div class="card">
-              <h3>Writting </h3>
-              <p>Collections for commonly used writting tools.</p>
-              <a href="https://ludwig.guru/" target="_blank"><b> <font color="#0000FF">[Ludwig]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://www.english-corpora.org/coca/" target="_blank"><b> <font color="#0000FF">[Corpora]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://citation-finder.vercel.app/" target="_blank"><b><font color="#0000FF">[Citation-finder]</font></b></a> 
-              <a href="https://www.citethisforme.com/" target="_blank"><b><font color="#0000FF">[CiteThisForMe]</font></b></a> 
-              <a href="https://3142.nl/latex-diff/" target="_blank"><b> <font color="#0000FF">[Latex Diff]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://www.diffchecker.com/" target="_blank"><b> <font color="#0000FF">[Diffchecker]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://www.sejda.com/pdf-editor" target="_blank"><b> <font color="#0000FF">[Sejda PDF]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://www.metadata2go.com/view-metadata" target="_blank"><b> <font color="#0000FF">[Metadata2Go]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://qiuxueke.com/" target="_blank"><b> <font color="#0000FF">[QiuXueKe]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://detexify.kirelabs.org/classify.html" target="_blank"><b><font color="#0000FF">[Handwriting Latex]</font></b></a> 
-              <a href="https://www.scribens.com/" target="_blank"><b><font color="#0000FF">[Scribens]</font></b></a> 
-
-            </div>
-            <div class="card">
-              <h3>Plotting </h3>
-              <p>Collections for commonly used figure tools.</p>
-              <a href="https://www.data-to-viz.com/" target="_blank"><b> <font color="#0000FF">[viz]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://github.com/killiansheriff/LovelyPlots" target="_blank"><b> <font color="#0000FF">[LovelyPlots]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://www.flaticon.com/" target="_blank"><b> <font color="#0000FF">[flaticon]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://www.iconfont.cn/" target="_blank"><b> <font color="#0000FF">[iconfont]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://color.adobe.com/" target="_blank"><b> <font color="#0000FF">[Adobe Color - 5星级推荐]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://khroma.co/" target="_blank"><b> <font color="#0000FF">[Khroma - 5星级推荐]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://www.sessions.edu/color-calculator/" target="_blank"><b> <font color="#0000FF">[colormap]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://flourish.studio/" target="_blank"><b> <font color="#0000FF">[flourish]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://github.com/guanyingc/latex_paper_writing_tips" target="_blank"><b><font color="#0000FF">[Latex trick]</font></b></a> 
-          </div>
-          <div class="card">
-          <h3>Python Figure </h3>
-          <p>Collections for commonly used Python figure tools or refinement.</p>
-            <a href="https://docs.pyvista.org/" target="_blank"><b> <font color="#0000FF">[pyvista]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://plotly.com/python/line-charts/" target="_blank"><b> <font color="#0000FF">[Python_plotly]</font></b></a><b> <font color="#FF0000">|</font> </b>  
-            <a href="https://python-graph-gallery.com/" target="_blank"><b> <font color="#0000FF">[Python]</font></b></a><b> <font color="#FF0000">|</font> </b>  
-            <a href="https://zhauniarovich.com/post/2022/2022-09-matplotlib-graphs-in-research-papers/" target="_blank"><b> <font color="#0000FF">[matplotlib]</font></b></a><b> <font color="#FF0000">|</font> </b>  
-            <a href="https://realpython.com/python-matplotlib-guide/" target="_blank"><b> <font color="#0000FF">[matplotlib2]</font></b></a><b> <font color="#FF0000">|</font> </b>  
-            <a href="https://docs.bokeh.org/en/latest/" target="_blank"><b><font color="#0000FF">[Bokeh]</font></b></a><b><font color="#FF0000">|</font> </b>
-            <a href="https://nilearn.github.io/dev/quickstart.html" target="_blank"><b><font color="#0000FF">[nilearn]</font></b></a><b><font color="#FF0000">|</font> </b>
-            <a href="https://github.com/datawhalechina/happy-figure" target="_blank"><b><font color="#0000FF">[Happy Figure]</font></b></a> 
-        </div>
-          <div class="card">
-            <h3>Matlab Figure </h3>
-            <p>Collections for commonly used Matlab figure tools or refinement.</p>
-            <a href="https://www.zhihu.com/question/27474094/answer/2286321322" target="_blank"><b> <font color="#0000FF">[Matlab]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-            <a href="https://www.mathworks.com/matlabcentral/fileexchange/13526-volume-browser-release-1-03?s_tid=prof_contriblnk" target="_blank"><b> <font color="#0000FF">[Volume-browser]</font></b></a><b> <font color="#FF0000">|</font> </b>  
-            <a href="https://web.mit.edu/8.13/matlab/MatlabTraining_IAP_2012/AGV/DemoFiles/ScriptFiles/html/Part7_SlicesIsosurfaces.html" target="_blank"><b> <font color="#0000FF">[Slices_surfaces]</font></b></a><b> <font color="#FF0000">|</font> </b>  
-            <a href="https://www.mathworks.com/matlabcentral/fileexchange/26007-on-figure-magnifier" target="_blank"><b> <font color="#0000FF">[magnifier]</font></b></a><b> <font color="#FF0000">|</font> </b>  
-            <a href="https://github.com/chenyk1990/gallery/tree/main" target="_blank"><b> <font color="#0000FF">[Yangkang]</font></b></a><b> <font color="#FF0000">|</font> </b>  
-            <a href="https://www.mathworks.com/matlabcentral/fileexchange/115040-figurebestv4" target="_blank"><b> <font color="#0000FF">[FigurebestV]</font></b></a><b> <font color="#FF0000">|</font> </b>  
-            <a href="https://www.bilibili.com/video/BV1hL2vYkEX7/?share_source=copy_web&vd_source=6f7059fff8481e996e9740b020c00b60" target="_blank"><b> <font color="#0000FF">[FigureYouWant]</font></b></a><b> <font color="#FF0000">|</font> </b>  
-        </div>
-          <div class="card">
-            <h3>Network Visualization</h3>
-            <p>Collections for Visualizing or drawing network architectures.</p>
-            <a href="https://tex.stackexchange.com/questions/153957/drawing-neural-network-with-tikz" target="_blank"><b> <font color="#0000FF">[Tikz]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://github.com/HarisIqbal88/PlotNeuralNet" target="_blank"><b> <font color="#0000FF">[PlotNeuralNet]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://github.com/kennethleungty/Neural-Network-Architecture-Diagrams" target="_blank"><b> <font color="#0000FF">[Diagrams]</font></b></a><b> <font color="#FF0000">|</font> </b>
-            <a href="https://github.com/ashishpatel26/Tools-to-Design-or-Visualize-Architecture-of-Neural-Network" target="_blank"><b> <font color="#0000FF">[Github Collection]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-            <a href="https://datascience.stackexchange.com/questions/14899/how-to-draw-deep-learning-network-architecture-diagrams" target="_blank"><b> <font color="#0000FF">[Stack Exchange]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-            <a href="https://github.com/dair-ai/ml-visuals" target="_blank"><b> <font color="#0000FF">[ml-visuals]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-            <a href="https://dvgodoy.github.io/dl-visuals/Architectures/" target="_blank"><b><font color="#0000FF">[DL-visuals]</font></b></a> </div>
-          <div class="card">
-              <h3>Seismic data processing </h3>
-              <p>Collections for commonly used packages.</p>
-              <a href="https://github.com/stuliveshere/PySeis/tree/master" target="_blank"><b> <font color="#0000FF">[PySeis]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://github.com/JohnWStockwellJr/SeisUnix" target="_blank"><b> <font color="#0000FF">[SU]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://github.com/msacchi/SeismicLab" target="_blank"><b> <font color="#0000FF">[SeismicLab]</font></b></a><b> <font color="#FF0000">|</font> </b>
-              <a href="https://www.mathworks.com/matlabcentral/fileexchange/105885-mfast" target="_blank"><b> <font color="#0000FF">[mFAST]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://github.com/dabana/gpr_processing" target="_blank"><b> <font color="#0000FF">[GPR]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://www.crewes.org/ResearchLinks/FreeSoftware/" target="_blank"><b> <font color="#0000FF">[CREWES]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://github.com/anton337/SeismicPackage/tree/master" target="_blank"><b> <font color="#0000FF">[SeismicPackage]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://github.com/sevenysw/MathGeo2022" target="_blank"><b> <font color="#0000FF">[MathGeo2022]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://github.com/gitzhzhg/SeismicPackage/tree/master/CPSeis" target="_blank"><b> <font color="#0000FF">[CPSeis]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://github.com/gitzhzhg/SeismicPackage/tree/master/CWP_Matlab" target="_blank"><b> <font color="#0000FF">[CWP_Matlab]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://github.com/slimgroup" target="_blank"><b> <font color="#0000FF">[SLIM]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://slimgroup.github.io/Devito-Examples/" target="_blank"><b> <font color="#0000FF">[SLIM_DEVITO]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://pylops.readthedocs.io/en/latest/index.html" target="_blank"><b> <font color="#0000FF">[Pylops]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://www.numerical-tours.com/matlab/#sparsity" target="_blank"><b> <font color="#0000FF">[Matlab_tours]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://dsp.rice.edu/software/" target="_blank"><b> <font color="#0000FF">[Wavelet]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://github.com/PSCLab-ASU/OpenICS/tree/e8f639f9278ce88c98f14daf026a56395cb64ca9" target="_blank"><b> <font color="#0000FF">[Compressive Sensing]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://tristanvanleeuwen.github.io/IP_and_Im_Lectures/what_is.html" target="_blank"><b> <font color="#0000FF">[Inverse problem]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://github.com/brianborchers/PEIP" target="_blank"><b> <font color="#0000FF">[PEIP]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://www.mathworks.com/matlabcentral/fileexchange/53109-seislab-3-02" target="_blank"><b><font color="#0000FF">[seislab]</font></b></a> 
-            </div>
-            <div class="card">
-              <h3>Seismic data Generation </h3>
-              <p>Collections for commonly used packages.</p>
-              <a href="https://github.com/sede-open/synthoseis" target="_blank"><b> <font color="#0000FF">[Synthoseis]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://github.com/softwareunderground/awesome-open-geoscience#seismic-and-seismology" target="_blank"><b> <font color="#0000FF">[Awesome-open-geoscience]</font></b></a><b> <font color="#FF0000">|</font> </b> 
-              <a href="https://github.com/Loop3D/noddyverse/tree/1.0" target="_blank"><b><font color="#0000FF">[Noddyverse]</font></b></a> 
-            </div>
-      <div class="card">
-        <h3>Optimization problem </h3>
-        <p>Collections for commonly used packages.</p>
-        <a href="https://scico.readthedocs.io/en/latest/index.html#" target="_blank"><b> <font color="#0000FF">[scico]</font></b></a><b> <font color="#FF0000">|</font> </b>
-        <a href="https://tbetcke.github.io/hpc_lecture_notes/intro.html" target="_blank"><b> <font color="#0000FF">[HPC]</font></b></a><b> <font color="#FF0000">|</font> </b>
-        <a href="https://sites.google.com/site/amirbeck314/software?authuser=0" target="_blank"><b> <font color="#0000FF">[Sparse]</font></b></a><b> <font color="#FF0000">|</font> </b>
-        <a href="https://github.com/google/jax" target="_blank"><b> <font color="#0000FF">[JAX]</font></b></a><b> <font color="#FF0000">|</font> </b>
-        <a href="https://github.com/comp-imaging/ProxImaL" target="_blank"><b><font color="#0000FF">[ProxImaL]</font></b></a> 
-        <a href="https://www.manopt.org/about.html" target="_blank"><b><font color="#0000FF">[Manifold]</font></b></a> 
-        <a href="https://deepinv.github.io/deepinv/deepinv.iterative.html" target="_blank"><b><font color="#0000FF">[Deepinv]</font></b></a> 
-    </div>
-    <div class="card">
-      <h3>Machine learning courses </h3>
-      <p>Collections for good machine learning notes.</p>
-      <a href="https://github.com/zhulei227/ML_Notes?tab=readme-ov-file" target="_blank"><b> <font color="#0000FF">[ML_Notes]</font></b></a><b> <font color="#FF0000">|</font> </b>
-      <a href="https://www.yuque.com/bystander-wg876/yc5f72" target="_blank"><b><font color="#0000FF">[Bilibili]</font></b></a> 
-  </div>
-  <div class="card">
-    <h3>Deep learning codes </h3>
-    <p>Collections for good deep learning templates.</p>
-    <a href="https://github.com/L1aoXingyu/Deep-Learning-Project-Template" target="_blank"><b> <font color="#0000FF">[Templates]</font></b></a><b> <font color="#FF0000">|</font> </b>
-    <a href="https://github.com/FrancescoSaverioZuppichini/PyTorch-Deep-Learning-Template" target="_blank"><b> <font color="#0000FF">[Pytorch]</font></b></a><b> <font color="#FF0000">|</font> </b>
-    <a href="https://github.com/ZhugeKongan/torch-template-for-deep-learning" target="_blank"><b> <font color="#0000FF">[Attention]</font></b></a><b> <font color="#FF0000">|</font> </b>
-    <a href="https://optuna.org/" target="_blank"><b> <font color="#0000FF">[Optuna]</font></b></a><b> <font color="#FF0000">|</font> </b>
-    <a href="https://wandb.ai/site/" target="_blank"><b><font color="#0000FF">[wandb]</font></b></a> 
-
-    
-    <p>Collections for seismic deep learning templates.</p>
-    <a href="https://github.com/BEEugene/seismiqb/tree/master" target="_blank"><b><font color="#0000FF">[Seismiqb]</font></b></a> 
-  </div>
-<div class="card">
-  <h3>Tensor decomposition </h3>
-  <p>Collections for tensorial codes.</p>
-  <a href="https://math.libretexts.org/Bookshelves/Linear_Algebra" target="_blank"><b> <font color="#0000FF">[Linear_Algebra]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://github.com/tnbar/awesome-tensorial-neural-networks" target="_blank"><b> <font color="#0000FF">[Awesome_tensor]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://github.com/pvti/Awesome-Tensor-Decomposition" target="_blank"><b> <font color="#0000FF">[Awesome_tensor_decomposition]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://tensord-v02.readthedocs.io/en/latest/user_guide.html" target="_blank"><b> <font color="#0000FF">[TensorD]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://github.com/lanl/thor/" target="_blank"><b> <font color="#0000FF">[THOR]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://tntorch.readthedocs.io/en/latest/" target="_blank"><b> <font color="#0000FF">[tntorch]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://github.com/oseledets/TT-Toolbox" target="_blank"><b> <font color="#0000FF">[TT-Toolbox]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://github.com/tnbar/tednet?tab=readme-ov-file" target="_blank"><b> <font color="#0000FF">[TedNet]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://tensorly.org/stable/index.html" target="_blank"><b> <font color="#0000FF">[tensorly]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://tensornetwork.org/" target="_blank"><b> <font color="#0000FF">[TensorNetwork]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://www.tensors.net/" target="_blank"><b> <font color="#0000FF">[tensor_tutorial]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://github.com/shangqigao/TensorCompletion" target="_blank"><b> <font color="#0000FF">[completion_github]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://github.com/PGelss/scikit_tt" target="_blank"><b><font color="#0000FF">[scikit_tt]</font></b></a> 
-  <p>Collections for tensorial scholars.</p>
-  <a href="https://scholar.google.dk/citations?hl=en&user=gW_FGdQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank"><b> <font color="#0000FF">[Rasmus Bro]</font></b></a><b> <font color="#FF0000">|</font> </b>
-    <a href="https://scholar.google.com/citations?user=9hjmW7AAAAAJ&hl=en" target="_blank"><b> <font color="#0000FF">[Tamara G. Kolda]</font></b></a><b> <font color="#FF0000">|</font> </b>
-</div>
-<div class="card">
-  <h3>Introduction to seismic exploration </h3>
-  <p>Collections for seismic tutorial for beginners.</p>
-  <a href="http://www.xsgeo.com/course/contents.htm" target="_blank"><b> <font color="#0000FF">[xsgeo]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://tristanvanleeuwen.github.io/IP_and_Im_Lectures/intro.html" target="_blank"><b> <font color="#0000FF">[inverse problem and imaging]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://blog.csdn.net/u014655960?type=blog" target="_blank"><b> <font color="#0000FF">[CSDN_Miao]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://blog.csdn.net/qq_41033011/category_10503711.html" target="_blank"><b> <font color="#0000FF">[CSDN_Lan]</font></b></a><b> <font color="#FF0000">|</font> </b>
-
-</div>
-</div>
- </main>
-
-    <section class="container">
-      <h2>Useful Tools</h2>
-      <!-- Useful Tool Entry -->
-    </section>
-    <main class="container">
-      <div class="section-container">
-        <div class="card">
-          <h3>Bill Split</h3>
-          <p>Split group expenses and settle balances.</p>
-          <a href="https://www.kittysplit.com/en" target="_blank"><b> <font color="#0000FF">[Kittysplit]</font></b></a>
-        </div>
-        <div class="card">
-          <h3>Market Heatmaps</h3>
-          <p>Stock and ETF heatmap/treemap tools.</p>
-          <a href="https://stock.shizhong-inc.cn/" target="_blank"><b> <font color="#0000FF">[A-Share_Treemap]</font></b></a><b> <font color="#FF0000">|</font> </b>
-          <a href="https://dpyt.cc/" target="_blank"><b> <font color="#0000FF">[DPYT]</font></b></a><b> <font color="#FF0000">|</font> </b>
-          <a href="https://52etf.site/" target="_blank"><b> <font color="#0000FF">[52ETF]</font></b></a><b> <font color="#FF0000">|</font> </b>
-          <a href="https://www.shidaotec.com/IndexReturnRate.html" target="_blank"><b> <font color="#0000FF">[Index_Return]</font></b></a>
-        </div>
-      </div>
-      <!-- You can copy and paste the above div.card block to add more tools -->
-    </main>
-
-
-<section class="container">
-    <h2>AI Scholars</h2>
-    <!-- AI Scholar Entry -->
-    </section>
-    <main class="container">
-      <div class="section-container">
-        <div class="card">
-            <h3>Michael Elad (Israel Institute of Technology) </h3>
-            <p>研究特点：反问题及稀疏表达</p>
-            <a href="https://elad.cs.technion.ac.il/" target="_blank">GenForce</a>
-        </div>
-        <div class="card">
-          <h3>Peyman Milanfar  (Google)</h3>
-          <p>研究特点：反问题及稀疏表达</p>
-          <a href="https://sites.google.com/view/milanfarhome/" target="_blank">GenForce</a>
-      </div>
-        <div class="card">
-          <h3>Lei Zhang (香港理工大学)</h3>
-          <p>研究特点：擅长图像及视频的恢复和增强</p>
-          <a href="https://www4.comp.polyu.edu.hk/~cslzhang/" target="_blank">Homepage</a>
-      </div>
-      <div class="card">
-        <h3>孟德宇 (西安交通大学)</h3>
-        <p>研究特点：元学习、变分贝叶斯和深度学习可解释性</p>
-        <a href="https://gr.xjtu.edu.cn/web/dymeng/1" target="_blank">Homepage</a>
-    </div>
-      <div class="card">
-        <h3>周博磊  (香港中文大学)</h3>
-        <p>研究特点：擅长场景理解及其可解释性</p>
-        <a href="genforce.github.io/" target="_blank">GenForce</a>
-    </div>
-        <div class="card">
-          <h3>顾舒航 (电子科技大学)</h3>
-          <p>研究特点：主要研究方向为底层视觉 </p>
-          <a href="https://shuhanggu.github.io/" target="_blank">Homepage</a>
-        </div>
-        <div class="card">
-          <h3>林宙辰 (北京大学)</h3>
-          <p>研究特点：主要研究方向为机器学习、优化方法、计算机视觉等</p>
-          <a href="https://zero-lab-pku.github.io/" target="_blank">ZERO Lab</a>
-      </div>
-        <div class="card">
-          <h3>刘日升 (大连理工大学)</h3>
-          <p>研究特点：主要研究方向为计算机视觉、深度学习、最优化方法等</p>
-          <a href="https://rsliu.tech/" target="_blank">VLOG</a>
-      </div>
-      <div class="card">
-        <h3>山世光 (中科院计算所)   </h3>
-        <p>研究特点：擅长视觉自监督</p>
-        <a href="https://people.ucas.ac.cn/~sgshan" target="_blank">Homepage</a>
-    </div>
-      <div class="card">
-        <h3>左旺孟 (哈尔滨工业大学)   </h3>
-        <p>研究特点：擅长计算机视觉和机器学习</p>
-        <a href="http://homepage.hit.edu.cn/wangmengzuo" target="_blank">Homepage</a>
-    </div>
-    <div class="card">
-      <h3>谢伟迪 (牛津大学)    </h3>
-      <p>研究特点：主要聚焦视频理解自监督学习</p>
-      <a href="https://weidixie.github.io/" target="_blank">VGG</a>
-  </div>
-    <div class="card">
-      <h3>王淑君（香港理工大学）
-
-      </h3>
-      <p>研究特点：多任务和跨模态医疗图像分析</p>
-      <a href="https://emma-sjwang.github.io/" target="_blank">Homepage</a>
-  </div>
-
-  <div class="card">
-    <h3>Tianfan XUE（香港中文大学）
-
-    </h3>
-    <p>研究特点：NeRF和Computational Photography</p>
-    <a href="https://tianfan.info/index.html" target="_blank">Homepage</a>
-</div>
-<div class="card">
-  <h3>Henry Arguello （Universidad Industrial de Santander）
-  </h3>
-  <p>研究特点：compressive sensing</p>
-  <a href="https://scholar.google.com/citations?hl=zh-CN&user=R7gjbGIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Google Scholar</a>
-</div>
-<div class="card">
-  <h3>Chen Zhao （KAUST）
-  </h3>
-  <p>研究特点：Image/video understandingy</p>
-  <a href="https://chenzhao.netlify.app/" target="_blank">Homepage</a>
-</div>
-<div class="card">
-  <h3>Rice ECE
-  </h3>
-  <p>研究特点：DIGITAL SIGNAL PROCESSING</p>
-  <a href="https://dsp.rice.edu/" target="_blank">Homepage</a>
-</div>
-<div class="card">
-  <h3>施柏鑫 (北京大学)
-  </h3>
-  <p>研究特点： Computational photography and computer vision</p>
-  <a href="https://ci.idm.pku.edu.cn/" target="_blank">Homepage</a>
-</div>
-<div class="card">
-  <h3>Vincent Sitzmann
-  </h3>
-  <p>研究特点：  Neural scene representations</p>
-  <a href="https://www.vincentsitzmann.com/" target="_blank">Homepage</a>
-</div>
-<div class="card">
-  <h3>Israel Cohen
-  </h3>
-  <p>研究特点：  Array processing, statistical signal processing</p>
-  <a href="https://israelcohen.com/about-me/" target="_blank">Homepage</a>
-</div>
-<div class="card">
-  <h3> Stanford computational imaging
-  </h3>
-  <p>研究特点：  Neural scene representations and diffusion models</p>
-  <a href="https://www.computationalimaging.org/publications/" target="_blank">Homepage</a>
-</div>
-<div class="card">
-  <h3> Hao Su
-  </h3>
-  <p>研究特点：  3D modeling and robot learning</p>
-  <a href="https://cseweb.ucsd.edu/~haosu/" target="_blank">Homepage</a>
-</div>
-<div class="card">
-  <h3>AI Blogs )
-  </h3>
-  <p>Feature： This is a collection of good blogs.</p>
-  <a href="https://lilianweng.github.io/" target="_blank">Lil'log</a>
-  <a href="https://kexue.fm/" target="_blank">KeXue（苏剑林）</a>
-  <a href="https://colah.github.io/" target="_blank">Colah</a>
-  <a href="https://distill.pub/" target="_blank">Distill</a>
-  <a href="https://www.reddit.com/r/MachineLearning/" target="_blank">reddit</a>
-  <a href="https://pyimagesearch.com/category/deep-learning/" target="_blank">Pyimagesearch</a>
-  <a href="https://www.cnblogs.com/pinard" target="_blank">Jianping Liu(刘建平)</a>
-  <a href="https://vsehwag.github.io/blog/2023/2/all_papers_on_diffusion.html" target="_blank">Diffusion Model</a>
-  <a href="  https://udlbook.github.io/udlbook/" target="_blank">Understand DL</a>
-  <a href="https://sander.ai/" target="_blank">Sander</a>
-  <a href="https://www.tonyduan.com/diffusion/index.html" target="_blank">Tonyduan</a>
-  <a href="https://mlg.eng.cam.ac.uk/blog/" target="_blank">Cambridge</a>
-
-
-</div>
-<div class="card">
-  <h3>Low-lever Vision Groups (底层视觉团队)
-  </h3>
-  <p>研究特点： This research area aims to develop methods that can enhance images, remove noise, detect edges, perform image denoising, and handle other fundamental visual tasks.</p>
-  <a href="https://github.com/davidliudw/Awesome-Low-Level-Vision-Research-Groups?tab=readme-ov-file" target="_blank"><b> <font color="#0000FF">[Github]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://lowlevelcv.com/" target="_blank"><b> <font color="#0000FF">[Low Level CV]</font> </b> </a><b> <font color="#FF0000"></font> </b>
-</div>
-<div class="card">
-  <h3>Large language model (大语言模型)
-  </h3>
-  <p>研究特点： A large language model (LLM) is a type of artificial intelligence (AI) model trained on massive amounts of text data to perform various natural language processing (NLP) tasks.</p>
-  <a href="https://github.com/ZJU-LLMs/Foundations-of-LLMs" target="_blank"><b> <font color="#0000FF">[Foundations-of-LLMs]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://magazine.sebastianraschka.com/" target="_blank"><b> <font color="#0000FF">[Ahead_of_AI]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://pub.towardsai.net/" target="_blank"><b> <font color="#0000FF">[TowardsAI]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://conlaw.github.io/llm_opt_tutorial/tutorial.html" target="_blank"><b> <font color="#0000FF">[LLM Optimization Tutorial]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://b23.tv/kWj6MGx" target="_blank"><b> <font color="#0000FF">[Bilibili course]</font> </b> </a><b> <font color="#FF0000"></font> </b>
-</div>
-<div class="card">
-  <h3>Tensor train arithmetic
-  </h3>
-  <p>研究特点： Tensor train is used to mitigate Curse of dimensionality.</p>
-  <a href="https://scholar.google.com/citations?user=uxlQvnUAAAAJ&hl=zh-CN&oi=sra" target="_blank"><b> <font color="#0000FF">[Lorenz Richter]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://scholar.google.com/citations?user=19r6EoYAAAAJ&hl=zh-CN&oi=sra" target="_blank"><b> <font color="#0000FF">[Nikolas Nüsken]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://scholar.google.com/citations?user=OmkS6dgAAAAJ&hl=zh-CN&oi=sra" target="_blank"><b> <font color="#0000FF">[Boris Khoromskij]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://scholar.google.com/citations?user=5vT380gAAAAJ&hl=en" target="_blank"><b> <font color="#0000FF">[Daniele Venturi]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://users.cs.utah.edu/~zhe/" target="_blank"><b> <font color="#0000FF">[Shandian Zhe (GP)]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://scholar.google.com/citations?user=-PSjJ1oAAAAJ&hl=zh-CN&oi=sra" target="_blank"><b> <font color="#0000FF">[Sergey Dolgov]</font></b></a><b> <font color="#FF0000">|</font> </b>
-  <a href="https://scholar.google.ca/citations?user=t5Bxl1kAAAAJ&hl=en&oi=sra" target="_blank"><b> <font color="#0000FF">[Kejun Tang]</font> </b> </a><b> <font color="#FF0000"></font> </b>
-</div>
-        <!-- You can copy and paste the above div.card block to add more scholars -->
-
-      </div>
-      <!-- You can copy and paste the above div.card block to add more tools -->
-    </main>
-
-
 <footer>
-    <p>&copy; 2025 AI Resources. All rights reserved.</p>
-  </footer>
+    <div class="container">
+        <p>&copy; 2025 AI Resources Collection. All rights reserved.</p>
+    </div>
+</footer>
+
+<div id="back_top" aria-label="Back to top" title="Back to top">
+    <div class="arrow"></div>
+    <div class="stick"></div>
+</div>
+
+<script>
+    (function () {
+        const backTop = document.getElementById('back_top');
+        if (!backTop) return;
+
+        const toggleBackTop = () => {
+            if (window.scrollY > 320) {
+                backTop.classList.add('show');
+            } else {
+                backTop.classList.remove('show');
+            }
+        };
+
+        window.addEventListener('scroll', toggleBackTop, { passive: true });
+        backTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        toggleBackTop();
+    })();
+</script>
+
 </body>
 </html>

@@ -239,13 +239,74 @@
             border-radius: 9999px;
             font-size: 0.85rem;
             font-weight: 600;
-            transition: background-color 0.2s ease, color 0.2s ease;
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
             border: 1px solid #bfdbfe;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            position: relative;
+        }
+
+        .link-badge::before {
+            content: "↗";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            flex: 0 0 16px;
+            border-radius: 999px;
+            background: rgba(37, 99, 235, 0.12);
+            color: var(--primary);
+            font-size: 0.72rem;
+            line-height: 1;
+        }
+
+        .link-badge[data-icon]::before {
+            content: attr(data-icon);
+        }
+
+        .link-badge[data-summary]::after {
+            content: attr(data-summary);
+            position: absolute;
+            left: 50%;
+            bottom: calc(100% + 10px);
+            width: max-content;
+            max-width: 280px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            background: #0f172a;
+            color: #ffffff;
+            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.22);
+            font-size: 0.78rem;
+            font-weight: 500;
+            line-height: 1.4;
+            white-space: normal;
+            text-align: left;
+            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translate(-50%, 4px);
+            transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+            z-index: 60;
         }
 
         .link-badge:hover {
             background-color: var(--primary);
             color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .link-badge:hover::before {
+            background: rgba(255, 255, 255, 0.18);
+            color: #ffffff;
+        }
+
+        .link-badge[data-summary]:hover::after,
+        .link-badge[data-summary]:focus-visible::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, 0);
         }
 
         footer {
@@ -350,13 +411,21 @@
                 <h3>Literature Review</h3>
                 <p>AI tools for searching papers.</p>
                 <div class="links-wrapper">
-                    <a href="https://www.paperdigest.org/" target="_blank" class="link-badge">Paper Digest</a>
-                    <a href="https://elicit.com/" target="_blank" class="link-badge">Elicit</a>
-                    <a href="https://www.connectedpapers.com/" target="_blank" class="link-badge">Connected Paper</a>
-                    <a href="https://www.researchrabbit.ai/" target="_blank" class="link-badge">Research Rabbit</a>
-                    <a href="https://www.semanticscholar.org/" target="_blank" class="link-badge">Semantic Scholar</a>
+                    <a href="https://www.paperdigest.org/" target="_blank" class="link-badge" data-icon="📄" data-summary="自动提炼论文摘要、研究问题和关键发现，适合快速扫文献。">Paper Digest</a>
+                    <a href="https://scite.ai/" target="_blank" class="link-badge" data-icon="🔎" data-summary="查看引用语境，区分支持、反驳和普通引用，适合判断论文影响。">Scite</a>
+                    <a href="https://evidencehunt.com/" target="_blank" class="link-badge" data-icon="⚕" data-summary="面向医学和生命科学的证据检索，适合快速找临床研究依据。">EvidenceHunt</a>
+                    <a href="https://elicit.com/" target="_blank" class="link-badge" data-icon="🧠" data-summary="用研究问题检索论文，并抽取方法、结论、变量等结构化信息。">Elicit</a>
+                    <a href="https://www.connectedpapers.com/" target="_blank" class="link-badge" data-icon="🕸" data-summary="根据一篇论文生成相关文献图谱，适合顺藤摸瓜扩展阅读。">Connected Paper</a>
+                    <a href="https://www.researchrabbit.ai/" target="_blank" class="link-badge" data-icon="🕸" data-summary="追踪论文、作者和引用网络，适合长期跟踪一个研究方向。">Research Rabbit</a>
+                    <a href="https://www.litmaps.com/" target="_blank" class="link-badge" data-icon="🗺" data-summary="构建文献地图并监控新论文，适合维护课题的文献脉络。">Litmaps</a>
+                    <a href="https://www.openread.academy/" target="_blank" class="link-badge" data-icon="📖" data-summary="AI 论文阅读、笔记和问答平台，适合精读论文和整理思路。">OpenRead</a>
+                    <a href="https://www.editage.com/r-discovery" target="_blank" class="link-badge" data-icon="📚" data-summary="个性化论文推荐和阅读管理工具，适合发现新发表的相关论文。">R Discovery</a>
+                    <a href="https://scispace.com/" target="_blank" class="link-badge" data-icon="🎓" data-summary="论文检索、解释和 Copilot 问答，适合读不熟悉领域的论文。">SciSpace</a>
+                    <a href="https://globalcampus.ai/" target="_blank" class="link-badge" data-icon="🌐" data-summary="面向研究者的 AI 学术社交和合作网络，适合找同行与合作机会。">Global Campus</a>
+                    <a href="https://www.semanticscholar.org/" target="_blank" class="link-badge" data-icon="🔎" data-summary="语义学术搜索引擎，适合查论文、作者、引用和相关工作。">Semantic Scholar</a>
+                    <a href="https://github.com/ustc-ai4science/academic-search" target="_blank" class="link-badge" data-icon="🔬" data-summary="Claude Code 学术检索 skill，整合 arXiv、Semantic Scholar、OpenAlex、Crossref、Unpaywall、Google Scholar、CNKI 等多源检索。">Academic Search</a>
                     <a href="https://www.scidown.cn/" target="_blank" class="link-badge">SCIdown</a>
-                    <a href="https://consensus.app/" target="_blank" class="link-badge">Consensus</a>
+                    <a href="https://consensus.app/" target="_blank" class="link-badge" data-icon="✅" data-summary="基于论文给出共识型答案，适合快速了解一个问题的研究结论。">Consensus</a>
                     <a href="https://huggingface.co/spaces/qingxu98/gpt-academic" target="_blank" class="link-badge">Gpt academic</a>
                     <a href="https://arxiv-sanity-lite.com/" target="_blank" class="link-badge">arxiv-sanity</a>
                     <a href="https://arxivxplorer.com/" target="_blank" class="link-badge">xplorer</a>
@@ -373,9 +442,14 @@
                 <h3>Literature Read</h3>
                 <p>AI tools for reading papers.</p>
                 <div class="links-wrapper">
-                    <a href="https://easypdf.ai/" target="_blank" class="link-badge">EasyPDF</a>
-                    <a href="https://papers.cool/" target="_blank" class="link-badge">PapersCool</a>
-                    <a href="https://github.com/kaixindelele/ChatPaper" target="_blank" class="link-badge">ChatPaper</a>
+                    <a href="https://easypdf.ai/" target="_blank" class="link-badge" data-icon="📄" data-summary="和 PDF 对话，快速提问、总结和定位论文内容。">EasyPDF</a>
+                    <a href="https://papers.cool/" target="_blank" class="link-badge" data-icon="📚" data-summary="论文浏览和发现工具，适合快速查看热门论文与相关工作。">PapersCool</a>
+                    <a href="https://github.com/kaixindelele/ChatPaper" target="_blank" class="link-badge" data-icon="💬" data-summary="开源论文问答与总结项目，适合本地化或二次开发。">ChatPaper</a>
+                    <a href="https://www.scholarcy.com/" target="_blank" class="link-badge" data-icon="📝" data-summary="把论文拆成摘要卡片，提炼重点、方法和引用信息。">Scholarcy</a>
+                    <a href="https://scispace.com/" target="_blank" class="link-badge" data-icon="🎓" data-summary="解释论文段落、公式和术语，适合边读边问。">SciSpace Copilot</a>
+                    <a href="https://www.humata.ai/" target="_blank" class="link-badge" data-icon="💬" data-summary="上传 PDF 后进行问答和摘要，适合快速理解长文档。">Humata</a>
+                    <a href="https://notebooklm.google.com/" target="_blank" class="link-badge" data-icon="📓" data-summary="基于你上传的资料做问答、总结和知识整理，适合读文献包。">NotebookLM</a>
+                    <a href="https://julius.ai/" target="_blank" class="link-badge" data-icon="📊" data-summary="用自然语言分析数据、生成图表和解释结果，适合读实验数据和表格。">Julius</a>
                 </div>
             </div>
 
@@ -386,6 +460,7 @@
                     <a href="http://easyessay.ai/" target="_blank" class="link-badge">EasyEssay</a>
                     <a href="http://dawei.work:8080/s/jfsgAytoXgaL5bj" target="_blank" class="link-badge">Prompts</a>
                     <a href="https://www.promptgenius.site/" target="_blank" class="link-badge">Prompts Genius</a>
+                    <a href="https://jenni.ai/" target="_blank" class="link-badge" data-icon="✍" data-summary="面向学术写作的 AI 助手，适合润色、续写和整理引用。">Jenni</a>
                     <a href="https://github.com/Leey21/awesome-ai-research-writing" target="_blank" class="link-badge">Awesome AI Writing</a>
                 </div>
             </div>
@@ -397,9 +472,9 @@
                     <a href="https://boredhumans.com/cartoonify.php" target="_blank" class="link-badge">Cartoonify</a>
                     <a href="https://www.canva.com/" target="_blank" class="link-badge">Canva</a>
                     <a href="https://image.nixiangshi.com/" target="_blank" class="link-badge">Vector graph trans</a>
-                    <a href="https://github.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts" target="_blank" class="link-badge">GPT Image Prompts</a>
+                    <a href="https://github.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts" target="_blank" class="link-badge" data-icon="🎨" data-summary="GPT Image 相关 API 与提示词集合，适合学习和复用图像生成提示词。">GPT Image Prompts</a>
                     <a href="https://convertio.co/jpg-svg/" target="_blank" class="link-badge">Convertio JPG SVG</a>
-                    <a href="https://www.napkin.ai/" target="_blank" class="link-badge">Napkin</a>
+                    <a href="https://www.napkin.ai/" target="_blank" class="link-badge" data-icon="🧩" data-summary="把文字想法转成图示、流程图和视觉表达，适合做汇报插图。">Napkin</a>
                     <a href="https://www.upscale.media/upload" target="_blank" class="link-badge">Upscale Media</a>
                     <a href="https://removal.ai/upload/" target="_blank" class="link-badge">Removal.ai</a>
                     <a href="https://yandex.com/" target="_blank" class="link-badge">Yandex</a>
@@ -415,7 +490,6 @@
                     <a href="https://deepwiki.com/" target="_blank" class="link-badge">deepwiki</a>
                     <a href="https://gitmcp.io" target="_blank" class="link-badge">gitmcp</a>
                     <a href="https://codemap.info" target="_blank" class="link-badge">CodeMap</a>
-                    <a href="https://notebooklm.google.com/" target="_blank" class="link-badge">notebooklm</a>
                     <a href="https://zread.ai" target="_blank" class="link-badge">zread</a>
                     <a href="https://gitdiagram.com/" target="_blank" class="link-badge">GitDiagram</a>
                     <a href="https://gituml.com/listz" target="_blank" class="link-badge">GitUML</a>
@@ -427,6 +501,14 @@
                     <a href="https://modelscope.cn/" target="_blank" class="link-badge">ModelScope</a>
                     <a href="https://optuna.org/" target="_blank" class="link-badge">optuna</a>
                     <a href="https://replit.com/~" target="_blank" class="link-badge">Replit</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Qualitative Data Analysis</h3>
+                <p>Tools for coding, interpreting, and organizing qualitative research data.</p>
+                <div class="links-wrapper">
+                    <a href="https://atlasti.com/" target="_blank" class="link-badge" data-icon="📋" data-summary="质性研究分析软件，适合访谈、文本和编码分析。">ATLAS.ti</a>
                 </div>
             </div>
 
@@ -998,6 +1080,22 @@
 
 <script>
     (function () {
+        document.querySelectorAll('.link-badge').forEach((link) => {
+            const label = link.textContent.trim();
+            const card = link.closest('.card');
+            const category = card && card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : 'resource';
+
+            if (!link.dataset.summary) {
+                link.dataset.summary = `${label}: open this ${category} resource.`;
+            }
+
+            if (!link.dataset.icon) {
+                link.dataset.icon = '↗';
+            }
+
+            link.setAttribute('aria-label', `${label} - ${link.dataset.summary}`);
+        });
+
         const backTop = document.getElementById('back_top');
         if (!backTop) return;
 

@@ -1,0 +1,1066 @@
+<!DOCTYPE html><html><head>
+      <title>research_code_guidelines_full_automation_visualization</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\lenovo\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.22\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script>
+    </head>
+    <body for="html-export">
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="研究生科研代码注意事项完整版版本管理-实验记录-可扩展性-自动化-异常处理与可视化总结">研究生科研代码注意事项（完整版：版本管理、实验记录、可扩展性、自动化、异常处理与可视化总结） </h1>
+<p>这份文档面向研究生日常科研开发，目标不是“把代码写得很花”，而是让代码真正具备科研价值。<br>
+一份合格的科研代码，至少要满足以下六个要求：</p>
+<ol>
+<li><strong>能复现</strong>：同样的代码和参数，过一周、一个月、半年后还能跑出同样结果。</li>
+<li><strong>能追踪</strong>：知道每个结果来自哪一版代码、哪一组参数、哪一次实验。</li>
+<li><strong>能扩展</strong>：今天能做一个实验，明天能很方便扩展成一组实验。</li>
+<li><strong>能自动化</strong>：批量实验、日志输出、结果汇总、画图分析尽量自动完成。</li>
+<li><strong>能定位问题</strong>：程序出错时能快速知道哪里错、为什么错。</li>
+<li><strong>能总结结论</strong>：实验结束后能用图表和交互方式快速看出规律，而不是手工翻日志。</li>
+</ol>
+<p>很多论文难以复现、结果前后不一致、后续学生无法接手，往往不是算法本身的问题，而是代码管理、实验记录和自动化流程做得不够规范。</p>
+<hr>
+<h1 id="一-版本管理多用-git命名规范过程可追踪">一、版本管理：多用 Git，命名规范，过程可追踪 </h1>
+<p>版本管理的核心目的不是“备份代码”，而是：</p>
+<ul>
+<li>记录每次改了什么</li>
+<li>知道哪版代码对应哪组实验结果</li>
+<li>出错时能快速回退</li>
+<li>多人协作时避免互相覆盖</li>
+<li>论文投稿和修改时快速定位结果来源</li>
+</ul>
+<hr>
+<h2 id="11-一定要使用-git不要手动保存多个最终版文件夹">1.1 一定要使用 Git，不要手动保存多个最终版文件夹 </h2>
+<p>错误示例：</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>final_code.py
+final_code2.py
+final_code_final.py
+final_code_final_new.py
+final_code_final_new2_真的最终版.py
+</code></pre><p>这种做法最大的问题是：</p>
+<ul>
+<li>不知道每一版改了什么</li>
+<li>不知道哪个版本对应论文图 3</li>
+<li>容易误删和覆盖</li>
+<li>文件越来越乱</li>
+<li>过几天自己都看不懂</li>
+</ul>
+<p>正确做法是：</p>
+<ul>
+<li>一个项目对应一个 Git 仓库</li>
+<li>每完成一个明确修改就 commit</li>
+<li>重要实验节点打 tag</li>
+<li>新功能和新思路使用 branch</li>
+</ul>
+<hr>
+<h2 id="12-推荐项目目录结构">1.2 推荐项目目录结构 </h2>
+<p>建议一个科研项目至少组织成下面这样：</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>project/
+│
+├── configs/                  # 配置文件
+│   ├── default.json
+│   ├── noise_sweep.json
+│   ├── field_data.json
+│   └── ablation_hash.json
+│
+├── data/                     # 数据或数据说明
+│   ├── raw/
+│   ├── processed/
+│   └── README.md
+│
+├── scripts/                  # Bash / 调度脚本
+│   ├── run_train.sh
+│   ├── run_batch.sh
+│   ├── run_parallel.sh
+│   └── summarize_results.sh
+│
+├── src/                      # 核心源码
+│   ├── train.py
+│   ├── test.py
+│   ├── dataset.py
+│   ├── models/
+│   ├── losses.py
+│   ├── trainer.py
+│   ├── metrics.py
+│   ├── utils/
+│   └── visualization/
+│
+├── experiments/              # 每次实验独立输出目录
+│   ├── exp_20260416_101500_snr10_seed42/
+│   ├── exp_20260416_102300_snr12_seed43/
+│   └── summary/
+│
+├── notebooks/                # 仅用于分析和临时探索
+├── tests/                    # 单元测试或简单检查脚本
+├── README.md
+├── requirements.txt
+├── environment.yml
+└── .gitignore
+</code></pre><p>优点：</p>
+<ul>
+<li>代码、配置、数据、结果分离</li>
+<li>目录清晰，便于接手</li>
+<li>方便写自动化脚本</li>
+<li>后期维护成本低</li>
+</ul>
+<p>参考文档：</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/523869554/answer/2701131154?share_code=11OwKlQqxYKT&amp;utm_psn=2028139701232574613">如何写train模板，里面的几个回答都看看</a></li>
+<li><a href="https://github.com/songquanpeng/pytorch-template">Template Demo1</a></li>
+<li><a href="https://github.com/moemen95/Pytorch-Project-Template">Template Demo2</a></li>
+</ul>
+<hr>
+<h2 id="13-命名要规范文件名-变量名-实验名都要见名知意">1.3 命名要规范：文件名、变量名、实验名都要见名知意 </h2>
+<h3 id="不推荐的命名">不推荐的命名 </h3>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>a <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+tmp <span class="token operator">=</span> model<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+dn <span class="token operator">=</span> data_norm
+dr <span class="token operator">=</span> result
+</code></pre><p>问题：</p>
+<ul>
+<li>看不出来含义</li>
+<li>容易误解</li>
+<li>后期自己都忘记</li>
+</ul>
+<h3 id="推荐的命名">推荐的命名 </h3>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>num_noise_levels <span class="token operator">=</span> <span class="token number">9</span>
+num_trials <span class="token operator">=</span> <span class="token number">20</span>
+snr_results <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span>num_noise_levels<span class="token punctuation">,</span> num_trials<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+predicted_wavefield <span class="token operator">=</span> model<span class="token punctuation">(</span>input_coordinates<span class="token punctuation">)</span>
+normalized_seismic_data <span class="token operator">=</span> normalize<span class="token punctuation">(</span>seismic_data<span class="token punctuation">)</span>
+reconstructed_section <span class="token operator">=</span> reconstruction_result
+</code></pre><h3 id="文件命名建议">文件命名建议 </h3>
+<p>推荐：</p>
+<ul>
+<li><code>train_inr.py</code></li>
+<li><code>test_interpolation.py</code></li>
+<li><code>plot_snr_curve.py</code></li>
+<li><code>summarize_experiments.py</code></li>
+<li><code>visualize_dashboard.py</code></li>
+</ul>
+<p>避免：</p>
+<ul>
+<li><code>test.py</code></li>
+<li><code>new.py</code></li>
+<li><code>aaa.py</code></li>
+<li><code>临时代码.py</code></li>
+</ul>
+<hr>
+<h2 id="14-git-commit-信息必须有意义">1.4 Git commit 信息必须有意义 </h2>
+<p>错误示例：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"update"</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"fix"</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"修改"</span>
+</code></pre><p>这种 commit 几乎没有任何价值。</p>
+<p>推荐写法：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"add configurable noise sweep for SNR experiments"</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"fix receiver coordinate normalization bug"</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"refactor training loop into Trainer class"</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"save final config and command to output directory"</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"add interactive experiment dashboard"</span>
+</code></pre><p>好的 commit 信息至少要说明：</p>
+<ul>
+<li>做了什么</li>
+<li>为什么做</li>
+<li>是否会影响实验结果</li>
+</ul>
+<h4 id="提交信息规范命名回头看能看懂">提交信息：规范命名，“回头看”能看懂 </h4>
+<ul>
+<li>
+<p><strong>提交格式</strong>：<code>&lt;type&gt;: &lt;subject&gt;</code>（类型+简短描述），类型可选：</p>
+<ul>
+<li><code>feat</code>：新功能（如添加维度解耦模块）</li>
+<li><code>fix</code>：修复bug（如修正SNR计算错误）</li>
+<li><code>docs</code>：文档更新（如补充README参数说明）</li>
+<li><code>refactor</code>：代码重构（不改变功能，如封装函数）</li>
+</ul>
+</li>
+<li>
+<p><strong>正反示例</strong>：</p>
+<p>❌ 坏提交：<code>git commit -m "改了点代码"</code><br>
+✅ 好提交：<code>git commit -m "feat: 添加五维地震波场重建的张量隐式网络模块"</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="15-分支管理建议">1.5 分支管理建议 </h2>
+<p>最简单实用的策略：</p>
+<ul>
+<li><code>main</code>：稳定可复现版本</li>
+<li><code>dev</code>：日常开发</li>
+<li><code>feature/...</code>：新功能</li>
+<li><code>exp/...</code>：临时实验思路</li>
+</ul>
+<p>例如：</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>feature/add-hash-encoding
+feature/add-result-dashboard
+exp/test-lora-adaptation
+exp/try-lower-learning-rate
+</code></pre><hr>
+<h2 id="16-重要实验版本打-tag">1.6 重要实验版本打 tag </h2>
+<p>例如：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> tag v1.0-submitted
+<span class="token function">git</span> tag v1.1-camera-ready
+<span class="token function">git</span> tag exp-best-synthetic
+<span class="token function">git</span> tag exp-field-data-final
+</code></pre><p>这样后续：</p>
+<ul>
+<li>写论文</li>
+<li>改稿</li>
+<li>回复审稿人</li>
+<li>复现实验</li>
+</ul>
+<p>都会方便很多。</p>
+<hr>
+<h2 id="17-一定要写-gitignore">1.7 一定要写 <code>.gitignore</code> </h2>
+<ul>
+<li>
+<p><strong>核心作用</strong>：忽略临时文件、依赖包、大体积实验结果，避免仓库臃肿。否则会把缓存、结果、模型权重和临时文件全提交上去。</p>
+</li>
+<li>
+<p><strong>科研场景示例</strong>（<code>.gitignore</code> 文件内容）：</p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="gitignore" class="language-gitignore gitignore"><code><span class="token entry string">__pycache__<span class="token punctuation">/</span></span>
+<span class="token entry string"><span class="token operator">*</span>.pyc</span>
+<span class="token entry string"><span class="token operator">*</span>.pkl</span>
+<span class="token entry string"><span class="token operator">*</span>.npy</span>
+<span class="token entry string"><span class="token operator">*</span>.npz</span>
+<span class="token entry string"><span class="token operator">*</span>.mat</span>
+<span class="token entry string"><span class="token operator">*</span>.h5</span>
+<span class="token entry string"><span class="token operator">*</span>.log</span>
+<span class="token entry string"><span class="token operator">*</span>.ckpt</span>
+<span class="token entry string"><span class="token operator">*</span>.pth</span>
+<span class="token entry string"><span class="token operator">*</span>.pt</span>
+<span class="token entry string">experiments<span class="token punctuation">/</span></span>
+<span class="token entry string">wandb<span class="token punctuation">/</span></span>
+<span class="token entry string">.vscode<span class="token punctuation">/</span></span>
+<span class="token entry string">.ipynb_checkpoints<span class="token punctuation">/</span></span>
+</code></pre><hr>
+<h1 id="二-实验记录输出所有参数保证结果可复现">二、实验记录：输出所有参数，保证结果可复现 </h1>
+<p>实验记录的核心原则：</p>
+<blockquote>
+<p><strong>任何一张图、一个表、一个数值结论，都必须能追溯到具体代码版本、参数配置和运行环境。</strong></p>
+</blockquote>
+<p>如果做不到，实验基本上就不算可复现。</p>
+<hr>
+<h2 id="21-所有参数必须显式输出">2.1 所有参数必须显式输出 </h2>
+<p>错误示例：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>lr <span class="token operator">=</span> <span class="token number">1e-3</span>
+epochs <span class="token operator">=</span> <span class="token number">3000</span>
+batch_size <span class="token operator">=</span> <span class="token number">4096</span>
+rank <span class="token operator">=</span> <span class="token number">16</span>
+hidden_dim <span class="token operator">=</span> <span class="token number">128</span>
+</code></pre><p>问题：</p>
+<ul>
+<li>参数散落在代码里</li>
+<li>很难追踪</li>
+<li>最优结果怎么来的说不清楚</li>
+</ul>
+<p>正确做法：</p>
+<ul>
+<li>所有参数集中到配置文件</li>
+<li>程序运行时自动保存一份“最终生效参数”</li>
+</ul>
+<hr>
+<h2 id="22-推荐配置文件示例">2.2 推荐配置文件示例 </h2>
+<p>例如 <code>configs/default.json</code>：</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+    <span class="token property">"experiment_name"</span><span class="token operator">:</span> <span class="token string">"default_inr"</span><span class="token punctuation">,</span>
+    <span class="token property">"dataset_name"</span><span class="token operator">:</span> <span class="token string">"synthetic_5d"</span><span class="token punctuation">,</span>
+    <span class="token property">"snr"</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+    <span class="token property">"seed"</span><span class="token operator">:</span> <span class="token number">42</span><span class="token punctuation">,</span>
+    <span class="token property">"epochs"</span><span class="token operator">:</span> <span class="token number">3000</span><span class="token punctuation">,</span>
+    <span class="token property">"learning_rate"</span><span class="token operator">:</span> <span class="token number">0.001</span><span class="token punctuation">,</span>
+    <span class="token property">"batch_size"</span><span class="token operator">:</span> <span class="token number">4096</span><span class="token punctuation">,</span>
+    <span class="token property">"hidden_dim"</span><span class="token operator">:</span> <span class="token number">128</span><span class="token punctuation">,</span>
+    <span class="token property">"num_layers"</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+    <span class="token property">"activation"</span><span class="token operator">:</span> <span class="token string">"sine"</span><span class="token punctuation">,</span>
+    <span class="token property">"model_type"</span><span class="token operator">:</span> <span class="token string">"inr"</span><span class="token punctuation">,</span>
+    <span class="token property">"save_root"</span><span class="token operator">:</span> <span class="token string">"experiments"</span><span class="token punctuation">,</span>
+    <span class="token property">"num_trials"</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+    <span class="token property">"noise_levels"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="23-建议每次实验至少输出以下内容">2.3 建议每次实验至少输出以下内容 </h2>
+<h3 id="基本信息">基本信息 </h3>
+<ul>
+<li>实验名称</li>
+<li>时间戳</li>
+<li>代码版本号</li>
+<li>Git commit hash</li>
+<li>配置文件路径</li>
+<li>启动命令</li>
+</ul>
+<h3 id="模型信息">模型信息 </h3>
+<ul>
+<li>模型类型</li>
+<li>网络层数</li>
+<li>隐层宽度</li>
+<li>激活函数</li>
+<li>编码方式</li>
+<li>rank / TT-rank / TR-rank</li>
+</ul>
+<h3 id="训练信息">训练信息 </h3>
+<ul>
+<li>学习率</li>
+<li>batch size</li>
+<li>epoch 数</li>
+<li>优化器</li>
+<li>scheduler</li>
+<li>loss 权重</li>
+<li>随机种子</li>
+</ul>
+<h3 id="数据信息">数据信息 </h3>
+<ul>
+<li>数据集名称</li>
+<li>缺失率</li>
+<li>噪声水平</li>
+<li>数据维度</li>
+<li>归一化方式</li>
+<li>数据预处理方法</li>
+</ul>
+<h3 id="输出结果">输出结果 </h3>
+<ul>
+<li>train / val / test loss</li>
+<li>SNR / PSNR / SSIM / RMSE</li>
+<li>每轮训练时间</li>
+<li>总耗时</li>
+<li>最优 epoch</li>
+<li>最优模型路径</li>
+</ul>
+<hr>
+<h2 id="24-每次实验都要自动生成独立输出目录">2.4 每次实验都要自动生成独立输出目录 </h2>
+<p>建议：</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>experiments/
+└── exp_20260416_153000_snr10_seed42/
+    ├── config_original.json
+    ├── config_used.json
+    ├── run_command.sh
+    ├── launcher.sh
+    ├── git_commit.txt
+    ├── env_info.txt
+    ├── train.log
+    ├── metrics.json
+    ├── checkpoint_best.pth
+    ├── checkpoint_last.pth
+    ├── curves/
+    └── figures/
+</code></pre><p>这样以后找结果非常方便。</p>
+<hr>
+<h2 id="25-config-与-bash-命令必须同时留痕">2.5 config 与 Bash 命令必须同时留痕 </h2>
+<p>除了保存原始配置文件 <code>config_original.json</code>，还必须保存：</p>
+<ul>
+<li><code>config_used.json</code>：最终生效参数</li>
+<li><code>run_command.sh</code>：本次实验启动命令</li>
+<li><code>launcher.sh</code>：发起实验的 Bash 脚本副本</li>
+</ul>
+<p>因为真正重要的不只是“原始配置长什么样”，而是：</p>
+<ul>
+<li>命令行覆盖了哪些参数</li>
+<li>最终到底用了什么参数</li>
+<li>这次实验是如何被启动的</li>
+</ul>
+<hr>
+<h2 id="26-python-中保存最终参数示例">2.6 Python 中保存最终参数示例 </h2>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-import">import</span> os
+<span class="token keyword keyword-import">import</span> json
+<span class="token keyword keyword-import">import</span> argparse
+<span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> datetime
+
+<span class="token keyword keyword-def">def</span> <span class="token function">load_config</span><span class="token punctuation">(</span>config_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-with">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>config_path<span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> f<span class="token punctuation">:</span>
+        <span class="token keyword keyword-return">return</span> json<span class="token punctuation">.</span>load<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+
+<span class="token keyword keyword-def">def</span> <span class="token function">save_json</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-with">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> f<span class="token punctuation">:</span>
+        json<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>data<span class="token punctuation">,</span> f<span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> ensure_ascii<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+
+parser <span class="token operator">=</span> argparse<span class="token punctuation">.</span>ArgumentParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"--config"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"--snr"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">int</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"--seed"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">int</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"--output_dir"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+args <span class="token operator">=</span> parser<span class="token punctuation">.</span>parse_args<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+config <span class="token operator">=</span> load_config<span class="token punctuation">(</span>args<span class="token punctuation">.</span>config<span class="token punctuation">)</span>
+config<span class="token punctuation">[</span><span class="token string">"config_path"</span><span class="token punctuation">]</span> <span class="token operator">=</span> args<span class="token punctuation">.</span>config
+
+<span class="token keyword keyword-if">if</span> args<span class="token punctuation">.</span>snr <span class="token keyword keyword-is">is</span> <span class="token keyword keyword-not">not</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+    config<span class="token punctuation">[</span><span class="token string">"snr"</span><span class="token punctuation">]</span> <span class="token operator">=</span> args<span class="token punctuation">.</span>snr
+<span class="token keyword keyword-if">if</span> args<span class="token punctuation">.</span>seed <span class="token keyword keyword-is">is</span> <span class="token keyword keyword-not">not</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+    config<span class="token punctuation">[</span><span class="token string">"seed"</span><span class="token punctuation">]</span> <span class="token operator">=</span> args<span class="token punctuation">.</span>seed
+
+timestamp <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">"%Y%m%d_%H%M%S"</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-if">if</span> args<span class="token punctuation">.</span>output_dir <span class="token keyword keyword-is">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+    exp_name <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"exp_</span><span class="token interpolation"><span class="token punctuation">{</span>timestamp<span class="token punctuation">}</span></span><span class="token string">_snr</span><span class="token interpolation"><span class="token punctuation">{</span>config<span class="token punctuation">[</span><span class="token string">'snr'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">_seed</span><span class="token interpolation"><span class="token punctuation">{</span>config<span class="token punctuation">[</span><span class="token string">'seed'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">"</span></span>
+    output_dir <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>config<span class="token punctuation">[</span><span class="token string">"save_root"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> exp_name<span class="token punctuation">)</span>
+<span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+    output_dir <span class="token operator">=</span> args<span class="token punctuation">.</span>output_dir
+
+os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>output_dir<span class="token punctuation">,</span> exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+save_json<span class="token punctuation">(</span>config<span class="token punctuation">,</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>output_dir<span class="token punctuation">,</span> <span class="token string">"config_used.json"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h2 id="27-同时保存运行命令-git-版本与环境信息">2.7 同时保存运行命令、Git 版本与环境信息 </h2>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-import">import</span> os
+<span class="token keyword keyword-import">import</span> sys
+<span class="token keyword keyword-import">import</span> shlex
+<span class="token keyword keyword-import">import</span> platform
+<span class="token keyword keyword-import">import</span> subprocess
+
+command_str <span class="token operator">=</span> <span class="token string">"python "</span> <span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>shlex<span class="token punctuation">.</span>quote<span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token keyword keyword-for">for</span> arg <span class="token keyword keyword-in">in</span> sys<span class="token punctuation">.</span>argv<span class="token punctuation">)</span>
+<span class="token keyword keyword-with">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>output_dir<span class="token punctuation">,</span> <span class="token string">"run_command.sh"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> f<span class="token punctuation">:</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"#!/bin/bash\n"</span><span class="token punctuation">)</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>command_str <span class="token operator">+</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
+
+<span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+    git_commit <span class="token operator">=</span> subprocess<span class="token punctuation">.</span>check_output<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"git"</span><span class="token punctuation">,</span> <span class="token string">"rev-parse"</span><span class="token punctuation">,</span> <span class="token string">"HEAD"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-except">except</span> Exception<span class="token punctuation">:</span>
+    git_commit <span class="token operator">=</span> <span class="token string">"unknown"</span>
+
+<span class="token keyword keyword-with">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>output_dir<span class="token punctuation">,</span> <span class="token string">"git_commit.txt"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> f<span class="token punctuation">:</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>git_commit <span class="token operator">+</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
+
+env_lines <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string-interpolation"><span class="token string">f"python_version: </span><span class="token interpolation"><span class="token punctuation">{</span>platform<span class="token punctuation">.</span>python_version<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">,</span>
+             <span class="token string-interpolation"><span class="token string">f"platform: </span><span class="token interpolation"><span class="token punctuation">{</span>platform<span class="token punctuation">.</span>platform<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">]</span>
+
+<span class="token keyword keyword-with">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>output_dir<span class="token punctuation">,</span> <span class="token string">"env_info.txt"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> f<span class="token punctuation">:</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>env_lines<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h2 id="28-日志不要只打印到终端一定要存到对应文档">2.8 日志不要只打印到终端，一定要存到对应文档 </h2>
+<p>错误做法：</p>
+<ul>
+<li>loss 只打印在屏幕上</li>
+<li>终端关掉后什么都没了</li>
+</ul>
+<p>推荐：</p>
+<ul>
+<li>终端打印</li>
+<li>文件日志同步保存</li>
+</ul>
+<p>例如：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-import">import</span> logging
+<span class="token keyword keyword-import">import</span> os
+
+logging<span class="token punctuation">.</span>basicConfig<span class="token punctuation">(</span>
+    filename<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>output_dir<span class="token punctuation">,</span> <span class="token string">"train.log"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    level<span class="token operator">=</span>logging<span class="token punctuation">.</span>INFO<span class="token punctuation">,</span>
+    <span class="token builtin">format</span><span class="token operator">=</span><span class="token string">"%(asctime)s - %(levelname)s - %(message)s"</span>
+<span class="token punctuation">)</span>
+
+logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"Training started"</span><span class="token punctuation">)</span>
+logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"snr=</span><span class="token interpolation"><span class="token punctuation">{</span>config<span class="token punctuation">[</span><span class="token string">'snr'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">, seed=</span><span class="token interpolation"><span class="token punctuation">{</span>config<span class="token punctuation">[</span><span class="token string">'seed'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h1 id="三-可扩展性少写魔法数字多配置化多封装函数">三、可扩展性：少写魔法数字，多配置化，多封装函数 </h1>
+<p>可扩展性的核心：</p>
+<blockquote>
+<p><strong>今天代码能跑一个实验，明天来了新的数据或者任务也能方便地扩展成十个、一百个实验，而不是每次都推倒重来。</strong></p>
+</blockquote>
+<hr>
+<h2 id="31-不要写魔法数字">3.1 不要写魔法数字 </h2>
+<p>错误示例：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>snr_list_noise <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre><p>这里的 <code>9</code> 和 <code>20</code> 是典型魔法数字。别人看不出来是什么意思，自己以后也容易忘。</p>
+<p>正确做法：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>num_noise_levels <span class="token operator">=</span> config<span class="token punctuation">[</span><span class="token string">"num_noise_levels"</span><span class="token punctuation">]</span>
+num_trials <span class="token operator">=</span> config<span class="token punctuation">[</span><span class="token string">"num_trials"</span><span class="token punctuation">]</span>
+snr_list_noise <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span>num_noise_levels<span class="token punctuation">,</span> num_trials<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre><p>配置文件中写：</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+    <span class="token property">"num_noise_levels"</span><span class="token operator">:</span> <span class="token number">9</span><span class="token punctuation">,</span>
+    <span class="token property">"num_trials"</span><span class="token operator">:</span> <span class="token number">20</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="32-参数统一放到-json--yaml-配置文件">3.2 参数统一放到 JSON / YAML 配置文件 </h2>
+<p>错误做法：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>noise_levels <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span>
+num_trials <span class="token operator">=</span> <span class="token number">20</span>
+hidden_dim <span class="token operator">=</span> <span class="token number">128</span>
+num_layers <span class="token operator">=</span> <span class="token number">4</span>
+lr <span class="token operator">=</span> <span class="token number">1e-3</span>
+</code></pre><p>推荐：</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+    <span class="token property">"noise_levels"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"num_trials"</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+    <span class="token property">"hidden_dim"</span><span class="token operator">:</span> <span class="token number">128</span><span class="token punctuation">,</span>
+    <span class="token property">"num_layers"</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+    <span class="token property">"learning_rate"</span><span class="token operator">:</span> <span class="token number">0.001</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="33-大段逻辑必须抽象成函数">3.3 大段逻辑必须抽象成函数 </h2>
+<p>错误写法：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-for">for</span> epoch <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>epochs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># 读数据</span>
+    <span class="token comment"># 前向传播</span>
+    <span class="token comment"># 计算loss</span>
+    <span class="token comment"># backward</span>
+    <span class="token comment"># 更新参数</span>
+    <span class="token comment"># 验证</span>
+    <span class="token comment"># 保存模型</span>
+    <span class="token comment"># 打印日志</span>
+    <span class="token comment"># 画图</span>
+</code></pre><p>这会让主程序越来越长，最终难以维护。</p>
+<p>推荐拆分：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-def">def</span> <span class="token function">train_one_epoch</span><span class="token punctuation">(</span>model<span class="token punctuation">,</span> dataloader<span class="token punctuation">,</span> optimizer<span class="token punctuation">,</span> criterion<span class="token punctuation">,</span> device<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword keyword-def">def</span> <span class="token function">validate</span><span class="token punctuation">(</span>model<span class="token punctuation">,</span> dataloader<span class="token punctuation">,</span> criterion<span class="token punctuation">,</span> device<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword keyword-def">def</span> <span class="token function">save_checkpoint</span><span class="token punctuation">(</span>model<span class="token punctuation">,</span> optimizer<span class="token punctuation">,</span> epoch<span class="token punctuation">,</span> save_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword keyword-def">def</span> <span class="token function">log_metrics</span><span class="token punctuation">(</span>metrics<span class="token punctuation">,</span> output_dir<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre><p>主流程就会更清晰：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-for">for</span> epoch <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>config<span class="token punctuation">[</span><span class="token string">"epochs"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    train_loss <span class="token operator">=</span> train_one_epoch<span class="token punctuation">(</span>model<span class="token punctuation">,</span> train_loader<span class="token punctuation">,</span> optimizer<span class="token punctuation">,</span> criterion<span class="token punctuation">,</span> device<span class="token punctuation">)</span>
+    val_loss <span class="token operator">=</span> validate<span class="token punctuation">(</span>model<span class="token punctuation">,</span> val_loader<span class="token punctuation">,</span> criterion<span class="token punctuation">,</span> device<span class="token punctuation">)</span>
+    log_metrics<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"epoch"</span><span class="token punctuation">:</span> epoch<span class="token punctuation">,</span> <span class="token string">"train_loss"</span><span class="token punctuation">:</span> train_loss<span class="token punctuation">,</span> <span class="token string">"val_loss"</span><span class="token punctuation">:</span> val_loss<span class="token punctuation">}</span><span class="token punctuation">,</span> output_dir<span class="token punctuation">)</span>
+</code></pre><hr>
+<h2 id="34-一类功能放一个模块不要全堆在一个脚本里">3.4 一类功能放一个模块，不要全堆在一个脚本里 </h2>
+<p>推荐拆分：</p>
+<ul>
+<li><code>dataset.py</code>：数据读入与预处理</li>
+<li><code>model.py</code>：模型结构</li>
+<li><code>losses.py</code>：损失函数</li>
+<li><code>trainer.py</code>：训练逻辑</li>
+<li><code>metrics.py</code>：评价指标</li>
+<li><code>summary.py</code>：汇总实验结果</li>
+<li><code>dashboard.py</code>：可视化交互界面</li>
+<li><code>utils.py</code>：通用工具函数</li>
+</ul>
+<hr>
+<h2 id="35-尽量减少重复代码">3.5 尽量减少重复代码 </h2>
+<p>错误示例：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-if">if</span> mode <span class="token operator">==</span> <span class="token string">"train"</span><span class="token punctuation">:</span>
+    <span class="token comment"># 一套数据处理</span>
+<span class="token keyword keyword-elif">elif</span> mode <span class="token operator">==</span> <span class="token string">"val"</span><span class="token punctuation">:</span>
+    <span class="token comment"># 基本重复一遍</span>
+<span class="token keyword keyword-elif">elif</span> mode <span class="token operator">==</span> <span class="token string">"test"</span><span class="token punctuation">:</span>
+    <span class="token comment"># 再复制一遍</span>
+</code></pre><p>更好的做法：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-def">def</span> <span class="token function">prepare_batch</span><span class="token punctuation">(</span>batch<span class="token punctuation">,</span> device<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword keyword-return">return</span> inputs<span class="token punctuation">,</span> targets
+</code></pre><p>训练、验证、测试都调用它。</p>
+<hr>
+<h2 id="36-主程序入口建议使用-argparse">3.6 主程序入口建议使用 argparse </h2>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-import">import</span> argparse
+
+parser <span class="token operator">=</span> argparse<span class="token punctuation">.</span>ArgumentParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"--config"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"--seed"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">int</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token number">42</span><span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"--output_dir"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+args <span class="token operator">=</span> parser<span class="token punctuation">.</span>parse_args<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><p>这样便于脚本化、自动化、批量运行。</p>
+<hr>
+<h1 id="四-自动化批量实验-结果汇总-画图分析尽量脚本化">四、自动化：批量实验、结果汇总、画图分析尽量脚本化 </h1>
+<p>自动化的核心思想：</p>
+<blockquote>
+<p><strong>不要让人去手工重复做本来可以由代码自动完成的事情。</strong></p>
+</blockquote>
+<p>建议自动化的内容包括：</p>
+<ul>
+<li>批量实验启动</li>
+<li>参数扫描</li>
+<li>多随机种子重复试验</li>
+<li>输出目录生成</li>
+<li>config 保存</li>
+<li>run command 保存</li>
+<li>日志保存</li>
+<li>指标汇总</li>
+<li>曲线绘制</li>
+<li>最终结论可视化</li>
+</ul>
+<hr>
+<h2 id="41-用-bash-驱动批量实验而不是手动改代码">4.1 用 Bash 驱动批量实验，而不是手动改代码 </h2>
+<p>错误流程：</p>
+<ol>
+<li>打开 <code>train.py</code></li>
+<li>改 <code>snr = 10</code></li>
+<li>运行</li>
+<li>改 <code>snr = 12</code></li>
+<li>再运行</li>
+<li>改 <code>seed = 43</code></li>
+<li>再运行</li>
+</ol>
+<p>这种流程非常低效，而且容易出错。</p>
+<p>推荐 Bash 脚本：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token assign-left variable">CONFIG</span><span class="token operator">=</span>configs/default.json
+<span class="token assign-left variable">SAVE_ROOT</span><span class="token operator">=</span>experiments
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> <span class="token string">"<span class="token variable">$SAVE_ROOT</span>"</span>
+
+<span class="token keyword keyword-for">for</span> <span class="token for-or-select variable">snr</span> <span class="token keyword keyword-in">in</span> <span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">..</span><span class="token number">15</span><span class="token punctuation">..</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword keyword-do">do</span>
+    <span class="token keyword keyword-for">for</span> <span class="token for-or-select variable">seed</span> <span class="token keyword keyword-in">in</span> <span class="token number">42</span> <span class="token number">43</span> <span class="token number">44</span><span class="token punctuation">;</span> <span class="token keyword keyword-do">do</span>
+        <span class="token assign-left variable">timestamp</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +<span class="token string">"%Y%m%d_%H%M%S"</span><span class="token variable">)</span></span>
+        <span class="token assign-left variable">exp_name</span><span class="token operator">=</span><span class="token string">"exp_<span class="token variable">${timestamp}</span>_snr<span class="token variable">${snr}</span>_seed<span class="token variable">${seed}</span>"</span>
+        <span class="token assign-left variable">output_dir</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${SAVE_ROOT}</span>/<span class="token variable">${exp_name}</span>"</span>
+        <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> <span class="token string">"<span class="token variable">$output_dir</span>"</span>
+
+        <span class="token assign-left variable">cmd</span><span class="token operator">=</span><span class="token string">"python train.py --config <span class="token variable">${CONFIG}</span> --snr <span class="token variable">${snr}</span> --seed <span class="token variable">${seed}</span> --output_dir <span class="token variable">${output_dir}</span>"</span>
+
+        <span class="token builtin class-name">echo</span> <span class="token string">"#!/bin/bash"</span> <span class="token operator">&gt;</span> <span class="token string">"<span class="token variable">${output_dir}</span>/run_command.sh"</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$cmd</span>"</span> <span class="token operator">&gt;&gt;</span> <span class="token string">"<span class="token variable">${output_dir}</span>/run_command.sh"</span>
+        <span class="token function">cp</span> <span class="token string">"<span class="token variable">$CONFIG</span>"</span> <span class="token string">"<span class="token variable">${output_dir}</span>/config_original.json"</span>
+        <span class="token function">cp</span> <span class="token string">"<span class="token variable">$0</span>"</span> <span class="token string">"<span class="token variable">${output_dir}</span>/launcher.sh"</span>
+
+        <span class="token function">bash</span> <span class="token string">"<span class="token variable">${output_dir}</span>/run_command.sh"</span> <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">|</span> <span class="token function">tee</span> <span class="token string">"<span class="token variable">${output_dir}</span>/train.log"</span>
+    <span class="token keyword keyword-done">done</span>
+<span class="token keyword keyword-done">done</span>
+</code></pre><hr>
+<h2 id="42-批量实验结束后自动汇总结果">4.2 批量实验结束后自动汇总结果 </h2>
+<p>很多学生的常见问题是：</p>
+<ul>
+<li>每个实验目录里有一个 <code>metrics.json</code></li>
+<li>但没有统一汇总</li>
+<li>最后只能一个一个点开看</li>
+</ul>
+<p>正确做法是再写一个汇总脚本，例如 <code>summarize_experiments.py</code>，自动扫描所有实验目录并生成：</p>
+<ul>
+<li><code>summary.csv</code></li>
+<li><code>summary.json</code></li>
+<li>统计图</li>
+<li>交互界面输入文件</li>
+</ul>
+<p>示例：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-import">import</span> os
+<span class="token keyword keyword-import">import</span> json
+<span class="token keyword keyword-import">import</span> pandas <span class="token keyword keyword-as">as</span> pd
+
+<span class="token keyword keyword-def">def</span> <span class="token function">collect_metrics</span><span class="token punctuation">(</span>experiments_root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    records <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token keyword keyword-for">for</span> exp_name <span class="token keyword keyword-in">in</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>experiments_root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        exp_dir <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>experiments_root<span class="token punctuation">,</span> exp_name<span class="token punctuation">)</span>
+        metrics_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>exp_dir<span class="token punctuation">,</span> <span class="token string">"metrics.json"</span><span class="token punctuation">)</span>
+        config_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>exp_dir<span class="token punctuation">,</span> <span class="token string">"config_used.json"</span><span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-if">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>metrics_path<span class="token punctuation">)</span> <span class="token keyword keyword-and">and</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>config_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-with">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>metrics_path<span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> f<span class="token punctuation">:</span>
+                metrics <span class="token operator">=</span> json<span class="token punctuation">.</span>load<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+            <span class="token keyword keyword-with">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>config_path<span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> f<span class="token punctuation">:</span>
+                config <span class="token operator">=</span> json<span class="token punctuation">.</span>load<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+
+            record <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+            record<span class="token punctuation">.</span>update<span class="token punctuation">(</span>config<span class="token punctuation">)</span>
+            record<span class="token punctuation">.</span>update<span class="token punctuation">(</span>metrics<span class="token punctuation">)</span>
+            record<span class="token punctuation">[</span><span class="token string">"experiment_dir"</span><span class="token punctuation">]</span> <span class="token operator">=</span> exp_dir
+            records<span class="token punctuation">.</span>append<span class="token punctuation">(</span>record<span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-return">return</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>records<span class="token punctuation">)</span>
+
+df <span class="token operator">=</span> collect_metrics<span class="token punctuation">(</span><span class="token string">"experiments"</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span><span class="token string">"experiments/summary/summary.csv"</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h2 id="43-所有流程尽量形成一条自动化流水线">4.3 所有流程尽量形成一条自动化流水线 </h2>
+<p>推荐形成如下流程：</p>
+<ol>
+<li>读取配置文件</li>
+<li>创建输出目录</li>
+<li>保存命令、配置、环境、版本信息</li>
+<li>训练模型</li>
+<li>保存日志和指标</li>
+<li>汇总所有实验结果</li>
+<li>自动画图</li>
+<li>自动生成交互式结论界面</li>
+<li>输出最终 summary 文件</li>
+</ol>
+<p>也就是说，尽量做到：</p>
+<blockquote>
+<p><strong>从启动实验到看到总结结论，中间少依赖手工操作。</strong></p>
+</blockquote>
+<hr>
+<h1 id="五-并行多用并行但必须有资源控制和隔离意识">五、并行：多用并行，但必须有资源控制和隔离意识 </h1>
+<p>在科研中，很多实验彼此独立，例如：</p>
+<ul>
+<li>不同 SNR</li>
+<li>不同随机种子</li>
+<li>不同学习率</li>
+<li>不同网络结构</li>
+</ul>
+<p>这种实验非常适合并行。</p>
+<p>但并行不是简单加一个 <code>&amp;</code> 就完事了，而是要做到：</p>
+<ul>
+<li>控制最大并发数</li>
+<li>隔离输出目录</li>
+<li>分离日志</li>
+<li>合理使用 CPU / GPU / 内存</li>
+</ul>
+<hr>
+<h2 id="51-最简单的-bash-并行方式后台运行-">5.1 最简单的 Bash 并行方式：后台运行 <code>&amp;</code> </h2>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">bash</span> run_command.sh <span class="token operator">&gt;</span> train.log <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+</code></pre><p>优点：</p>
+<ul>
+<li>简单</li>
+<li>少量任务方便</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>很容易一下子起太多进程</li>
+<li>可能打满资源</li>
+<li>不适合大规模实验管理</li>
+</ul>
+<hr>
+<h2 id="52-推荐设置最大并发数">5.2 推荐设置最大并发数 </h2>
+<p>例如同时最多跑 2 个：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token assign-left variable">MAX_JOBS</span><span class="token operator">=</span><span class="token number">2</span>
+<span class="token assign-left variable">job_count</span><span class="token operator">=</span><span class="token number">0</span>
+
+<span class="token keyword keyword-for">for</span> <span class="token for-or-select variable">snr</span> <span class="token keyword keyword-in">in</span> <span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">..</span><span class="token number">15</span><span class="token punctuation">..</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword keyword-do">do</span>
+    <span class="token keyword keyword-for">for</span> <span class="token for-or-select variable">seed</span> <span class="token keyword keyword-in">in</span> <span class="token number">42</span> <span class="token number">43</span> <span class="token number">44</span><span class="token punctuation">;</span> <span class="token keyword keyword-do">do</span>
+        run_job <span class="token string">"<span class="token variable">$snr</span>"</span> <span class="token string">"<span class="token variable">$seed</span>"</span> <span class="token operator">&amp;</span>
+        <span class="token variable"><span class="token punctuation">((</span>job_count<span class="token operator">++</span><span class="token punctuation">))</span></span>
+
+        <span class="token keyword keyword-if">if</span> <span class="token variable"><span class="token punctuation">((</span> job_count <span class="token operator">%</span> MAX_JOBS <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">))</span></span><span class="token punctuation">;</span> <span class="token keyword keyword-then">then</span>
+            <span class="token function">wait</span>
+        <span class="token keyword keyword-fi">fi</span>
+    <span class="token keyword keyword-done">done</span>
+<span class="token keyword keyword-done">done</span>
+
+<span class="token function">wait</span>
+</code></pre><hr>
+<h2 id="53-gpu-并行必须显式分配设备">5.3 GPU 并行必须显式分配设备 </h2>
+<p>例如：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token assign-left variable">CUDA_VISIBLE_DEVICES</span><span class="token operator">=</span><span class="token number">0</span> python train.py <span class="token punctuation">..</span>.
+<span class="token assign-left variable">CUDA_VISIBLE_DEVICES</span><span class="token operator">=</span><span class="token number">1</span> python train.py <span class="token punctuation">..</span>.
+</code></pre><p>或者在脚本中轮换设备：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token assign-left variable">gpus</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token assign-left variable">gpu_index</span><span class="token operator">=</span><span class="token number">0</span>
+
+<span class="token keyword keyword-for">for</span> <span class="token for-or-select variable">snr</span> <span class="token keyword keyword-in">in</span> <span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">..</span><span class="token number">15</span><span class="token punctuation">..</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword keyword-do">do</span>
+    <span class="token keyword keyword-for">for</span> <span class="token for-or-select variable">seed</span> <span class="token keyword keyword-in">in</span> <span class="token number">42</span> <span class="token number">43</span> <span class="token number">44</span><span class="token punctuation">;</span> <span class="token keyword keyword-do">do</span>
+        <span class="token assign-left variable">gpu</span><span class="token operator">=</span><span class="token variable">${gpus<span class="token punctuation">[</span>$gpu_index<span class="token punctuation">]</span>}</span>
+        <span class="token assign-left variable">gpu_index</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span> <span class="token punctuation">(</span>gpu_index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> ${#gpus[@]} <span class="token variable">))</span></span>
+
+        <span class="token assign-left variable">CUDA_VISIBLE_DEVICES</span><span class="token operator">=</span><span class="token variable">$gpu</span> python train.py <span class="token parameter variable">--snr</span> <span class="token variable">$snr</span> <span class="token parameter variable">--seed</span> <span class="token variable">$seed</span> <span class="token operator">&amp;</span>
+    <span class="token keyword keyword-done">done</span>
+<span class="token keyword keyword-done">done</span>
+
+<span class="token function">wait</span>
+</code></pre><p>但必须考虑：</p>
+<ul>
+<li>单个任务显存占用多少</li>
+<li>一个 GPU 能承受几个任务</li>
+<li>是否会 OOM</li>
+</ul>
+<hr>
+<h2 id="54-并行运行必须满足三条底线">5.4 并行运行必须满足三条底线 </h2>
+<ol>
+<li><strong>不同实验不能共用同一输出目录</strong></li>
+<li><strong>不同实验不能共用同一个日志文件</strong></li>
+<li><strong>GPU 任务不能无控制抢占显存</strong></li>
+</ol>
+<h3 id="参考资料tmuxhttpszhuanlanzhihucomp15294722555share_code1gtlxyaocthuutm_psn2028139575571149035">参考资料：<a href="https://zhuanlan.zhihu.com/p/15294722555?share_code=1GtlxYaOcTHU&amp;utm_psn=2028139575571149035">tmux</a> </h3>
+<hr>
+<h1 id="六-异常处理所有流程都要考虑如果失败怎么办">六、异常处理：所有流程都要考虑“如果失败怎么办” </h1>
+<p>很多科研代码的问题不是“永远不能跑”，而是：</p>
+<ul>
+<li>数据路径写错就直接崩</li>
+<li>配置文件少一个字段就莫名其妙报错</li>
+<li>训练中途显存不足，结果目录里什么也没留下</li>
+<li>某次实验失败后，整个批处理脚本直接停止</li>
+</ul>
+<p>所以科研代码一定要有异常处理意识。</p>
+<hr>
+<h2 id="61-配置文件读取要做检查">6.1 配置文件读取要做检查 </h2>
+<p>错误写法：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-with">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>config_path<span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> f<span class="token punctuation">:</span>
+    config <span class="token operator">=</span> json<span class="token punctuation">.</span>load<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+</code></pre><p>更稳妥的写法：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-import">import</span> os
+<span class="token keyword keyword-import">import</span> json
+
+<span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>config_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-raise">raise</span> FileNotFoundError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Config file not found: </span><span class="token interpolation"><span class="token punctuation">{</span>config_path<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword keyword-with">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>config_path<span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> f<span class="token punctuation">:</span>
+    config <span class="token operator">=</span> json<span class="token punctuation">.</span>load<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+</code></pre><hr>
+<h2 id="62-关键字段缺失要尽早报错">6.2 关键字段缺失要尽早报错 </h2>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>required_keys <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"snr"</span><span class="token punctuation">,</span> <span class="token string">"seed"</span><span class="token punctuation">,</span> <span class="token string">"epochs"</span><span class="token punctuation">,</span> <span class="token string">"learning_rate"</span><span class="token punctuation">,</span> <span class="token string">"save_root"</span><span class="token punctuation">]</span>
+
+<span class="token keyword keyword-for">for</span> key <span class="token keyword keyword-in">in</span> required_keys<span class="token punctuation">:</span>
+    <span class="token keyword keyword-if">if</span> key <span class="token keyword keyword-not">not</span> <span class="token keyword keyword-in">in</span> config<span class="token punctuation">:</span>
+        <span class="token keyword keyword-raise">raise</span> KeyError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Missing required config key: </span><span class="token interpolation"><span class="token punctuation">{</span>key<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h2 id="63-数据加载要检查文件存在和维度合理性">6.3 数据加载要检查文件存在和维度合理性 </h2>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>data_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-raise">raise</span> FileNotFoundError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Data file not found: </span><span class="token interpolation"><span class="token punctuation">{</span>data_path<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+data <span class="token operator">=</span> np<span class="token punctuation">.</span>load<span class="token punctuation">(</span>data_path<span class="token punctuation">)</span>
+<span class="token keyword keyword-if">if</span> data<span class="token punctuation">.</span>ndim <span class="token operator">!=</span> <span class="token number">5</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-raise">raise</span> ValueError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Expected 5D seismic data, but got shape </span><span class="token interpolation"><span class="token punctuation">{</span>data<span class="token punctuation">.</span>shape<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h2 id="64-批量实验脚本要允许单个实验失败而不影响全局">6.4 批量实验脚本要允许单个实验失败而不影响全局 </h2>
+<p>例如在 Bash 中，可以写：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token keyword keyword-if">if</span> <span class="token function">bash</span> <span class="token string">"<span class="token variable">${output_dir}</span>/run_command.sh"</span> <span class="token operator">&gt;</span> <span class="token string">"<span class="token variable">${output_dir}</span>/train.log"</span> <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span><span class="token punctuation">;</span> <span class="token keyword keyword-then">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"SUCCESS"</span> <span class="token operator">&gt;</span> <span class="token string">"<span class="token variable">${output_dir}</span>/status.txt"</span>
+<span class="token keyword keyword-else">else</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"FAILED"</span> <span class="token operator">&gt;</span> <span class="token string">"<span class="token variable">${output_dir}</span>/status.txt"</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"Experiment failed: <span class="token variable">${output_dir}</span>"</span>
+<span class="token keyword keyword-fi">fi</span>
+</code></pre><p>这样即使某个实验失败了，其他实验还能继续。</p>
+<hr>
+<h2 id="65-python-中建议用-try-except-捕获高风险步骤">6.5 Python 中建议用 try-except 捕获高风险步骤 </h2>
+<p>例如：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+    train_loss <span class="token operator">=</span> train_one_epoch<span class="token punctuation">(</span>model<span class="token punctuation">,</span> train_loader<span class="token punctuation">,</span> optimizer<span class="token punctuation">,</span> criterion<span class="token punctuation">,</span> device<span class="token punctuation">)</span>
+<span class="token keyword keyword-except">except</span> RuntimeError <span class="token keyword keyword-as">as</span> e<span class="token punctuation">:</span>
+    logging<span class="token punctuation">.</span>exception<span class="token punctuation">(</span><span class="token string">"Training failed due to runtime error"</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-raise">raise</span> e
+</code></pre><p>或者在外层统一处理：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-except">except</span> Exception <span class="token keyword keyword-as">as</span> e<span class="token punctuation">:</span>
+    logging<span class="token punctuation">.</span>exception<span class="token punctuation">(</span><span class="token string">"Experiment failed"</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-raise">raise</span>
+</code></pre><p>这样日志里至少能保留堆栈信息，便于定位问题。</p>
+<hr>
+<h1 id="七-多用-assert尽早发现错误防止错误结果悄悄传播">七、多用 assert：尽早发现错误，防止错误结果悄悄传播 </h1>
+<p><code>assert</code> 的作用不是替代异常处理，而是：</p>
+<blockquote>
+<p><strong>在程序假定某些条件必然成立时，尽早检查这些条件。</strong></p>
+</blockquote>
+<p>如果条件不成立，就立即终止，而不是让错误继续传递下去。</p>
+<hr>
+<h2 id="71-参数范围检查">7.1 参数范围检查 </h2>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-assert">assert</span> config<span class="token punctuation">[</span><span class="token string">"epochs"</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"epochs must be positive"</span>
+<span class="token keyword keyword-assert">assert</span> config<span class="token punctuation">[</span><span class="token string">"learning_rate"</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"learning rate must be positive"</span>
+<span class="token keyword keyword-assert">assert</span> config<span class="token punctuation">[</span><span class="token string">"batch_size"</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"batch size must be positive"</span>
+<span class="token keyword keyword-assert">assert</span> config<span class="token punctuation">[</span><span class="token string">"snr"</span><span class="token punctuation">]</span> <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"snr should be non-negative"</span>
+</code></pre><hr>
+<h2 id="72-数据维度检查">7.2 数据维度检查 </h2>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-assert">assert</span> data<span class="token punctuation">.</span>ndim <span class="token operator">==</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token string-interpolation"><span class="token string">f"Expected 5D data, got </span><span class="token interpolation"><span class="token punctuation">{</span>data<span class="token punctuation">.</span>ndim<span class="token punctuation">}</span></span><span class="token string">D"</span></span>
+<span class="token keyword keyword-assert">assert</span> data<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"First dimension must be non-empty"</span>
+</code></pre><hr>
+<h2 id="73-模型输入输出形状检查">7.3 模型输入输出形状检查 </h2>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>prediction <span class="token operator">=</span> model<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span>
+<span class="token keyword keyword-assert">assert</span> prediction<span class="token punctuation">.</span>shape <span class="token operator">==</span> targets<span class="token punctuation">.</span>shape<span class="token punctuation">,</span> \
+    <span class="token string-interpolation"><span class="token string">f"Prediction shape </span><span class="token interpolation"><span class="token punctuation">{</span>prediction<span class="token punctuation">.</span>shape<span class="token punctuation">}</span></span><span class="token string"> does not match target shape </span><span class="token interpolation"><span class="token punctuation">{</span>targets<span class="token punctuation">.</span>shape<span class="token punctuation">}</span></span><span class="token string">"</span></span>
+</code></pre><hr>
+<h2 id="74-训练过程中的数值检查">7.4 训练过程中的数值检查 </h2>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>loss <span class="token operator">=</span> criterion<span class="token punctuation">(</span>prediction<span class="token punctuation">,</span> targets<span class="token punctuation">)</span>
+<span class="token keyword keyword-assert">assert</span> torch<span class="token punctuation">.</span>isfinite<span class="token punctuation">(</span>loss<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"Loss contains NaN or Inf"</span>
+</code></pre><p>也可以检查梯度：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-for">for</span> name<span class="token punctuation">,</span> param <span class="token keyword keyword-in">in</span> model<span class="token punctuation">.</span>named_parameters<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-if">if</span> param<span class="token punctuation">.</span>grad <span class="token keyword keyword-is">is</span> <span class="token keyword keyword-not">not</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-assert">assert</span> torch<span class="token punctuation">.</span>isfinite<span class="token punctuation">(</span>param<span class="token punctuation">.</span>grad<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string-interpolation"><span class="token string">f"Gradient has NaN or Inf in </span><span class="token interpolation"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token string">"</span></span>
+</code></pre><hr>
+<h2 id="75-汇总结果时检查关键文件存在">7.5 汇总结果时检查关键文件存在 </h2>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-assert">assert</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>metrics_path<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string-interpolation"><span class="token string">f"Missing metrics file: </span><span class="token interpolation"><span class="token punctuation">{</span>metrics_path<span class="token punctuation">}</span></span><span class="token string">"</span></span>
+<span class="token keyword keyword-assert">assert</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>config_path<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string-interpolation"><span class="token string">f"Missing config file: </span><span class="token interpolation"><span class="token punctuation">{</span>config_path<span class="token punctuation">}</span></span><span class="token string">"</span></span>
+</code></pre><hr>
+<h2 id="76-使用-assert-的注意事项">7.6 使用 assert 的注意事项 </h2>
+<p>适合 <code>assert</code> 的场景：</p>
+<ul>
+<li>程序内部假设检查</li>
+<li>开发调试阶段的快速定位</li>
+<li>输入输出形状一致性检查</li>
+<li>数值有效性检查</li>
+</ul>
+<p>不适合只用 <code>assert</code> 的场景：</p>
+<ul>
+<li>用户输入错误</li>
+<li>文件不存在</li>
+<li>外部资源异常</li>
+<li>网络 / 磁盘 / 显存不足</li>
+</ul>
+<p>这些情况仍然应该用明确异常处理。</p>
+<hr>
+<h1 id="八-可视化交互方便总结实验结论而不是手工翻日志">八、可视化交互：方便总结实验结论，而不是手工翻日志 </h1>
+<p>这是很多学生最容易忽略、但实际上非常重要的一点。</p>
+<p>科研代码的目标不只是“输出很多实验目录”，而是：</p>
+<blockquote>
+<p><strong>实验做完后，能够高效总结规律，支持决策和写论文。</strong></p>
+</blockquote>
+<p>如果没有一个好的可视化总结流程，最后就会出现：</p>
+<ul>
+<li>一堆 <code>metrics.json</code></li>
+<li>一堆 <code>train.log</code></li>
+<li>一堆 <code>png</code></li>
+<li>但很难快速看出哪组参数最好、哪种趋势最稳定、哪种方法最值得写进论文</li>
+</ul>
+<p>所以建议增加一个<strong>交互式实验总结界面</strong>。</p>
+<hr>
+<h2 id="81-交互式总结界面应该解决什么问题">8.1 交互式总结界面应该解决什么问题 </h2>
+<p>建议至少支持下面几个功能：</p>
+<ol>
+<li>浏览所有实验结果</li>
+<li>按参数筛选实验，例如只看某个 SNR 或某个模型</li>
+<li>按指标排序，例如按 SNR、PSNR、RMSE 排序</li>
+<li>对比不同随机种子结果波动</li>
+<li>画趋势图，例如 SNR vs. noise level</li>
+<li>自动计算均值和标准差</li>
+<li>快速定位最佳实验目录</li>
+<li>点击后查看对应 config、日志、图像和权重路径</li>
+</ol>
+<hr>
+<h2 id="82-推荐使用方式">8.2 推荐使用方式 </h2>
+<p>可以分为两层：</p>
+<h3 id="第一层自动生成静态图">第一层：自动生成静态图 </h3>
+<p>例如：</p>
+<ul>
+<li>loss 曲线</li>
+<li>不同参数下的指标折线图</li>
+<li>条形图</li>
+<li>箱线图</li>
+<li>heatmap</li>
+</ul>
+<h3 id="第二层交互式界面">第二层：交互式界面 </h3>
+<p>例如使用：</p>
+<ul>
+<li>Streamlit</li>
+<li>Gradio</li>
+<li>Dash</li>
+<li>Plotly</li>
+</ul>
+<p>其中对研究生最友好的通常是 <strong>Streamlit</strong>，因为简单直接。</p>
+<hr>
+<h2 id="83-一个推荐的交互式总结界面结构">8.3 一个推荐的交互式总结界面结构 </h2>
+<p>例如 <code>dashboard.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-import">import</span> os
+<span class="token keyword keyword-import">import</span> pandas <span class="token keyword keyword-as">as</span> pd
+<span class="token keyword keyword-import">import</span> streamlit <span class="token keyword keyword-as">as</span> st
+
+summary_path <span class="token operator">=</span> <span class="token string">"experiments/summary/summary.csv"</span>
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span>summary_path<span class="token punctuation">)</span>
+
+st<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">"Experiment Summary Dashboard"</span><span class="token punctuation">)</span>
+
+selected_model <span class="token operator">=</span> st<span class="token punctuation">.</span>selectbox<span class="token punctuation">(</span><span class="token string">"Model Type"</span><span class="token punctuation">,</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">"model_type"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dropna<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>unique<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+selected_snr <span class="token operator">=</span> st<span class="token punctuation">.</span>multiselect<span class="token punctuation">(</span><span class="token string">"SNR"</span><span class="token punctuation">,</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">"snr"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dropna<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>unique<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token builtin">sorted</span><span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">"snr"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dropna<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>unique<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+filtered_df <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">"model_type"</span><span class="token punctuation">]</span> <span class="token operator">==</span> selected_model<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">"snr"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>isin<span class="token punctuation">(</span>selected_snr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+st<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"Filtered Results"</span><span class="token punctuation">)</span>
+st<span class="token punctuation">.</span>dataframe<span class="token punctuation">(</span>filtered_df<span class="token punctuation">)</span>
+
+st<span class="token punctuation">.</span>line_chart<span class="token punctuation">(</span>filtered_df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">"snr"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">"test_snr"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+st<span class="token punctuation">.</span>bar_chart<span class="token punctuation">(</span>filtered_df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">"seed"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">"test_snr"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre><p>运行：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>streamlit run dashboard.py
+</code></pre><p>这类界面非常适合：</p>
+<ul>
+<li>组会汇报前快速看结果</li>
+<li>总结不同参数趋势</li>
+<li>发现异常实验</li>
+<li>写论文时筛选图表</li>
+</ul>
+<hr>
+<h2 id="84-建议自动生成-summarycsv-作为交互输入">8.4 建议自动生成 summary.csv 作为交互输入 </h2>
+<p>整个交互界面不应该直接去逐个读原始实验目录，而应该基于统一的 <code>summary.csv</code>。</p>
+<p>推荐流程：</p>
+<ol>
+<li>每个实验输出自己的 <code>config_used.json</code> 和 <code>metrics.json</code></li>
+<li><code>summarize_experiments.py</code> 扫描全部实验目录</li>
+<li>自动生成 <code>summary.csv</code></li>
+<li><code>dashboard.py</code> 直接读取 <code>summary.csv</code></li>
+</ol>
+<p>这样好处是：</p>
+<ul>
+<li>结构更清晰</li>
+<li>运行更快</li>
+<li>可扩展性更好</li>
+<li>方便分享和归档</li>
+</ul>
+<hr>
+<h2 id="85-建议加入实验结论自动总结的辅助模块">8.5 建议加入“实验结论自动总结”的辅助模块 </h2>
+<p>除了图表和表格，也可以自动生成一些文本统计信息，例如：</p>
+<ul>
+<li>最优实验是哪一个</li>
+<li>平均性能最好的是哪种模型</li>
+<li>哪种参数对结果最敏感</li>
+<li>随机种子波动是否明显</li>
+<li>某些实验是否异常偏离</li>
+</ul>
+<p>例如：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>best_row <span class="token operator">=</span> df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token string">"test_snr"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>idxmax<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">"Best experiment:"</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-print">print</span><span class="token punctuation">(</span>best_row<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"experiment_dir"</span><span class="token punctuation">,</span> <span class="token string">"snr"</span><span class="token punctuation">,</span> <span class="token string">"seed"</span><span class="token punctuation">,</span> <span class="token string">"test_snr"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre><p>进一步还可以自动输出一段总结：</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>在当前实验中，SNR=11、seed=43 的模型表现最好，test_snr 达到 12.53 dB。
+从整体趋势来看，随着噪声水平增加，重建性能逐渐下降，但在 SNR=9 到 11 区间模型表现相对稳定。
+不同随机种子之间存在一定波动，建议最终报告结果时同时汇报均值与标准差。
+</code></pre><p>这种自动总结对写周报、组会和论文都很有帮助。</p>
+<hr>
+<h1 id="九-推荐的完整自动化流程">九、推荐的完整自动化流程 </h1>
+<p>建议大家逐步把项目组织成下面这条完整流水线：</p>
+<h2 id="91-单次实验流程">9.1 单次实验流程 </h2>
+<ol>
+<li>读取 config</li>
+<li>检查参数合法性</li>
+<li>创建输出目录</li>
+<li>保存原始 config、最终 config、运行命令、代码版本、环境信息</li>
+<li>开始训练</li>
+<li>持续写日志</li>
+<li>保存 checkpoint</li>
+<li>保存 metrics</li>
+<li>保存曲线和图像</li>
+<li>标记成功或失败状态</li>
+</ol>
+<hr>
+<h2 id="92-批量实验流程">9.2 批量实验流程 </h2>
+<ol>
+<li>Bash 扫描参数组合</li>
+<li>为每个实验生成独立输出目录</li>
+<li>支持并行或限速并行</li>
+<li>每个实验失败不影响整体流程</li>
+<li>批量运行结束后自动汇总全部结果</li>
+<li>自动生成 <code>summary.csv</code> 和静态图</li>
+<li>启动交互式 dashboard 查看规律</li>
+<li>自动辅助总结最优结论与趋势结论</li>
+</ol>
+<hr>
+<h1 id="十-推荐直接遵守的实验室规范">十、推荐直接遵守的“实验室规范” </h1>
+<p>下面这段可以直接发给学生：</p>
+<ol>
+<li><strong>所有项目必须使用 Git 管理，禁止用多个“最终版”文件夹管理版本。</strong></li>
+<li><strong>所有参数必须配置化，统一写入 JSON/YAML，禁止散落在代码各处。</strong></li>
+<li><strong>每次实验必须自动保存原始配置、最终配置、运行命令、代码版本、环境信息、日志和指标。</strong></li>
+<li><strong>每次实验必须使用独立输出目录，禁止不同实验共用目录。</strong></li>
+<li><strong>批量实验尽量使用 Bash 或调度脚本自动运行，禁止手工反复改源码。</strong></li>
+<li><strong>多个独立实验应尽量采用并行方式提高效率，但必须控制最大并发数并合理分配 GPU。</strong></li>
+<li><strong>程序关键位置必须增加异常处理和 assert 检查，尽早发现问题。</strong></li>
+<li><strong>训练结束后必须自动生成统一 summary 文件，用于后续统计、作图和结论总结。</strong></li>
+<li><strong>建议增加交互式结果界面，用于筛选实验、比较参数和快速总结规律。</strong></li>
+<li><strong>论文中的每张图、每个表和每个结论，都必须能追溯到具体实验目录、配置文件和代码版本。</strong></li>
+</ol>
+<hr>
+<h1 id="十一-一句话总结">十一、一句话总结 </h1>
+<p>科研代码最重要的不是“先跑出来”，而是做到：</p>
+<blockquote>
+<p><strong>参数留痕、命令留痕、版本留痕、日志留痕、异常可查、流程自动、结论可视、结果可复现。</strong></p>
+</blockquote>
+<p>只有做到这些，代码才真正具备科研积累价值，而不只是一次性的“能跑脚本”。</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

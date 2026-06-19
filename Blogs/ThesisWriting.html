@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>研究生毕业论文写作规范：以“一个核心主线”串联两到三部分研究工作</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --paper: #ffffff;
+      --text: #1f2937;
+      --muted: #667085;
+      --line: #e5e7eb;
+      --accent: #1d4ed8;
+      --soft: #eff6ff;
+      --code: #f3f4f6;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "Microsoft YaHei", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.78;
+    }
+    .topbar { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.94); backdrop-filter: blur(10px); }
+    .topbar-inner { max-width: 1040px; margin: 0 auto; padding: 12px 22px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+    .nav-links, .file-links { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .topbar a { color: var(--accent); text-decoration: none; font-weight: 650; border: 1px solid #bfdbfe; background: var(--soft); border-radius: 999px; padding: 5px 12px; line-height: 1.5; }
+    .layout { max-width: 1040px; margin: 0 auto; padding: 30px 22px 60px; display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 34px; align-items: start; }
+    article { min-width: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 42px 48px; box-shadow: 0 10px 28px rgba(15,23,42,0.05); }
+    aside { position: sticky; top: 70px; max-height: calc(100vh - 90px); overflow: auto; color: var(--muted); font-size: 14px; padding: 18px; border-left: 3px solid #dbeafe; background: rgba(255,255,255,0.72); border-radius: 6px; }
+    aside h2 { margin: 0 0 12px; font-size: 15px; color: #111827; border: 0; padding: 0; }
+    aside a { display: block; color: var(--muted); text-decoration: none; margin: 7px 0; line-height: 1.35; }
+    aside a:hover { color: var(--accent); }
+    .toc-level-2 { padding-left: 12px; }
+    .toc-level-3 { padding-left: 24px; font-size: 13px; }
+    h1, h2, h3, h4 { line-height: 1.35; color: #111827; }
+    h1 { margin: 0 0 28px; font-size: 2.05rem; letter-spacing: 0; }
+    h2 { margin: 42px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 1.45rem; }
+    h3 { margin: 28px 0 12px; font-size: 1.16rem; }
+    h4 { margin: 22px 0 10px; font-size: 1rem; }
+    p { margin: 0 0 16px; }
+    ul, ol { padding-left: 1.55em; margin: 0 0 16px; }
+    li { margin: 4px 0; }
+    blockquote { margin: 18px 0; padding: 14px 18px; color: #334155; background: #f8fafc; border-left: 4px solid #93c5fd; border-radius: 0 6px 6px 0; }
+    blockquote p:last-child { margin-bottom: 0; }
+    strong { color: #0f172a; }
+    a { color: var(--accent); }
+    hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; background: var(--code); border-radius: 4px; padding: 0.14em 0.34em; font-size: 0.92em; }
+    pre { margin: 18px 0; padding: 16px 18px; overflow: auto; background: #0f172a; color: #e5e7eb; border-radius: 8px; line-height: 1.55; }
+    pre code { background: transparent; color: inherit; padding: 0; }
+    table { width: 100%; border-collapse: collapse; display: block; overflow-x: auto; margin: 18px 0 22px; font-size: 0.95rem; }
+    thead, tbody, tr { width: 100%; }
+    th, td { border: 1px solid var(--line); padding: 9px 11px; vertical-align: top; }
+    th { background: #f1f5f9; color: #111827; font-weight: 700; }
+    tr:nth-child(even) td { background: #fafafa; }
+    img { max-width: 100%; height: auto; }
+    @media (max-width: 860px) {
+      .layout { display: block; padding: 18px 14px 44px; }
+      article { padding: 26px 18px; }
+      aside { position: static; margin-top: 18px; max-height: none; }
+      h1 { font-size: 1.58rem; }
+      h2 { font-size: 1.25rem; }
+      .topbar-inner { padding: 10px 14px; }
+    }
+    @media print {
+      @page { size: A4; margin: 18mm 16mm; }
+      body { background: #fff; font-size: 11.2pt; line-height: 1.65; }
+      .topbar, aside { display: none; }
+      .layout { display: block; max-width: none; padding: 0; }
+      article { border: 0; box-shadow: none; padding: 0; }
+      h1 { font-size: 22pt; margin-bottom: 18pt; }
+      h2 { font-size: 16pt; margin-top: 24pt; page-break-after: avoid; }
+      h3, h4 { page-break-after: avoid; }
+      blockquote, pre, table { page-break-inside: avoid; }
+      table { display: table; width: 100%; font-size: 9.3pt; overflow: visible; }
+      a { color: #111827; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <nav class="nav-links" aria-label="Page navigation">
+        <a href="../index.html">Back to Home</a>
+        <a href="../CNHome.html#Blogs">中文主页 Blogs</a>
+      </nav>
+      <div class="file-links">
+        <a href="ThesisWritingSlides.html">View Slides</a>
+        <a href="ThesisWriting.pdf">Download PDF</a>
+        <a href="ThesisWritingTables.xlsx">Download Tables</a>
+      </div>
+    </div>
+  </header>
+  <main class="layout">
+    <article>
+<h1 id="研究生毕业论文写作规范以一个核心主线串联两到三部分研究工作">研究生毕业论文写作规范：以“一个核心主线”串联两到三部分研究工作</h1>
+<h2 id="一核心原则">一、核心原则</h2>
+<p>毕业论文不同于一篇小论文。小论文强调的是围绕一个具体问题，提炼清楚三点创新；而毕业论文更重要的是体现<strong>成体系的研究能力</strong>。</p>
+<p>一篇合格的毕业论文，不应只是几篇小论文的简单拼接，也不应只是把几项工作按时间顺序堆在一起。毕业论文必须有一个清晰的核心主线，用这个主线串联两到三部分研究工作，使全文形成一个完整的研究体系。</p>
+<p>可以概括为：</p>
+<blockquote><p><strong>小论文看创新点，毕业论文看体系性。</strong></p><p><strong>小论文回答“我解决了一个什么问题”，毕业论文回答“我围绕一个核心问题，系统解决了哪些层层递进的问题”。</strong></p></blockquote>
+<p>毕业论文的基本结构应当是：</p>
+<blockquote><p><strong>一个核心主线 → 两到三个子问题 → 两到三项研究内容 → 一个统一的结论体系</strong></p></blockquote>
+<p>如果各章之间只是“并列摆放”，没有共同问题、共同逻辑和共同目标，那么论文就容易变成“论文合集”，而不是一篇真正成体系的毕业论文。</p>
+<hr>
+<h2 id="二毕业论文与小论文的区别">二、毕业论文与小论文的区别</h2>
+<h3 id="1-小论文的重点">1. 小论文的重点</h3>
+<p>小论文通常围绕一个具体问题展开，重点是讲清楚：</p>
+<ol><li>现有方法有什么不足；</li><li>本文提出了什么新方法；</li><li>实验如何证明该方法有效。</li></ol>
+<p>因此，小论文最重要的是：</p>
+<blockquote><p><strong>问题集中，创新明确，证据闭环。</strong></p></blockquote>
+<hr>
+<h3 id="2-毕业论文的重点">2. 毕业论文的重点</h3>
+<p>毕业论文则不同。毕业论文通常包含两到三部分研究工作，这些工作可以来自几篇小论文，也可以来自一个长期课题的多个阶段。</p>
+<p>毕业论文最重要的不是把每篇小论文简单扩写，而是回答：</p>
+<ol><li>这些工作为什么属于同一个研究主题？</li><li>它们共同服务于哪个核心科学问题或工程问题？</li><li>第一部分、第二部分、第三部分之间是什么关系？</li><li>后一部分是否在前一部分基础上继续推进？</li><li>最终是否形成了一个相对完整的研究体系？</li></ol>
+<p>因此，毕业论文最重要的是：</p>
+<blockquote><p><strong>主线清楚，层次递进，体系完整。</strong></p></blockquote>
+<hr>
+<h2 id="三毕业论文最常见的问题">三、毕业论文最常见的问题</h2>
+<p>很多毕业论文初稿容易出现以下问题：</p>
+<ol><li><strong>像几篇小论文的拼盘</strong></li></ol>
+<p>每章单独看还可以，但放在一起没有共同主线。</p>
+<ol><li><strong>章节之间缺少递进关系</strong></li></ol>
+<p>第一章做去噪，第二章做重建，第三章做提频，但没有解释三者为什么属于同一个体系。</p>
+<ol><li><strong>摘要和绪论太像工作清单</strong></li></ol>
+<p>只是在说“本文做了A、B、C”，没有说明A、B、C共同解决什么核心问题。</p>
+<ol><li><strong>结论部分只是重复各章结果</strong></li></ol>
+<p>没有上升到整体贡献和系统性认识。</p>
+<ol><li><strong>缺少统一概念或统一框架</strong></li></ol>
+<p>各部分工作方法不同、数据不同、目标不同，看不出一条主线。</p>
+<p>解决这些问题的关键，是在动笔前先锁定一个核心主线。</p>
+<hr>
+<h2 id="四毕业论文的核心主线是什么">四、毕业论文的核心主线是什么</h2>
+<p>所谓核心主线，不是一个宽泛的研究方向，也不是一个简单题目，而是全文反复围绕、逐步展开、最终回答的核心问题。</p>
+<h3 id="1-不合格的主线">1. 不合格的主线</h3>
+<p>以下表述太宽泛，不适合作为毕业论文主线：</p>
+<blockquote><p>本文研究地震资料处理方法。</p><p>本文研究深度学习在地球物理中的应用。</p><p>本文研究复杂探区地震数据处理。</p><p>本文研究人工智能方法。</p></blockquote>
+<p>这些表述只是研究领域，不是论文主线。</p>
+<hr>
+<h3 id="2-合格的主线">2. 合格的主线</h3>
+<p>合格的主线应当包含：</p>
+<ol><li>研究对象；</li><li>核心困难；</li><li>解决思路；</li><li>总体目标。</li></ol>
+<p>推荐写法：</p>
+<blockquote><p>围绕【研究对象】在【关键困难】条件下面临的【核心问题】，本文以【统一思路/核心方法/技术框架】为主线，开展【两到三项递进研究】，旨在实现【总体目标】。</p></blockquote>
+<p>例如：</p>
+<blockquote><p>围绕复杂地表探区地震资料存在的强噪声、高缺失和低分辨率问题，本文以高维地震波场的连续表征与保真处理为主线，开展噪声压制、波场重建和分辨率提高三方面研究，旨在形成面向复杂探区的地震资料智能处理技术体系。</p></blockquote>
+<p>这个主线就比“研究地震资料处理方法”更清楚，因为它说明了：</p>
+<ul><li>研究对象：复杂地表探区地震资料；</li><li>核心困难：强噪声、高缺失、低分辨率；</li><li>统一思路：高维地震波场的连续表征与保真处理；</li><li>研究内容：噪声压制、波场重建、分辨率提高；</li><li>总体目标：形成智能处理技术体系。</li></ul>
+<hr>
+<h2 id="五毕业论文的基本逻辑一个主线三个层次">五、毕业论文的基本逻辑：一个主线，三个层次</h2>
+<p>毕业论文可以按照以下逻辑组织：</p>
+<blockquote><p><strong>核心主线 → 子问题分解 → 研究内容展开 → 系统性总结</strong></p></blockquote>
+<p>也就是说，论文不是简单写：</p>
+<blockquote><p>我做了工作一、工作二、工作三。</p></blockquote>
+<p>而是要写成：</p>
+<blockquote><p>为了解决一个总问题，我将其分解为三个相互关联的子问题，并分别开展三部分研究，最终形成一个完整体系。</p></blockquote>
+<hr>
+<h3 id="1-总问题">1. 总问题</h3>
+<p>总问题是整篇论文要解决的核心问题。</p>
+<p>例如：</p>
+<blockquote><p>复杂地表条件下，如何实现低信噪比、高缺失、低分辨率地震资料的高保真智能处理？</p></blockquote>
+<hr>
+<h3 id="2-子问题">2. 子问题</h3>
+<p>总问题可以拆成两到三个子问题。</p>
+<p>例如：</p>
+<ol><li>强噪声背景下，如何保真分离有效地震信号？</li><li>高缺失率条件下，如何重建连续完整的高维波场？</li><li>低分辨率条件下，如何恢复深层目标的有效高频信息？</li></ol>
+<p>这三个子问题不是随便并列的，而是围绕同一个总问题逐层展开。</p>
+<hr>
+<h3 id="3-研究内容">3. 研究内容</h3>
+<p>每个子问题对应一部分研究内容。</p>
+<table><thead><tr><th>总问题</th><th>子问题</th><th>对应研究内容</th></tr></thead><tbody><tr><td>复杂地表条件下地震资料如何高保真智能处理？</td><td>强噪声如何压制？</td><td>研究内容一：地震资料智能去噪</td></tr><tr><td>同上</td><td>高缺失数据如何重建？</td><td>研究内容二：高维地震波场重建</td></tr><tr><td>同上</td><td>低分辨率资料如何提升？</td><td>研究内容三：地震资料分辨率提高</td></tr></tbody></table>
+<p>这样，三部分工作就不是孤立的，而是共同服务于一个总目标。</p>
+<hr>
+<h2 id="六两到三部分工作之间应有关系">六、两到三部分工作之间应有关系</h2>
+<p>毕业论文中的两到三部分工作，不能只是放在同一个研究方向下。它们之间最好形成以下关系之一。</p>
+<h3 id="1-递进关系">1. 递进关系</h3>
+<p>后一部分建立在前一部分基础上，问题逐步深入。</p>
+<p>例如：</p>
+<blockquote><p>第一部分解决数据质量问题；</p><p>第二部分解决数据完整性问题；</p><p>第三部分解决目标识别精度问题。</p></blockquote>
+<p>这种结构适合写成：</p>
+<blockquote><p>从基础处理到高维重建，再到精细解释。</p></blockquote>
+<hr>
+<h3 id="2-并列互补关系">2. 并列互补关系</h3>
+<p>几部分工作针对同一个总问题的不同方面。</p>
+<p>例如：</p>
+<blockquote><p>第一部分解决噪声问题；</p><p>第二部分解决缺失问题；</p><p>第三部分解决分辨率问题。</p></blockquote>
+<p>这种结构适合写成：</p>
+<blockquote><p>从强噪声、高缺失、低分辨率三个维度，系统提升复杂探区地震资料品质。</p></blockquote>
+<hr>
+<h3 id="3-方法统一关系">3. 方法统一关系</h3>
+<p>几部分工作面对不同任务，但使用了共同的方法思想或统一框架。</p>
+<p>例如：</p>
+<blockquote><p>都围绕连续表征、物理约束、深度先验、稀疏约束或生成式建模展开。</p></blockquote>
+<p>这种结构适合写成：</p>
+<blockquote><p>以某一统一建模思想为主线，将不同处理任务纳入同一框架下理解。</p></blockquote>
+<hr>
+<h3 id="4-场景拓展关系">4. 场景拓展关系</h3>
+<p>从简单场景到复杂场景，从合成数据到实际数据，从单一任务到工程应用。</p>
+<p>例如：</p>
+<blockquote><p>第一部分验证方法可行性；</p><p>第二部分提高复杂条件下的稳定性；</p><p>第三部分拓展到实际工区应用。</p></blockquote>
+<p>这种结构适合写成：</p>
+<blockquote><p>从方法提出、性能增强到实际应用，逐步验证所提技术体系的有效性。</p></blockquote>
+<hr>
+<h2 id="七动笔前必须提交毕业论文主线确认表">七、动笔前必须提交：《毕业论文主线确认表》</h2>
+<p>学生写毕业论文前，必须先填写下表。导师确认后，再开始写正文。</p>
+<table><thead><tr><th>项目</th><th>内容</th></tr></thead><tbody><tr><td>论文拟题</td><td></td></tr><tr><td>核心研究对象</td><td>研究什么对象？</td></tr><tr><td>核心科学问题或工程问题</td><td>全文要解决的总问题是什么？</td></tr><tr><td>统一主线</td><td>用什么核心思路串联全文？</td></tr><tr><td>子问题1</td><td>第一部分解决什么问题？</td></tr><tr><td>子问题2</td><td>第二部分解决什么问题？</td></tr><tr><td>子问题3</td><td>第三部分解决什么问题？</td></tr><tr><td>三部分之间的关系</td><td>递进 / 并列互补 / 方法统一 / 场景拓展</td></tr><tr><td>最终形成的体系</td><td>最终形成了什么方法体系、认识体系或应用体系？</td></tr></tbody></table>
+<p>填写要求：</p>
+<ol><li>核心主线必须具体，不能只是研究方向；</li><li>两到三部分工作必须围绕同一个总问题；</li><li>每部分工作都要有明确位置和作用；</li><li>三部分之间必须说明关系；</li><li>如果不能说明关系，说明论文还没有形成体系。</li></ol>
+<hr>
+<h2 id="八绪论写作先搭建体系而不是直接介绍各章">八、绪论写作：先搭建体系，而不是直接介绍各章</h2>
+<h3 id="1-绪论的任务">1. 绪论的任务</h3>
+<p>毕业论文绪论比小论文引言承担更多功能。它不仅要介绍研究背景和研究现状，还要搭建全文的逻辑框架。</p>
+<p>绪论必须回答：</p>
+<ol><li>为什么这个研究方向重要？</li><li>当前领域面临什么核心问题？</li><li>这个核心问题可以拆解为哪些子问题？</li><li>本文为什么选择这两到三部分工作？</li><li>这几部分工作之间是什么关系？</li><li>本文最终形成了什么系统性贡献？</li></ol>
+<hr>
+<h3 id="2-绪论推荐结构">2. 绪论推荐结构</h3>
+<p>毕业论文绪论建议按照以下结构展开：</p>
+<h4 id="第一节研究背景与意义">第一节：研究背景与意义</h4>
+<p>说明研究对象的重要性和现实需求。</p>
+<h4 id="第二节国内外研究现状">第二节：国内外研究现状</h4>
+<p>不能简单堆文献，而要围绕主线分类综述。</p>
+<p>例如：</p>
+<ol><li>与子问题一相关的研究现状；</li><li>与子问题二相关的研究现状；</li><li>与子问题三相关的研究现状。</li></ol>
+<p>每一类综述后，都要总结现有研究不足。</p>
+<h4 id="第三节关键问题与研究思路">第三节：关键问题与研究思路</h4>
+<p>这是绪论中最重要的部分。</p>
+<p>推荐写法：</p>
+<blockquote><p>综上，现有研究在XX方面取得了进展，但面向XX场景仍存在以下三个关键问题：</p><p>第一，……</p><p>第二，……</p><p>第三，……</p><p>因此，本文以XX为核心主线，将上述问题分解为XX、XX和XX三个子问题，并分别开展三方面研究。</p></blockquote>
+<h4 id="第四节主要研究内容">第四节：主要研究内容</h4>
+<p>不要简单写“第二章研究……第三章研究……第四章研究……”，而要说明每章在全文体系中的作用。</p>
+<p>推荐写法：</p>
+<blockquote><p>围绕上述核心主线，本文主要研究内容包括：</p><p>第一，针对……问题，开展……研究，该部分为后续……奠定基础；</p><p>第二，针对……问题，提出……方法，进一步解决……；</p><p>第三，面向……需求，构建……框架，实现……。</p></blockquote>
+<h4 id="第五节论文组织结构">第五节：论文组织结构</h4>
+<p>说明各章安排，并强调章节之间的逻辑关系。</p>
+<hr>
+<h2 id="九各研究章节写作每章既要独立又要服务主线">九、各研究章节写作：每章既要独立，又要服务主线</h2>
+<p>毕业论文中间几章通常对应两到三部分研究工作。每一章都应当具有相对完整的小论文结构，但不能完全孤立。</p>
+<p>每个研究章节建议包括以下内容：</p>
+<ol><li>本章问题来源；</li><li>本章与全文主线的关系；</li><li>现有方法不足；</li><li>本章方法或模型；</li><li>实验验证；</li><li>本章小结；</li><li>本章对下一章的铺垫。</li></ol>
+<hr>
+<h3 id="1-每章开头要写清楚为什么需要本章">1. 每章开头要写清楚“为什么需要本章”</h3>
+<p>推荐句式：</p>
+<blockquote><p>在上一章/绪论中已经指出，XX问题是制约XX的关键因素。为解决该问题，本章围绕XX开展研究，提出XX方法。该部分工作在全文体系中主要承担XX作用。</p></blockquote>
+<p>例如：</p>
+<blockquote><p>在复杂地表探区中，强噪声会严重降低后续重建和解释的可靠性。为此，本章首先研究低信噪比条件下的地震资料智能去噪方法，为后续高维波场重建和分辨率提高提供更可靠的数据基础。</p></blockquote>
+<hr>
+<h3 id="2-每章结尾要写清楚本章贡献了什么">2. 每章结尾要写清楚“本章贡献了什么”</h3>
+<p>本章小结不能只写实验结果，而要回到全文主线。</p>
+<p>推荐句式：</p>
+<blockquote><p>本章针对XX问题提出了XX方法，实验结果表明该方法能够有效改善XX。该结果为全文主线中“XX”环节提供了支撑，也为下一章进一步研究XX问题奠定了基础。</p></blockquote>
+<hr>
+<h3 id="3-章节之间要有过渡">3. 章节之间要有过渡</h3>
+<p>不要让第二章、第三章、第四章像三篇互不相关的小论文。</p>
+<p>每章结尾或下一章开头，应当有一小段过渡，说明为什么自然进入下一章。</p>
+<p>例如：</p>
+<blockquote><p>尽管上一章方法能够有效压制噪声，但复杂地表条件下还普遍存在观测不规则和数据缺失问题。仅改善信噪比并不能保证高维波场的完整性。因此，下一章进一步研究高缺失率条件下的地震数据重建问题。</p></blockquote>
+<p>这样的过渡可以显著增强论文的整体性。</p>
+<hr>
+<h2 id="十摘要写作不要写成工作清单">十、摘要写作：不要写成工作清单</h2>
+<p>毕业论文摘要常见问题是：</p>
+<blockquote><p>本文首先做了A，然后做了B，最后做了C。</p></blockquote>
+<p>这种写法只是罗列工作，没有体系感。</p>
+<p>更好的摘要结构是：</p>
+<ol><li>背景与核心问题；</li><li>总体研究思路；</li><li>两到三部分研究工作；</li><li>主要结果；</li><li>系统性贡献。</li></ol>
+<p>推荐模板：</p>
+<blockquote><p>针对【研究对象】在【复杂条件】下面临的【核心问题】，本文以【核心主线】为指导，围绕【子问题1】、【子问题2】和【子问题3】开展系统研究。首先，针对【子问题1】，提出了【方法1】，实现了【结果1】；其次，针对【子问题2】，构建了【方法2】，解决了【结果2】；最后，面向【子问题3】，设计了【方法3】，验证了【结果3】。研究结果表明，本文所提出的系列方法能够从【方面1】、【方面2】和【方面3】系统提升【研究对象】的【总体性能】，为【应用场景】提供了方法支撑。</p></blockquote>
+<hr>
+<h2 id="十一结论写作从各章结论上升到体系结论">十一、结论写作：从各章结论上升到体系结论</h2>
+<p>毕业论文结论不能只是把每章小结复制一遍。它必须回答：</p>
+<ol><li>本文围绕什么核心问题开展研究？</li><li>分别解决了哪些子问题？</li><li>这些子问题合在一起形成了什么整体贡献？</li><li>还有哪些不足和未来工作？</li></ol>
+<p>推荐结构：</p>
+<h3 id="1-总体总结">1. 总体总结</h3>
+<blockquote><p>本文围绕XX问题，以XX为主线，开展了XX、XX和XX三方面研究，形成了面向XX的系统性方法框架。</p></blockquote>
+<h3 id="2-分项结论">2. 分项结论</h3>
+<p>按照研究内容逐条总结：</p>
+<ol><li>针对子问题一，提出了……，解决了……；</li><li>针对子问题二，提出了……，提升了……；</li><li>针对子问题三，构建了……，验证了……。</li></ol>
+<h3 id="3-系统性贡献">3. 系统性贡献</h3>
+<p>这是毕业论文区别于小论文的重要部分。</p>
+<p>推荐句式：</p>
+<blockquote><p>综合来看，本文并非孤立地解决单一处理任务，而是围绕XX主线，从XX、XX和XX三个层面逐步推进，形成了较为完整的XX技术体系。</p></blockquote>
+<h3 id="4-不足与展望">4. 不足与展望</h3>
+<p>不足与展望也要围绕主线展开，而不是随便列几点。</p>
+<hr>
+<h2 id="十二毕业论文初稿必须附带的三个表格">十二、毕业论文初稿必须附带的三个表格</h2>
+<h3 id="表-1毕业论文主线确认表">表 1：毕业论文主线确认表</h3>
+<table><thead><tr><th>项目</th><th>内容</th></tr></thead><tbody><tr><td>论文题目</td><td></td></tr><tr><td>核心主线</td><td></td></tr><tr><td>总问题</td><td></td></tr><tr><td>子问题1</td><td></td></tr><tr><td>子问题2</td><td></td></tr><tr><td>子问题3</td><td></td></tr><tr><td>研究内容1</td><td></td></tr><tr><td>研究内容2</td><td></td></tr><tr><td>研究内容3</td><td></td></tr><tr><td>三部分关系</td><td>递进 / 互补 / 统一框架 / 场景拓展</td></tr><tr><td>最终体系贡献</td><td></td></tr></tbody></table>
+<hr>
+<h3 id="表-2章节功能映射表">表 2：章节功能映射表</h3>
+<table><thead><tr><th>章节</th><th>解决的子问题</th><th>对应研究内容</th><th>在全文体系中的作用</th><th>与前后章节的关系</th></tr></thead><tbody><tr><td>第1章 绪论</td><td>提出总问题</td><td>搭建主线</td><td>说明为什么做</td><td>引出全文</td></tr><tr><td>第2章</td><td>子问题1</td><td>研究内容1</td><td>奠定基础 / 解决前置问题</td><td>为第3章提供基础</td></tr><tr><td>第3章</td><td>子问题2</td><td>研究内容2</td><td>深化推进 / 解决核心问题</td><td>承接第2章，引出第4章</td></tr><tr><td>第4章</td><td>子问题3</td><td>研究内容3</td><td>拓展应用 / 完成验证</td><td>完成体系闭环</td></tr><tr><td>第5章 结论</td><td>回答总问题</td><td>系统总结</td><td>提炼整体贡献</td><td>收束全文</td></tr></tbody></table>
+<hr>
+<h3 id="表-3主线章节证据闭环表">表 3：主线—章节—证据闭环表</h3>
+<table><thead><tr><th>核心主线</th><th>子问题</th><th>研究章节</th><th>方法贡献</th><th>结果证据</th><th>对总体目标的贡献</th></tr></thead><tbody><tr><td></td><td>子问题1</td><td>第X章</td><td></td><td>图X / 表X</td><td></td></tr><tr><td></td><td>子问题2</td><td>第X章</td><td></td><td>图X / 表X</td><td></td></tr><tr><td></td><td>子问题3</td><td>第X章</td><td></td><td>图X / 表X</td><td></td></tr></tbody></table>
+<p>填写要求：</p>
+<ol><li>每个章节都必须服务于核心主线；</li><li>每个子问题都必须有对应方法和结果；</li><li>每个研究内容都要说明对总体目标的贡献；</li><li>如果某章无法填入表格，说明该章可能游离于主线之外。</li></ol>
+<hr>
+<h2 id="十三毕业论文初稿提交自查清单">十三、毕业论文初稿提交自查清单</h2>
+<h3 id="主线检查">主线检查</h3>
+<ul><li>□ 论文是否有一个明确核心主线？</li><li>□ 核心主线是否具体，而不是宽泛研究方向？</li><li>□ 题目、摘要、绪论、结论是否都围绕同一主线？</li><li>□ 全文是否能用一句话说明“我围绕什么问题做了系统研究”？</li></ul>
+<h3 id="体系性检查">体系性检查</h3>
+<ul><li>□ 两到三部分工作是否共同服务于一个总问题？</li><li>□ 各部分之间是否有递进、互补或统一框架关系？</li><li>□ 是否避免了几篇小论文简单拼接？</li><li>□ 每章是否说明了自己在全文体系中的作用？</li><li>□ 每章结尾是否回扣主线并引出下一章？</li></ul>
+<h3 id="绪论检查">绪论检查</h3>
+<ul><li>□ 绪论是否从领域问题引出核心主线？</li><li>□ 研究现状是否围绕子问题分类综述？</li><li>□ 是否明确提出两到三个关键子问题？</li><li>□ 是否解释了为什么本文要做这几部分工作？</li><li>□ 是否说明了各章之间的逻辑关系？</li></ul>
+<h3 id="研究章节检查">研究章节检查</h3>
+<ul><li>□ 每章开头是否说明本章问题来源？</li><li>□ 每章是否有明确的方法贡献？</li><li>□ 每章是否有充分实验支撑？</li><li>□ 每章小结是否不仅总结结果，还说明对全文主线的贡献？</li><li>□ 章节之间是否有自然过渡？</li></ul>
+<h3 id="结论检查">结论检查</h3>
+<ul><li>□ 结论是否回答了绪论提出的总问题？</li><li>□ 是否从各章结果上升到系统性贡献？</li><li>□ 是否总结了全文形成的方法体系或认识体系？</li><li>□ 不足与展望是否仍围绕核心主线展开？</li></ul>
+<hr>
+<h2 id="十四常见误区">十四、常见误区</h2>
+<h3 id="误区一把几篇小论文直接拼成毕业论文">误区一：把几篇小论文直接拼成毕业论文</h3>
+<p>几篇小论文可以作为毕业论文的基础，但不能直接拼接。必须重新提炼统一主线，重写绪论、章节过渡和总结。</p>
+<hr>
+<h3 id="误区二每章都不错但全文没有整体感">误区二：每章都不错，但全文没有整体感</h3>
+<p>这是毕业论文中最常见的问题。解决办法是：</p>
+<blockquote><p>每章开头说明本章在全文体系中的位置，每章结尾说明本章对总体目标的贡献。</p></blockquote>
+<hr>
+<h3 id="误区三题目很大主线很散">误区三：题目很大，主线很散</h3>
+<p>题目可以适当宽一些，但主线必须具体。不能用一个大题目包住几项没有关系的工作。</p>
+<hr>
+<h3 id="误区四绪论只是文献综述没有提出总问题">误区四：绪论只是文献综述，没有提出总问题</h3>
+<p>绪论不是资料汇编。绪论必须完成从研究背景到核心问题、从核心问题到研究内容的逻辑搭建。</p>
+<hr>
+<h3 id="误区五结论只是各章小结的复制">误区五：结论只是各章小结的复制</h3>
+<p>毕业论文结论必须上升到整体贡献，回答全文到底形成了什么系统性认识或方法体系。</p>
+<hr>
+<h2 id="十五给学生的一句话要求">十五、给学生的一句话要求</h2>
+<p>请记住：</p>
+<blockquote><p><strong>毕业论文不是几篇小论文的装订本，而是一项研究工作的系统化表达。</strong></p></blockquote>
+<p>更具体地说：</p>
+<blockquote><p><strong>绪论提出总问题，各章分别解决子问题，章节之间形成递进或互补，结论回到总问题并提炼体系贡献。</strong></p></blockquote>
+<p>提交毕业论文初稿时，不能只交正文，还必须交清楚：</p>
+<ol><li>全文核心主线是什么；</li><li>总问题是什么；</li><li>总问题拆成了哪两到三个子问题；</li><li>每章分别解决哪个子问题；</li><li>各章之间是什么关系；</li><li>最终形成了什么系统性贡献。</li></ol>
+<p>如果这些问题回答不清楚，说明毕业论文还没有真正成体系。</p>
+    </article>
+    <aside>
+      <h2>目录</h2>
+      <a class="toc-level-2" href="#一核心原则">一、核心原则</a>
+<a class="toc-level-2" href="#二毕业论文与小论文的区别">二、毕业论文与小论文的区别</a>
+<a class="toc-level-3" href="#1-小论文的重点">1. 小论文的重点</a>
+<a class="toc-level-3" href="#2-毕业论文的重点">2. 毕业论文的重点</a>
+<a class="toc-level-2" href="#三毕业论文最常见的问题">三、毕业论文最常见的问题</a>
+<a class="toc-level-2" href="#四毕业论文的核心主线是什么">四、毕业论文的核心主线是什么</a>
+<a class="toc-level-3" href="#1-不合格的主线">1. 不合格的主线</a>
+<a class="toc-level-3" href="#2-合格的主线">2. 合格的主线</a>
+<a class="toc-level-2" href="#五毕业论文的基本逻辑一个主线三个层次">五、毕业论文的基本逻辑：一个主线，三个层次</a>
+<a class="toc-level-3" href="#1-总问题">1. 总问题</a>
+<a class="toc-level-3" href="#2-子问题">2. 子问题</a>
+<a class="toc-level-3" href="#3-研究内容">3. 研究内容</a>
+<a class="toc-level-2" href="#六两到三部分工作之间应有关系">六、两到三部分工作之间应有关系</a>
+<a class="toc-level-3" href="#1-递进关系">1. 递进关系</a>
+<a class="toc-level-3" href="#2-并列互补关系">2. 并列互补关系</a>
+<a class="toc-level-3" href="#3-方法统一关系">3. 方法统一关系</a>
+<a class="toc-level-3" href="#4-场景拓展关系">4. 场景拓展关系</a>
+<a class="toc-level-2" href="#七动笔前必须提交毕业论文主线确认表">七、动笔前必须提交：《毕业论文主线确认表》</a>
+<a class="toc-level-2" href="#八绪论写作先搭建体系而不是直接介绍各章">八、绪论写作：先搭建体系，而不是直接介绍各章</a>
+<a class="toc-level-3" href="#1-绪论的任务">1. 绪论的任务</a>
+<a class="toc-level-3" href="#2-绪论推荐结构">2. 绪论推荐结构</a>
+<a class="toc-level-2" href="#九各研究章节写作每章既要独立又要服务主线">九、各研究章节写作：每章既要独立，又要服务主线</a>
+<a class="toc-level-3" href="#1-每章开头要写清楚为什么需要本章">1. 每章开头要写清楚“为什么需要本章”</a>
+<a class="toc-level-3" href="#2-每章结尾要写清楚本章贡献了什么">2. 每章结尾要写清楚“本章贡献了什么”</a>
+<a class="toc-level-3" href="#3-章节之间要有过渡">3. 章节之间要有过渡</a>
+<a class="toc-level-2" href="#十摘要写作不要写成工作清单">十、摘要写作：不要写成工作清单</a>
+<a class="toc-level-2" href="#十一结论写作从各章结论上升到体系结论">十一、结论写作：从各章结论上升到体系结论</a>
+<a class="toc-level-3" href="#1-总体总结">1. 总体总结</a>
+<a class="toc-level-3" href="#2-分项结论">2. 分项结论</a>
+<a class="toc-level-3" href="#3-系统性贡献">3. 系统性贡献</a>
+<a class="toc-level-3" href="#4-不足与展望">4. 不足与展望</a>
+<a class="toc-level-2" href="#十二毕业论文初稿必须附带的三个表格">十二、毕业论文初稿必须附带的三个表格</a>
+<a class="toc-level-3" href="#表-1毕业论文主线确认表">表 1：毕业论文主线确认表</a>
+<a class="toc-level-3" href="#表-2章节功能映射表">表 2：章节功能映射表</a>
+<a class="toc-level-3" href="#表-3主线章节证据闭环表">表 3：主线—章节—证据闭环表</a>
+<a class="toc-level-2" href="#十三毕业论文初稿提交自查清单">十三、毕业论文初稿提交自查清单</a>
+<a class="toc-level-3" href="#主线检查">主线检查</a>
+<a class="toc-level-3" href="#体系性检查">体系性检查</a>
+<a class="toc-level-3" href="#绪论检查">绪论检查</a>
+<a class="toc-level-3" href="#研究章节检查">研究章节检查</a>
+<a class="toc-level-3" href="#结论检查">结论检查</a>
+<a class="toc-level-2" href="#十四常见误区">十四、常见误区</a>
+<a class="toc-level-3" href="#误区一把几篇小论文直接拼成毕业论文">误区一：把几篇小论文直接拼成毕业论文</a>
+<a class="toc-level-3" href="#误区二每章都不错但全文没有整体感">误区二：每章都不错，但全文没有整体感</a>
+<a class="toc-level-3" href="#误区三题目很大主线很散">误区三：题目很大，主线很散</a>
+<a class="toc-level-3" href="#误区四绪论只是文献综述没有提出总问题">误区四：绪论只是文献综述，没有提出总问题</a>
+<a class="toc-level-3" href="#误区五结论只是各章小结的复制">误区五：结论只是各章小结的复制</a>
+<a class="toc-level-2" href="#十五给学生的一句话要求">十五、给学生的一句话要求</a>
+    </aside>
+  </main>
+</body>
+</html>

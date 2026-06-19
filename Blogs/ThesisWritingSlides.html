@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>研究生毕业论文写作规范 Slides</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --stage-bg: #e9edf0;
+      --slide-bg: #f9f7f1;
+      --ink: #18222d;
+      --muted: #607080;
+      --blue: #1f4f7a;
+      --blue-dark: #15344f;
+      --gold: #c89531;
+      --sage: #557464;
+      --line: #cdd7dc;
+      --paper: #fffdf7;
+      --font-display: "Noto Serif SC", serif;
+      --font-body: "IBM Plex Sans", "Noto Serif SC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: var(--stage-bg); }
+    .deck-viewport { position: fixed; inset: 0; overflow: hidden; background: var(--stage-bg); }
+    .deck-stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; transform-origin: 0 0; background: var(--slide-bg); }
+    .slide { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; display: block; visibility: hidden; opacity: 0; pointer-events: none; background: radial-gradient(circle at 82% 18%, rgba(200,149,49,0.18), transparent 24%), linear-gradient(135deg, #fbfaf5 0%, #edf3f2 100%); transition: opacity .36s ease; }
+    .slide.active, .slide.visible { visibility: visible; opacity: 1; pointer-events: auto; z-index: 1; }
+    .slide::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(31,79,122,0.07) 1px, transparent 1px), linear-gradient(rgba(31,79,122,0.045) 1px, transparent 1px); background-size: 64px 64px; opacity: .8; }
+    .page-frame { position: absolute; left: 84px; top: 70px; width: 1752px; height: 940px; border: 2px solid rgba(31,79,122,.22); background: rgba(255,253,247,.72); box-shadow: 0 34px 90px rgba(24,34,45,.18); }
+    .spine { position: absolute; left: 130px; top: 124px; width: 14px; height: 820px; background: repeating-linear-gradient(to bottom, var(--blue), var(--blue) 38px, transparent 38px, transparent 68px); opacity: .92; }
+    .running-head { position: absolute; left: 174px; top: 100px; font-family: var(--font-body); font-size: 19px; font-weight: 700; color: var(--muted); letter-spacing: .18em; }
+    .slide-number { position: absolute; right: 120px; top: 96px; font-family: var(--font-body); color: var(--gold); font-size: 24px; font-weight: 700; letter-spacing: .12em; }
+    .content { position: absolute; left: 205px; top: 178px; width: 1480px; }
+    .kicker { font-family: var(--font-body); font-size: 20px; font-weight: 700; color: var(--blue); letter-spacing: .18em; margin: 0 0 28px; }
+    h1 { font-family: var(--font-display); color: var(--ink); font-size: 82px; line-height: 1.12; margin: 0 0 36px; max-width: 1440px; letter-spacing: 0; }
+    .lead { font-family: var(--font-display); color: var(--blue-dark); font-size: 34px; line-height: 1.75; max-width: 1230px; margin: 0; }
+    blockquote { position: relative; margin: 58px 0 0; padding: 0 0 0 34px; max-width: 1180px; color: var(--blue); font-family: var(--font-display); font-size: 42px; line-height: 1.55; font-weight: 700; }
+    blockquote::before { content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 8px; background: var(--gold); }
+    .formula { margin-top: 58px; padding: 34px 44px; border: 2px solid rgba(31,79,122,.22); background: rgba(255,255,255,.66); color: var(--blue-dark); font-family: var(--font-display); font-size: 46px; font-weight: 900; display: inline-block; box-shadow: 12px 16px 0 rgba(31,79,122,.08); }
+    .bullets { margin: 52px 0 0; padding: 0; display: grid; gap: 24px; max-width: 1210px; list-style: none; }
+    .bullets li { position: relative; padding: 20px 28px 20px 64px; background: rgba(255,255,255,.72); border: 1px solid rgba(31,79,122,.18); color: var(--ink); font-family: var(--font-body); font-size: 30px; line-height: 1.45; }
+    .bullets li::before { content: ""; position: absolute; left: 26px; top: 31px; width: 18px; height: 18px; background: var(--gold); }
+    .cards { margin-top: 58px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; max-width: 1210px; }
+    .cards div { min-height: 122px; padding: 30px 34px; border: 1px solid rgba(31,79,122,.22); background: rgba(255,255,255,.72); color: var(--blue-dark); font-family: var(--font-display); font-size: 36px; font-weight: 900; display: flex; align-items: center; box-shadow: 10px 14px 0 rgba(85,116,100,.12); }
+    .deck-controls { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 1000; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; max-width: calc(100vw - 24px); font-family: var(--font-body); }
+    .deck-controls button, .deck-controls a, .slide-count { border: 1px solid rgba(255,255,255,.3); background: rgba(24,34,45,.78); color: #fff8ec; border-radius: 999px; padding: 10px 14px; font: inherit; cursor: pointer; text-decoration: none; backdrop-filter: blur(12px); }
+    .deck-controls button:hover, .deck-controls a:hover { background: rgba(31,79,122,.9); }
+    .slide-count { min-width: 78px; text-align: center; }
+    .progress { position: fixed; left: 0; top: 0; width: 100%; height: 5px; z-index: 1001; background: rgba(24,34,45,.12); }
+    .progress-bar { height: 100%; width: 0; background: var(--gold); transition: width .28s ease; }
+    @media print {
+      html, body { width: 1920px; height: auto; overflow: visible; background: #fff; }
+      .deck-viewport { position: static; overflow: visible; background: #fff; }
+      .deck-stage { position: static; width: auto; height: auto; transform: none !important; background: none; }
+      .slide { position: relative; display: block !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; width: 1920px; height: 1080px; break-after: page; page-break-after: always; }
+      .slide:last-child { break-after: auto; page-break-after: auto; }
+      .deck-controls, .progress { display: none !important; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; } }
+  </style>
+</head>
+<body>
+  <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+  <div class="deck-viewport"><main class="deck-stage" id="deckStage"><section class="slide active"><div class="page-frame"></div><div class="spine"></div><div class="running-head">THESIS WRITING</div><div class="slide-number">01</div><div class="content"><p class="kicker">THESIS WRITING</p><h1>以“一个核心主线”串联毕业论文</h1><p class="lead">毕业论文不是几篇小论文的拼接，而是一项研究工作的系统化表达。</p><blockquote>一个核心主线 → 两到三个子问题 → 两到三项研究内容 → 一个统一的结论体系</blockquote></div></section>
+<section class="slide"><div class="page-frame"></div><div class="spine"></div><div class="running-head">DIFFERENCE</div><div class="slide-number">02</div><div class="content"><p class="kicker">DIFFERENCE</p><h1>小论文看创新点，毕业论文看体系性</h1><p class="lead">小论文回答一个具体问题，毕业论文要说明多项工作为什么共同属于同一个研究体系。</p><div class="cards"><div>问题集中，创新明确，证据闭环</div><div>主线清楚，层次递进，体系完整</div></div></div></section>
+<section class="slide"><div class="page-frame"></div><div class="spine"></div><div class="running-head">COMMON RISKS</div><div class="slide-number">03</div><div class="content"><p class="kicker">COMMON RISKS</p><h1>最常见的问题：像论文合集</h1><p class="lead">每章单独看还可以，但放在一起没有共同问题、共同逻辑和共同目标。</p><ul class="bullets"><li>章节之间缺少递进关系</li><li>摘要和绪论写成工作清单</li><li>结论只是重复各章结果</li><li>缺少统一概念或统一框架</li></ul></div></section>
+<section class="slide"><div class="page-frame"></div><div class="spine"></div><div class="running-head">CORE THREAD</div><div class="slide-number">04</div><div class="content"><p class="kicker">CORE THREAD</p><h1>合格主线必须具体</h1><p class="lead">主线不是宽泛研究方向，而是全文反复围绕、逐步展开、最终回答的核心问题。</p><div class="formula">研究对象 + 核心困难 + 统一思路 + 总体目标</div></div></section>
+<section class="slide"><div class="page-frame"></div><div class="spine"></div><div class="running-head">STRUCTURE</div><div class="slide-number">05</div><div class="content"><p class="kicker">STRUCTURE</p><h1>把总问题拆成两到三个子问题</h1><p class="lead">不要写“我做了工作一、工作二、工作三”，而要写“为了解决一个总问题，我系统分解并推进三个子问题”。</p><ul class="bullets"><li>总问题：全文要回答什么</li><li>子问题：每部分解决什么</li><li>研究内容：每章承担什么任务</li><li>系统总结：最终形成什么体系</li></ul></div></section>
+<section class="slide"><div class="page-frame"></div><div class="spine"></div><div class="running-head">RELATIONS</div><div class="slide-number">06</div><div class="content"><p class="kicker">RELATIONS</p><h1>两到三部分工作之间必须有关系</h1><p class="lead">关系说明清楚，毕业论文才有整体感。</p><div class="cards"><div>递进关系</div><div>并列互补关系</div><div>方法统一关系</div><div>场景拓展关系</div></div></div></section>
+<section class="slide"><div class="page-frame"></div><div class="spine"></div><div class="running-head">BEFORE WRITING</div><div class="slide-number">07</div><div class="content"><p class="kicker">BEFORE WRITING</p><h1>动笔前先交主线确认表</h1><p class="lead">导师确认核心主线、总问题、子问题和章节关系后，再开始写正文。</p><ul class="bullets"><li>核心主线必须具体</li><li>两到三部分工作服务于同一个总问题</li><li>每部分都有明确位置和作用</li><li>不能说明关系，就还没有形成体系</li></ul></div></section>
+<section class="slide"><div class="page-frame"></div><div class="spine"></div><div class="running-head">INTRODUCTION</div><div class="slide-number">08</div><div class="content"><p class="kicker">INTRODUCTION</p><h1>绪论先搭体系，不是堆文献</h1><p class="lead">绪论要完成从研究背景到核心问题、从核心问题到研究内容的逻辑搭建。</p><ul class="bullets"><li>研究背景与意义</li><li>围绕主线分类综述</li><li>提出关键问题与研究思路</li><li>说明每章在体系中的作用</li></ul></div></section>
+<section class="slide"><div class="page-frame"></div><div class="spine"></div><div class="running-head">CHAPTERS</div><div class="slide-number">09</div><div class="content"><p class="kicker">CHAPTERS</p><h1>每章既要独立，又要服务主线</h1><p class="lead">每章开头说明为什么需要本章，结尾说明本章对总体目标的贡献，并自然引出下一章。</p><blockquote>章节之间要有过渡，不能像三篇互不相关的小论文。</blockquote></div></section>
+<section class="slide"><div class="page-frame"></div><div class="spine"></div><div class="running-head">ABSTRACT &amp; CONCLUSION</div><div class="slide-number">10</div><div class="content"><p class="kicker">ABSTRACT &amp; CONCLUSION</p><h1>摘要和结论不要写成工作清单</h1><p class="lead">摘要要讲总体研究思路，结论要从各章结果上升到系统性贡献。</p><ul class="bullets"><li>摘要：背景、核心问题、总体思路、主要结果</li><li>结论：总问题、子问题、整体贡献、不足展望</li></ul></div></section>
+<section class="slide"><div class="page-frame"></div><div class="spine"></div><div class="running-head">ATTACHMENTS</div><div class="slide-number">11</div><div class="content"><p class="kicker">ATTACHMENTS</p><h1>初稿必须附带三个表格</h1><p class="lead">三个表格用于把主线、章节和证据链明确下来。</p><div class="cards"><div>毕业论文主线确认表</div><div>章节功能映射表</div><div>主线-章节-证据闭环表</div></div></div></section>
+<section class="slide"><div class="page-frame"></div><div class="spine"></div><div class="running-head">ONE SENTENCE</div><div class="slide-number">12</div><div class="content"><p class="kicker">ONE SENTENCE</p><h1>毕业论文是一项研究工作的系统化表达</h1><p class="lead">绪论提出总问题，各章分别解决子问题，章节之间形成递进或互补，结论回到总问题并提炼体系贡献。</p><blockquote>如果这些问题回答不清楚，说明毕业论文还没有真正成体系。</blockquote></div></section></main></div>
+  <div class="deck-controls" aria-label="Presentation controls"><a href="../CNHome.html#Blogs">Blogs</a><button type="button" id="prevBtn" aria-label="Previous slide">←</button><span class="slide-count" id="slideCount">1 / 12</span><button type="button" id="nextBtn" aria-label="Next slide">→</button><a href="ThesisWriting.html">HTML</a><a href="ThesisWriting.pdf">PDF</a><a href="ThesisWritingTables.xlsx">Tables</a></div>
+  <script>
+    class Deck {
+      constructor() {
+        this.slides = [...document.querySelectorAll('.slide')];
+        this.index = 0;
+        this.stage = document.getElementById('deckStage');
+        this.count = document.getElementById('slideCount');
+        this.progress = document.getElementById('progressBar');
+        this.touchStartX = 0;
+        this.wheelLocked = false;
+        this.setupStageScale();
+        this.setupKeyboardNav();
+        this.setupTouchNav();
+        this.setupWheelNav();
+        this.setupButtons();
+        this.showSlide(0);
+      }
+      setupStageScale() {
+        const scale = () => {
+          const controls = document.querySelector('.deck-controls');
+          const controlsReserve = controls ? Math.ceil(controls.offsetHeight) + 34 : 0;
+          const availableHeight = Math.max(320, window.innerHeight - controlsReserve);
+          const factor = Math.min(window.innerWidth / 1920, availableHeight / 1080);
+          const x = (window.innerWidth - 1920 * factor) / 2;
+          const y = (availableHeight - 1080 * factor) / 2;
+          this.stage.style.transform = 'translate(' + x + 'px, ' + y + 'px) scale(' + factor + ')';
+        };
+        scale();
+        window.addEventListener('resize', scale);
+        document.fonts && document.fonts.ready.then(scale);
+      }
+      setupKeyboardNav() {
+        window.addEventListener('keydown', (event) => {
+          if (['ArrowRight', 'PageDown', ' '].includes(event.key)) { event.preventDefault(); this.next(); }
+          if (['ArrowLeft', 'PageUp'].includes(event.key)) { event.preventDefault(); this.prev(); }
+          if (event.key === 'Home') { event.preventDefault(); this.showSlide(0); }
+          if (event.key === 'End') { event.preventDefault(); this.showSlide(this.slides.length - 1); }
+        });
+      }
+      setupTouchNav() {
+        window.addEventListener('touchstart', (event) => { this.touchStartX = event.changedTouches[0].clientX; }, { passive: true });
+        window.addEventListener('touchend', (event) => {
+          const delta = event.changedTouches[0].clientX - this.touchStartX;
+          if (Math.abs(delta) > 50) delta < 0 ? this.next() : this.prev();
+        }, { passive: true });
+      }
+      setupWheelNav() {
+        window.addEventListener('wheel', (event) => {
+          if (this.wheelLocked || Math.abs(event.deltaY) < 24) return;
+          this.wheelLocked = true;
+          event.deltaY > 0 ? this.next() : this.prev();
+          setTimeout(() => { this.wheelLocked = false; }, 560);
+        }, { passive: true });
+      }
+      setupButtons() {
+        document.getElementById('prevBtn').addEventListener('click', () => this.prev());
+        document.getElementById('nextBtn').addEventListener('click', () => this.next());
+      }
+      showSlide(index) {
+        this.index = Math.max(0, Math.min(index, this.slides.length - 1));
+        this.slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === this.index);
+          slide.classList.toggle('visible', i === this.index);
+        });
+        this.count.textContent = (this.index + 1) + ' / ' + this.slides.length;
+        this.progress.style.width = (((this.index + 1) / this.slides.length) * 100) + '%';
+      }
+      next() { this.showSlide(this.index + 1); }
+      prev() { this.showSlide(this.index - 1); }
+    }
+    new Deck();
+  </script>
+</body>
+</html>

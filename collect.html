@@ -291,6 +291,16 @@
             z-index: 60;
         }
 
+        .link-badge[data-preview]::after {
+            content: "";
+            width: min(440px, calc(100vw - 32px));
+            max-width: min(440px, calc(100vw - 32px));
+            aspect-ratio: 16 / 9;
+            padding: 0;
+            border: 1px solid #334155;
+            background: #0f172a url("picture/zhihu-research-agent-skills.png") center / contain no-repeat;
+        }
+
         .link-badge:hover {
             background-color: var(--primary);
             color: #ffffff;
@@ -325,6 +335,19 @@
             .section-nav .container { padding: 12px 0; }
             .hero-meta { gap: 10px; }
             .hero-subtitle { font-size: 0.95rem; }
+            .link-badge[data-preview]::after {
+                position: absolute;
+                left: 50%;
+                top: auto;
+                bottom: calc(100% + 10px);
+                width: min(300px, calc(100vw - 32px));
+                max-width: min(300px, calc(100vw - 32px));
+                transform: translate(-60%, 4px);
+            }
+            .link-badge[data-preview]:hover::after,
+            .link-badge[data-preview]:focus-visible::after {
+                transform: translate(-60%, 0);
+            }
             #back_top {
                 right: 16px;
                 bottom: 16px;
@@ -406,6 +429,8 @@
                     <a href="https://www.perplexity.ai/" target="_blank" class="link-badge">Perplexity</a>
                     <a href="https://claude.ai/" target="_blank" class="link-badge">Claude</a>
                     <a href="https://kael-odin.github.io/awesome-academic-research-skills/" target="_blank" rel="noopener noreferrer" class="link-badge" data-icon="&#128218;" data-summary="学术研究 Skill 与 Agent 工作流合集，涵盖论文写作、文献综述、深度研究、评审反馈和实验复现。" title="Awesome Academic Research Skills">Academic Skills</a>
+                    <a href="https://zhuanlan.zhihu.com/p/2060848390884407063" target="_blank" rel="noopener noreferrer" class="link-badge" data-icon="&#128221;" data-preview="picture/zhihu-research-agent-skills.png" data-summary="知乎文章：锐评科研 Skill。悬停查看配图。" title="锐评科研 Skill">锐评科研 Skill</a>
+                    <a href="https://github.com/cosen1024/awesome-academic-skills" target="_blank" rel="noopener noreferrer" class="link-badge" data-icon="&#128218;" data-summary="按科研工作流整理并机器校验的公开 Agent Skills 清单，覆盖选题、文献、实验、写作、审稿等环节。">Academic Skills Catalog</a>
                     <a href="https://chat.phitrellis.com/chat" target="_blank" class="link-badge">Free Chat</a>
                 </div>
             </div>

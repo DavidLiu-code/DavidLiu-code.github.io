@@ -5,6 +5,53 @@
 <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" href="jemdoc.css" type="text/css" />
+<style type="text/css">
+.admission-preview {
+  position: relative;
+  display: inline-block;
+  color: #0645ad;
+  font-weight: bold;
+  cursor: help;
+}
+.admission-preview::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(100% + 10px);
+  width: min(360px, calc(100vw - 32px));
+  aspect-ratio: 2 / 3;
+  border: 1px solid #9aa7b5;
+  border-radius: 6px;
+  background: #fff url("picture/2027_PhD_Recruitment.jpg") center / contain no-repeat;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+  pointer-events: none;
+  z-index: 100;
+}
+.admission-preview:hover::after,
+.admission-preview:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  .admission-preview::after {
+    position: fixed;
+    left: 50%;
+    top: auto;
+    bottom: 16px;
+    width: min(300px, calc(100vw - 32px));
+    transform: translate(-50%, 4px);
+  }
+  .admission-preview:hover::after,
+  .admission-preview:focus-visible::after {
+    transform: translate(-50%, 0);
+  }
+}
+</style>
 <title>刘达伟 (Dawei Liu)</title>
 </head>
 <body>
@@ -30,11 +77,11 @@
 </div>
 <table class="imgtable"><tr><td>
 <a href="https://davidliu-code.github.io/"><img src="picture/Photo_Dawei.jpg" alt="alt text" width="120px" /></a>&nbsp;</td>
-<td align="left"><p>研究员<br />
+<td align="left"><p>副教授<br />
 信息与通信工程学院, <a href="http://www.xjtu.edu.cn/">西安交通大学</a>, <br />
 西安, 陕西, 710049, 中国 <br />
-手机: +86 137 **** 5155  <br />
-邮箱: liudawei2015 (AT) stu.xjtu.edu.cn <br />
+手机: +86 137207*5155  <br />
+邮箱: dawei.liu (AT) xjtu.edu.cn <br />
 <br />
 <a href="CV/CV_Dawei Liu.pdf">[我的简历]</a> <a href="https://scholar.google.com/citations?user=jiy9D9kAAAAJ&hl=en&oi=sra">[Google Scholar]</a> 
 <a href="https://www.researchgate.net/profile/Dawei-Liu-31">[Researchgate]</a> 
@@ -45,15 +92,16 @@
 <section class="news-box" style="margin-top:6px;border:1px solid #e0e0e0;padding:12px;border-radius:6px;background:#f9f9f9;">
   <h2 style="margin:0 0 8px 0;">消息专栏</h2>
   <ul style="margin:0;padding-left:18px;line-height:1.6;">
+    <li><strong>2026-10</strong> — 论文《Dual-Direction Implicit Neural Representation for Seismic Scattered Noise Attenuation》发表于 <strong>IEEE GRSL</strong>。<a href="Paper/2026_Dual_Direction_INR.pdf">[PDF]</a></li>
+    <li><strong>2026-09-20</strong> — 论文《Noise suppression for CRP gathers based on Self2Self with dropout》发表于 <strong>Journal of Applied Geophysics</strong>。<a href="https://doi.org/10.1016/j.jappgeo.2026.106505">[DOI]</a></li>
     <li><strong>2026-03-19</strong> — 恭喜博士生王庆芳的论文《STISR: A Stacked Tucker Implicit Seismic Reparameterization Framework for 3D Seismic Data Denoising》被 <strong>Petroleum Science</strong> 录用。</li>
-    <li><strong>2025-11-01</strong> — <strong>招收博士生（2026年秋季入学）：</strong> 现有 1 名博士生名额，欢迎有意者通过上方邮箱或微信联系报考。</li>
-    <li><strong>2025-05-01</strong> — 已接受西安交通大学信息与通信工程学院研究员岗位，入选“青年拔尖人才计划”，欢迎通过微信或电子邮件联系交流合作事宜。</li>
-    <li><strong>2025-06-15</strong> — 论文《Zero-Shot Denoising for DAS-VSP Data Based on Conditional Diffusion Probabilistic Models》发表于 IEEE TGRS。<a href="Paper/2025_Conditional_Diffusion.pdf">[PDF]</a></li>
+    <li><strong>2026-10-27</strong> — <strong>招收博士生（2027年入学）：</strong> 现有 1 名 <a class="admission-preview" href="Paper/2027_PhD_Recruitment.pdf" target="_blank" aria-label="博士名额，点击下载课题组招生简介 PDF">博士名额</a>，<a href="Paper/2027_PhD_Recruitment.pdf" target="_blank">[课题组招生简介 PDF]</a>，学校通知请参阅：<a href="Paper/XJTU_2027_PhD_Admissions_Regulations.pdf" target="_blank">[2027年博士研究生招生章程]</a>，欢迎有意者通过邮箱联系报考。</li>
+    <li><strong>2025-05-01</strong> — 已接受西安交通大学信息与通信工程学院副教授岗位，入选“青年拔尖人才支持计划”，欢迎通过微信或电子邮件联系交流合作事宜。</li>
   </ul>
 </section>
 
 <h2>关于我</h2>
-<p>我于 2026 年 1 月回到西安交通大学开展教学科研工作，现任西安交通大学信息与通信工程学院研究员。此前，我于 2022 年在西安交通大学获得博士学位，并先后在阿尔伯塔大学（University of Alberta）和普渡大学（Purdue University）从事博士后研究工作。目前已发表 SCI 论文 40 篇，现任《Geophysics》副主编、《Journal of Geophysical Prospecting》副主编、《Earth Sciences》编辑，以及《Frontiers in Earth Science》客座编辑；同时担任《中国石油勘探》、《Energy Geoscience》、《石油物探》青年编委，并曾任 SEG 年会 IMAGE 技术领域主席（2023、2024）及审稿人（2025、2026）等。</p>
+<p>我于 2026 年 1 月回到西安交通大学开展教学科研工作，现任西安交通大学信息与通信工程学院副教授。此前，我于 2022 年在西安交通大学获得博士学位，并先后在阿尔伯塔大学（University of Alberta）和普渡大学（Purdue University）从事博士后研究工作。目前已发表 SCI 论文 40 篇，现任《Geophysics》副主编、《Journal of Geophysical Prospecting》副主编、《Earth Sciences》编辑，以及《Frontiers in Earth Science》客座编辑；同时担任《中国石油勘探》、《Energy Geoscience》、《石油物探》青年编委，并曾任 SEG 年会 IMAGE 技术领域主席（2023、2024）及审稿人（2025、2026）等。</p>
 <h2>研究领域</h2>
 <p>我们课题组聚焦 "AI + 地球物理" 这一前沿交叉方向，致力于用最新的人工智能技术解决地球深部探测中的核心科学问题。具体包括：</p>
 <ul>
@@ -112,7 +160,7 @@
 <A NAME="工作经历"><h2>工作经历</h2></A>
 <table class="imgtable"><tr><td>
   <a href="http://www.xjtu.edu.cn/"><img src="picture/xjtu_logo.png" alt="西安交通大学" width="80px" /></a>&nbsp;</td>
-  <td align="left"><h3>研究员 <a href="http://www.xjtu.edu.cn/">西安交通大学</a> (2026.1 ~ 至今)</h3>
+  <td align="left"><h3>副教授 <a href="http://www.xjtu.edu.cn/">西安交通大学</a> (2026.1 ~ 至今)</h3>
   <ul>
   <li><p><b>院系</b>: 信息与通信工程学院  </p>
   </li>
@@ -152,6 +200,9 @@
 <h2>期刊论文</h2>
 <h3>2026</h3>
 <ul>
+  <li><p><a href="https://doi.org/10.1016/j.jappgeo.2026.106505">Noise suppression for CRP gathers based on Self2Self with dropout</a><br />
+    Fei Li, Ruizhe Jiao, Zhenbin Xia, <b>Dawei Liu*</b>, Guanghong Du, and Yang Mu<br /><i>Journal of Applied Geophysics, in press, (2026): 106505. <a href="https://arxiv.org/abs/2408.02187">[Preprint]</a></i></p></li>
+
   <li><p><a href="https://doi.org/10.1007/s10712-026-09952-9">SeisDPS-3D: A Diffusion Model-Based Approach for 3D Seismic Data Deconvolution</a><br />
     <b>Dawei Liu*</b>, Hongzhi Yu, and Mauricio D. Sacchi<br /><i>Surveys in Geophysics, advance online publication, (2026): 1-39. <a href="Paper/2026_SeisDPS-3D.pdf">[PDF]</a></i></p></li>
 
@@ -174,7 +225,7 @@
     Ji Li, <b>Dawei Liu*</b>, and Daniel Trad<br /><i>IEEE Transactions on Geoscience and Remote Sensing <b>(TGRS)</b>, 64, (2026): 5913813. <a href="Paper/2026_Aliased_Ground_Roll.pdf">[PDF]</a></i></p></li>
 
   <li><p><a href="https://ieeexplore.ieee.org/abstract/document/11573995">Dual-Direction Implicit Neural Representation for Seismic Scattered Noise Attenuation</a><br />
-    Yang Mu, Ruotong Liu, Mengmeng Wu, <b>Dawei Liu</b>, and Jiaojiao Li<br /><i>IEEE Geoscience and Remote Sensing Letters <b>(GRSL)</b>, 23, (2026): 7504705. <a href="Paper/2026_Dual_Direction_INR.pdf">[PDF]</a></i></p></li>
+    Yang Mu, Ruotong Liu, Mengmeng Wu, <b>Dawei Liu*</b>, and Jiaojiao Li<br /><i>IEEE Geoscience and Remote Sensing Letters <b>(GRSL)</b>, 23, (2026): 7504705. <a href="Paper/2026_Dual_Direction_INR.pdf">[PDF]</a></i></p></li>
 
   <li><p><a href="https://doi.org/10.1190/geo-2024-0534">Rapid Retrieval and Classification of Passive-Source Body Wave Events Using a Convolutional Self-Attention Encoder: Application to Gas Storage Monitoring</a><br />
     Yinghe Wu, Shulin Pan, <b>Dawei Liu</b>, Kai Chen, Yaojie Chen, Ziyu Qin, Shengbo Yi, and Zeyang Liu<br /><i>Geophysics, 91(1), (2026): WA123-WA135. <a href="Paper/2026_Rapid_Retrieval_Body_Wave.pdf">[PDF]</a></i></p></li>
@@ -192,7 +243,7 @@
     <b>Dawei Liu</b>, Yijie He, Xiaokai Wang, Mauricio Sacchi, Wenchao Chen, Guanghong Du, and Mengbo Zhang<br /><i>Geophysics, 90(3), (2025): V223-V239. <a href="Paper/2025_Seismic_Weak_Supervision.pdf">[PDF]</a></i></p></li>
 
   <li><p><a href="https://ieeexplore.ieee.org/document/11017743">Zero-Shot Denoising for DAS-VSP Data Based on Conditional Diffusion Probabilistic Models</a><br />
-    <b>Dawei Liu</b>, Zhenyu Wang, Xiaokai Wang, and Wenchao Chen<br /><i>IEEE Transactions on Geoscience and Remote Sensing <b>(TGRS)</b>, 63, (2025): 1-11. <a href="Paper/2025_Conditional_Diffusion.pdf">[PDF]</a></i></p></li>
+    <b>Dawei Liu</b>, Zhenyu Wang, Xiaokai Wang, and Wenchao Chen<br /><i>IEEE Transactions on Geoscience and Remote Sensing <b>(TGRS)</b>, 63, (2025): 5917611. <a href="Paper/2025_Conditional_Diffusion.pdf">[PDF]</a></i><br /><strong>ESI 高被引论文（地球科学领域前 1%，2026 年 5/6 月数据）</strong> <a href="Paper/2026_ESI_Highly_Cited_Paper_Certificate.pdf">[高被引证明]</a></p></li>
 
   <li><p><a href="https://library.seg.org/doi/10.1190/geo2024-0594.1">Non-Intrusive Reduced Basis Approximation to the Solution of Helmholtz Equation: The Magnetotellurics Case</a><br />
     Alejandro Quiaro, <b>Dawei Liu*</b>, and Mauricio Sacchi<br /><i>Geophysics, 90(3), (2025): WA323-WA337. <a href="Paper/2025_Helmholtz_Magnetotellurics.pdf">[PDF]</a></i></p></li>
@@ -276,7 +327,7 @@
     <b>Dawei Liu</b>, Xiangfang Li, Wei Wang, Xiaokai Wang, Zhensheng Shi, and Wenchao Chen<br /><i>Geophysics, 87(3), (2022): V183-V191. <a href="Paper/2022_Harmonic_Noise.pdf">[PDF]</a></i></p></li>
 
   <li><p><a href="https://ieeexplore.ieee.org/document/9785826">Efficient Tensor Completion Methods for 5-D Seismic Data Reconstruction: Low-Rank Tensor Train and Tensor Ring</a><br />
-    <b>Dawei Liu</b>, Mauricio D. Sacchi, and Wenchao Chen<br /><i>IEEE Transactions on Geoscience and Remote Sensing <b>(TGRS)</b>, 60, (2022): 1-17. <a href="Paper/2022_Tensor_Completion.pdf">[PDF]</a></i></p></li>
+    <b>Dawei Liu*</b>, Mauricio D. Sacchi, and Wenchao Chen<br /><i>IEEE Transactions on Geoscience and Remote Sensing <b>(TGRS)</b>, 60, (2022): 1-17. <a href="Paper/2022_Tensor_Completion.pdf">[PDF]</a></i></p></li>
 
   <li><p><a href="https://ieeexplore.ieee.org/abstract/document/9198921">An Unsupervised Deep Learning Method for Denoising Prestack Random Noise</a><br />
     <b>Dawei Liu</b>, Zheyuan Deng, Cheng Wang, Xiaokai Wang, and Wenchao Chen<br /><i>IEEE Geoscience and Remote Sensing Letters <b>(GRSL)</b>, 19, (2022): 1-5. <a href="Paper/2022_Prestack_Unsupervised.pdf">[PDF]</a></i></p></li>
